@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#0099CC">
+<RelativeLayout
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/account_bg"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="100dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expenses"
+        android:id="@+id/expenses"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/view"
+        android:layout_alignStart="@+id/view"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Incentives"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:id="@+id/incentives"
+        android:layout_below="@+id/expenses"
+        android:layout_alignLeft="@+id/expenses"
+        android:layout_alignStart="@+id/expenses"
+        android:layout_marginTop="42dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:drawableLeft="@drawable/rupee1"
+        android:textColor="#FFFFFF"
+        android:id="@+id/showExpenses"
+        android:layout_above="@+id/incentives"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="59dp"
+        android:layout_marginEnd="59dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:drawableLeft="@drawable/rupee1"
+        android:textColor="#FFFFFF"
+        android:id="@+id/showIncentives"
+        android:layout_alignTop="@+id/incentives"
+        android:layout_alignLeft="@+id/showExpenses"
+        android:layout_alignStart="@+id/showExpenses" />
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/showTotal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/view" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total"
+        android:id="@+id/total"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_below="@+id/incentives"
+        android:layout_alignLeft="@+id/incentives"
+        android:layout_alignStart="@+id/incentives"
+        android:layout_marginTop="137dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:drawableLeft="@drawable/rupee1"
+        android:textColor="#FFFFFF"
+        android:id="@+id/showTotal"
+        android:layout_alignTop="@+id/total"
+        android:layout_alignLeft="@+id/showIncentives"
+        android:layout_alignStart="@+id/showIncentives"
+        android:layout_marginBottom="20dp"/>
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/account_head"
+        android:id="@+id/relativeLayout">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Summary"
+                android:layout_marginTop="5dp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/title"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

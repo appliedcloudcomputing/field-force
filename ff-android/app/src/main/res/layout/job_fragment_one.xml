@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00AEEF">
+    <com.acc.fieldforce.RoundedImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/cust"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/custName"
+        android:text="Customer Name"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/cust"
+        android:layout_alignRight="@+id/cust"
+        android:layout_alignEnd="@+id/cust" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/description"
+        android:text="Description :"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/custName"
+        android:layout_toLeftOf="@+id/custName"
+        android:layout_toStartOf="@+id/custName"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/customer_description"
+        android:text="some description of customer goes here"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/description"
+        android:layout_alignLeft="@+id/cust"
+        android:layout_alignStart="@+id/cust"
+        android:layout_marginBottom="20dp"/>
+</RelativeLayout>
