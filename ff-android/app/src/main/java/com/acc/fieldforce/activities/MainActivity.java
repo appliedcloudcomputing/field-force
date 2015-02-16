@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.acc.fieldforce.R;
+import com.acc.fieldforce.activities.SignUpActivity;
 
 
 public class MainActivity extends Activity {

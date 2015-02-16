@@ -9,4 +9,6 @@
     <!--Add customer-->
     <dimen name="add_customer_button_width">80dp</dimen>
     <dimen name="add_customer_button_height">40dp</dimen>
+
+
 </resources>

@@ -15,6 +15,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_job_casting">JobCasting</string>
     <string name="title_activity_add_leads">AddLeads</string>
+    <string name="title_activity_sign_in">SignIn</string>
+    <string name="title_activity_login">Login</string>
+
+    <!--Colors-->
+    <string name="sign_up">Sign up</string>
+    <string name="how_to_use">How it works?</string>
 
     <!-- Add Customer -->
     <string name="add_customer_customer_name">Customer Name</string>
