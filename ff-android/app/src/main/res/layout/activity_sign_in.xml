@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.acc.fieldforce.SignUp"
+    android:background="#F7F7F7">
+
+
+
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="Email"
+        android:textColor="#595959"
+        android:textStyle="normal"
+        android:fontFamily="Helvetica Neue"
+        android:background="@drawable/rectangle_shape"
+        android:textSize="14sp"
+        android:paddingLeft="10dp"
+        android:id="@+id/email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"/>
+
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="Password"
+        android:textColor="#595959"
+        android:textStyle="normal"
+        android:paddingLeft="10dp"
+        android:fontFamily="Helvetica Neue"
+        android:background="@drawable/rectangle_shape"
+        android:textSize="14sp"
+        android:id="@+id/password"
+        android:layout_below="@+id/email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:text="@string/sign_up"
+        android:fontFamily="Helvetica Neue"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:background="#F9851D"
+        android:id="@+id/signin"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot password?"
+        android:textColor="#595959"
+        android:textSize="14dp"
+        android:fontFamily="Helvetica Neue"
+        android:layout_below="@id/signin"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
