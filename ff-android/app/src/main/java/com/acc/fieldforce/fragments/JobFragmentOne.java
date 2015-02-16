@@ -20,7 +20,7 @@ public class JobFragmentOne extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.job_fragment_one, container , false);
+        View view = inflater.inflate(R.layout.fragment_job_one, container , false);
 
         roundImage = (ImageView) view.findViewById(R.id.cust);
         Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.profile_pic);

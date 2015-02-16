@@ -26,7 +26,7 @@ public class CustomerListAdapter extends ArrayAdapter<Temp> {
         Temp temp = getItem(position);
 
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.customerdata, parent ,false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.customer_data, parent ,false);
         }
 
         customerName = (TextView) convertView.findViewById(R.id.customerName);

@@ -1,4 +1,4 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.acc.fieldforce.R;
 import com.acc.fieldforce.adapter.ExpenseListAdapter;
 import com.acc.fieldforce.temp.ExpenseModel;
 
@@ -16,12 +17,12 @@ import java.util.ArrayList;
 /**
  * Created by Sagar on 1/31/2015.
  */
-public class ListExpenses extends Activity {
+public class ListExpensesActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_expense);
+        setContentView(R.layout.activity_list_expense);
 
         ArrayList<ExpenseModel> arrayList = ExpenseModel.getModel();
         ExpenseListAdapter expenseListAdapter = new ExpenseListAdapter(this , arrayList);
@@ -49,7 +50,7 @@ public class ListExpenses extends Activity {
     }
 
     private void addExpense() {
-        Intent i = new Intent(this, Expenses.class);
+        Intent i = new Intent(this, ExpensesActivity.class);
         startActivity(i);
     }
 

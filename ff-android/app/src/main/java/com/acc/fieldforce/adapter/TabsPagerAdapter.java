@@ -1,4 +1,4 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.adapter;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

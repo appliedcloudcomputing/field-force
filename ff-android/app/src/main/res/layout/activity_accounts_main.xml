@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Expenses"
+        android:text="@string/accounts_main_expenses"
         android:id="@+id/expenses"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Incentives"
+        android:text="@string/accounts_main_incentives"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:id="@+id/incentives"
@@ -38,7 +38,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/accounts_main_new_text"
+        android:drawableStart="@drawable/rupee1"
         android:drawableLeft="@drawable/rupee1"
         android:textColor="#FFFFFF"
         android:id="@+id/showExpenses"
@@ -51,7 +52,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/accounts_main_new_text"
+        android:drawableStart="@drawable/rupee1"
         android:drawableLeft="@drawable/rupee1"
         android:textColor="#FFFFFF"
         android:id="@+id/showIncentives"
@@ -72,7 +74,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total"
+        android:text="@string/accounts_main_total"
         android:id="@+id/total"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -84,7 +86,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/accounts_main_new_text"
+        android:drawableStart="@drawable/rupee1"
         android:drawableLeft="@drawable/rupee1"
         android:textColor="#FFFFFF"
         android:id="@+id/showTotal"
@@ -103,7 +106,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Account Summary"
+                android:text="@string/accounts_main_account_summary"
                 android:layout_marginTop="5dp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"

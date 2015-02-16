@@ -1,16 +1,17 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.acc.fieldforce.R;
 
-public class Menus extends Activity {
+
+public class MenusActivity extends Activity {
 
     private Button customer, leads, jobs, expenses, account;
     @Override
@@ -27,7 +28,7 @@ public class Menus extends Activity {
         customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menus.this, CustomerList.class);
+                Intent i = new Intent(MenusActivity.this, CustomerListActivity.class);
                 startActivity(i);
             }
         });
@@ -35,7 +36,7 @@ public class Menus extends Activity {
         leads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menus.this, LeadsList.class);
+                Intent i = new Intent(MenusActivity.this, LeadsListActivity.class);
                 startActivity(i);
             }
         });
@@ -43,7 +44,7 @@ public class Menus extends Activity {
         jobs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menus.this, JobListing.class);
+                Intent i = new Intent(MenusActivity.this, JobListingActivity.class);
                 startActivity(i);
             }
         });
@@ -64,12 +65,12 @@ public class Menus extends Activity {
     }
 
     private void startAccount() {
-        Intent i  = new Intent (this, AccountSummary.class);
+        Intent i  = new Intent (this, AccountSummaryActivity.class);
         startActivity(i);
     }
 
     private void startExpense() {
-        Intent i = new Intent(this, ListExpenses.class);
+        Intent i = new Intent(this, ListExpensesActivity.class);
         startActivity(i);
     }
 

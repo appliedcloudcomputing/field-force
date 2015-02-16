@@ -1,22 +1,24 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * Created by Sagar on 1/27/2015.
- */
-public class AddCustomer extends Activity {
+import com.acc.fieldforce.R;
+
+
+public class AddLeadsActivity extends Activity {
+
     private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_customer);
+        setContentView(R.layout.activity_add_leads);
 
         button = (Button) findViewById(R.id.c_submitButton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -26,5 +28,4 @@ public class AddCustomer extends Activity {
             }
         });
     }
-
 }

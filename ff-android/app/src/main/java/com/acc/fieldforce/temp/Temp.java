@@ -22,6 +22,8 @@ public class Temp {
         ArrayList<Temp> temp = new ArrayList<Temp>();
         temp.add(new Temp("Swapnil","ACC","pokhran road1, Thane","123456"));
         temp.add(new Temp("Sandeep","Apex","BKC ,Bandra", "7894561"));
+        temp.add(new Temp("Sagar","ACC","pokhran road1, Thane","123456"));
+        temp.add(new Temp("Shubho","ACC","pokhran road1, Thane","123456"));
         return temp;
     }
 }

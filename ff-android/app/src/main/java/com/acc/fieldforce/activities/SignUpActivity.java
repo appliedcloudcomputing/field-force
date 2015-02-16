@@ -1,41 +1,49 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import com.acc.fieldforce.R;
 
 
-public class MainActivity extends Activity {
-    private static int SPLASH_TIME_OUT = 5000;
+public class SignUpActivity extends Activity {
+
+    private Button signUp;
+    private ImageView roundImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        new Handler().postDelayed(new Runnable() {
-            /*
-             * Showing splash screen with a timer and displaying website name.
-             */
+        setContentView(R.layout.activity_sign_up);
+        signUp = (Button) findViewById(R.id.signup);
+
+        roundImage = (ImageView) findViewById(R.id.roundImage);
+        Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.profile_pic);
+        roundImage.setImageBitmap(icon);
+
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                // This method will be executed once the timer is over
-                // Start your app next activity
-                Intent i = new Intent(MainActivity.this, SignUp.class);
+            public void onClick(View v) {
+                Intent i = new Intent(SignUpActivity.this, MenusActivity.class);
                 startActivity(i);
                 // close this activity
                 finish();
             }
-        }, SPLASH_TIME_OUT);
+        });
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_sign_up, menu);
         return true;
     }
 

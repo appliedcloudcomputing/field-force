@@ -1,4 +1,4 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.acc.fieldforce.R;
 import com.acc.fieldforce.adapter.CustomerListAdapter;
 import com.acc.fieldforce.temp.Temp;
 
@@ -16,11 +17,11 @@ import java.util.ArrayList;
 /**
  * Created by Sagar on 1/27/2015.
  */
-public class CustomerList extends Activity{
+public class CustomerListActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.customerlist);
+        setContentView(R.layout.activity_customer_list);
         populateList();
         
     }
@@ -51,7 +52,7 @@ public class CustomerList extends Activity{
     }
 
     private void addCustomer() {
-        Intent i = new Intent(this, AddCustomer.class);
+        Intent i = new Intent(this, AddCustomerActivity.class);
         startActivity(i);
     }
 }

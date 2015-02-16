@@ -1,23 +1,22 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
-import android.app.Activity;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 
+import com.acc.fieldforce.R;
 import com.acc.fieldforce.fragments.JobFragmentOne;
 import com.acc.fieldforce.fragments.JobFragmentTwo;
 
 /**
  * Created by Sagar on 1/31/2015.
  */
-public class JobDescription extends FragmentActivity {
+public class JobDescriptionActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.job_description_main);
+        setContentView(R.layout.activity_job_description_main);
 
         JobFragmentOne j1 = new JobFragmentOne();
         JobFragmentTwo j2 = new JobFragmentTwo();
