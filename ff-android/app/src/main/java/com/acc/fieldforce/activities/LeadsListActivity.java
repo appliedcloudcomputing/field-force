@@ -1,4 +1,4 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -11,8 +11,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.acc.fieldforce.R;
+import com.acc.fieldforce.fragments.TabFragment;
 
-public class LeadsList extends FragmentActivity {
+
+public class LeadsListActivity extends FragmentActivity {
     Fragment fragment = null;
 
     @Override
@@ -49,7 +52,7 @@ public class LeadsList extends FragmentActivity {
     }
 
     private void addCustomer() {
-        Intent i = new Intent(LeadsList.this, AddLeads.class);
+        Intent i = new Intent(LeadsListActivity.this, AddLeadsActivity.class);
         startActivity(i);
     }
 

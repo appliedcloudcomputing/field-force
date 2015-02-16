@@ -1,18 +1,20 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.acc.fieldforce.R;
+
 /**
  * Created by Sagar on 2/1/2015.
  */
-public class AccountSummary extends Activity {
+public class AccountSummaryActivity extends Activity {
     TextView expenses, showExpense , incentivess, showIncentives , total , showTotal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.accounts_main);
+        setContentView(R.layout.activity_accounts_main);
 
         expenses = (TextView) findViewById(R.id.expenses);
         showExpense = (TextView) findViewById(R.id.showExpenses);

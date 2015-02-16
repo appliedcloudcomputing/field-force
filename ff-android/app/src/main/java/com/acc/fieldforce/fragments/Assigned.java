@@ -1,4 +1,4 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.acc.fieldforce.R;
 import com.acc.fieldforce.adapter.LeadListAdapter;
 import com.acc.fieldforce.temp.LeadsTemp;
 

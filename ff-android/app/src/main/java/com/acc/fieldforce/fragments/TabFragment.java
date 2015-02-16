@@ -1,4 +1,4 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.fragments;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TextView;
+
+import com.acc.fieldforce.R;
+import com.acc.fieldforce.adapter.TabsPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

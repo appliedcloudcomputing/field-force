@@ -1,15 +1,19 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.acc.fieldforce.R;
+import com.acc.fieldforce.activities.SignUpActivity;
+
 
 public class MainActivity extends Activity {
-    private static int SPLASH_TIME_OUT = 3000;
+    private static int SPLASH_TIME_OUT = 5000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +26,7 @@ public class MainActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app next activity
-                Intent i = new Intent(MainActivity.this, Login.class);
+                Intent i = new Intent(MainActivity.this, SignUpActivity.class);
                 startActivity(i);
                 // close this activity
                 finish();

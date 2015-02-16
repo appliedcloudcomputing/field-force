@@ -9,6 +9,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/job_list"
         android:divider="#CECBC6"
-        android:dividerHeight="4px"
+        android:dividerHeight="1dp"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

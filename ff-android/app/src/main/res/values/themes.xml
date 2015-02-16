@@ -6,7 +6,7 @@
 </style>
     <style name="MyAction"
         parent="android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:background">#0681BE</item>
+        <item name="android:background">#00AEEF</item>
         <item name="android:displayOptions">showHome|useLogo</item>
         <item name="displayOptions">showHome|useLogo</item>
         <item name="android:titleTextStyle">@style/MyAction.TextStyle</item>
@@ -14,5 +14,6 @@
     <style name="MyAction.TextStyle"
         parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">13.5sp</item>
         </style>
 </resources>

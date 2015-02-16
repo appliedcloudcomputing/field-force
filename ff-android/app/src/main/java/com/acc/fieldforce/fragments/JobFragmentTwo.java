@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class JobFragmentTwo extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.job_fragment_two, container , false);
+        View view = inflater.inflate(R.layout.fragment_job_two, container , false);
         ArrayList<JobModel> arrayList = JobModel.getModel();
         HistoryAdapter adapter = new HistoryAdapter(getActivity(),arrayList);
         ListView listView = (ListView) view.findViewById(R.id.historyList);

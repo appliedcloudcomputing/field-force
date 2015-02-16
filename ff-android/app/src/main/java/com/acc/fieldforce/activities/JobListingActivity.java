@@ -1,23 +1,20 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.acc.fieldforce.R;
 import com.acc.fieldforce.adapter.JobListAdapter;
-import com.acc.fieldforce.adapter.LeadListAdapter;
 import com.acc.fieldforce.temp.JobsTemp;
-import com.acc.fieldforce.temp.LeadsTemp;
 
 import java.util.ArrayList;
 
 
-public class JobListing extends Activity {
+public class JobListingActivity extends Activity {
     ArrayList<JobsTemp> arrayList;
     JobListAdapter adapter;
     ListView listView;
@@ -41,7 +38,7 @@ public class JobListing extends Activity {
     }
 
     private void startJobDesc() {
-        Intent i = new Intent(this, JobDescription.class);
+        Intent i = new Intent(this, JobDescriptionActivity.class);
         startActivity(i);
     }
 }

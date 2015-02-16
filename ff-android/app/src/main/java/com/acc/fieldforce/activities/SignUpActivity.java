@@ -1,4 +1,4 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.acc.fieldforce.R;
 
-public class SignUp extends Activity {
+
+public class SignUpActivity extends Activity {
 
     private Button signUp;
     private ImageView roundImage;
@@ -27,7 +29,7 @@ public class SignUp extends Activity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SignUp.this, Menus.class);
+                Intent i = new Intent(SignUpActivity.this, MenusActivity.class);
                 startActivity(i);
                 // close this activity
                 finish();
