@@ -1,18 +1,17 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.TabActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.acc.fieldforce.R;
 
-public class Login extends TabActivity implements TabHost.OnTabChangeListener {
+
+public class LoginActivity extends TabActivity implements TabHost.OnTabChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +26,11 @@ public class Login extends TabActivity implements TabHost.OnTabChangeListener {
 
         TabHost.TabSpec spec;
 
-        intent = new Intent().setClass(this, SignUp.class);
+        intent = new Intent().setClass(this, SignUpActivity.class);
         spec = tabHost.newTabSpec("Sign Up").setIndicator("Sign Up").setContent(intent);
         tabHost.addTab(spec);
 
-        intent = new Intent().setClass(this, SignIn.class);
+        intent = new Intent().setClass(this, SignInActivity.class);
         spec = tabHost.newTabSpec("Sign In").setIndicator("Sign In").setContent(intent);
         tabHost.addTab(spec);
 

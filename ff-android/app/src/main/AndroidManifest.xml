@@ -59,6 +59,10 @@
             android:label="@string/title_activity_add_leads"
             android:theme="@style/CustomTheme">
         </activity>
+        <activity android:name=".activities.LoginActivity"
+            android:label="Login"/>
+        <activity android:name=".activities.SignInActivity"
+            android:label="Sign In"/>
     </application>
 
 </manifest>
