@@ -42,13 +42,6 @@ public class AddCustomerActivity extends Activity {
 
         error.setGravity(Gravity.CENTER);
         error.setTextColor(0xF7F7F7);
-
-        customerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-            }
-        });
     }
 
     public void validate() {

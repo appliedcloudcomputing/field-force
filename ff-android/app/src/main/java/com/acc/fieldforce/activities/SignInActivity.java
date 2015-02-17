@@ -1,18 +1,15 @@
-package com.acc.fieldforce;
+package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.acc.fieldforce.activities.MenusActivity;
+import com.acc.fieldforce.R;
 
 
-public class SignIn extends Activity {
+public class SignInActivity extends Activity {
 
     private Button signIn;
     @Override
@@ -25,7 +22,7 @@ public class SignIn extends Activity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SignIn.this, MenusActivity.class);
+                Intent i = new Intent(SignInActivity.this, MenusActivity.class);
                 startActivity(i);
                 // close this activity
                 finish();
