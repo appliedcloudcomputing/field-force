@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.acc.fieldforce.activities.SignUpActivity;
+
 
 public class Login extends TabActivity implements TabHost.OnTabChangeListener {
 
@@ -27,7 +29,7 @@ public class Login extends TabActivity implements TabHost.OnTabChangeListener {
 
         TabHost.TabSpec spec;
 
-        intent = new Intent().setClass(this, SignUp.class);
+        intent = new Intent().setClass(this, SignUpActivity.class);
         spec = tabHost.newTabSpec("Sign Up").setIndicator("Sign Up").setContent(intent);
         tabHost.addTab(spec);
 

@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.acc.fieldforce.activities.MenusActivity;
+
 
 public class SignIn extends Activity {
 
@@ -23,7 +25,7 @@ public class SignIn extends Activity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SignIn.this, Menus.class);
+                Intent i = new Intent(SignIn.this, MenusActivity.class);
                 startActivity(i);
                 // close this activity
                 finish();
