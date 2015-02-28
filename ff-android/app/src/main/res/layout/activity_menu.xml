@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context="com.acc.fieldforce.Menu"
-    android:background="#F7F7F7"
+    android:background="#FFFFFF"
     android:id="@+id/menu">
         <Button
             android:id="@+id/customer"
@@ -18,7 +18,7 @@
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:background="#0681BE"
-            android:drawableLeft="@drawable/ic_customer"
+            android:drawableLeft="@drawable/ic_customers"
             android:drawableRight="@drawable/ic_arrow"/>
 
         <Button
@@ -66,7 +66,7 @@
             android:textSize="14sp"
             android:layout_below="@id/jobs"
             android:background="#2E2E2E"
-            android:drawableLeft="@drawable/ic_expenses"
+            android:drawableLeft="@drawable/ic_expensess"
             android:drawableRight="@drawable/ic_arrow"/>
 
         <Button
@@ -82,12 +82,12 @@
             android:textSize="14sp"
             android:layout_below="@id/expenses"
             android:background="#99CA3E"
-            android:drawableLeft="@drawable/ic_account"
+            android:drawableLeft="@drawable/ic_accounts"
             android:drawableRight="@drawable/ic_arrow"/>
 
     <ImageView
         android:layout_width="350dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:id="@+id/imageView"
         android:src="@drawable/salesmen_img"
         android:layout_alignParentBottom="true"

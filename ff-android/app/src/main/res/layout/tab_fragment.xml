@@ -2,31 +2,30 @@
 <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ts="http://schemas.android.com/apk/res-auto"
     android:id="@android:id/tabhost"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#F7F7F7">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
 
         <TabWidget
             android:id="@android:id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fadingEdge="none"
-            android:background="#00AEEF"
-            android:tabStripEnabled="false" />
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:tabStripEnabled="true" />
 
         <FrameLayout
             android:id="@android:id/tabcontent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
         </FrameLayout>
     </LinearLayout>
 

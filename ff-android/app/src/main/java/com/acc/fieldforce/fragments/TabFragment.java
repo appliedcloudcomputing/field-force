@@ -2,6 +2,7 @@ package com.acc.fieldforce.fragments;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -42,6 +43,8 @@ public class TabFragment extends Fragment implements ViewPager.OnPageChangeListe
         fragments.add(new Assigned());
         fragments.add(new Unassigned());
 
+        tabHost.setOnTabChangedListener(TabFragment.this);
+        tabHost.setCurrentTab(currentTab);
 
         return rootView;
     }
@@ -50,52 +53,40 @@ public class TabFragment extends Fragment implements ViewPager.OnPageChangeListe
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setRetainInstance(true);
-        pageAdapter = new TabsPagerAdapter(getChildFragmentManager(),
-                fragments, getArguments());
+        pageAdapter = new TabsPagerAdapter(getChildFragmentManager(), fragments, getArguments());
         pageAdapter.notifyDataSetChanged();
         viewPager.setAdapter(pageAdapter);
         setupTabs();
-
     }
 
-    private void setupTabs() {
+    public void setupTabs() {
         tabHost.setup();
         tabHost.addTab(newTab(R.string.title_activity_assigned));
         tabHost.addTab(newTab(R.string.title_activity_unassigned));
 
-
+        Typeface type = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Helvetica Neue.ttf");
         for (int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
 
-            //tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#304c58"));
+            tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#FFFFFF"));
 
-             tabHost.setBackgroundResource(R.drawable.abc_list_focused_holo);
             final View view = tabHost.getTabWidget().getChildTabViewAt(i);
             final View textView = view.findViewById(android.R.id.title);
-            ((TextView) textView).setTextColor(Color.parseColor("#FFFFFF"));
 
+            ((TextView) textView).setTextColor(Color.parseColor("#0681BE"));
             ((TextView) textView).setSingleLine(true);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                tabHost.getTabWidget().getChildAt(i)
-                        .findViewById(android.R.id.icon);
-                tabHost.getTabWidget().getChildAt(i).getLayoutParams().height = 75;
-
-            } else {
-
-                if (view != null) {
-                    // reduce height of the tab
-                    view.getLayoutParams().height *= 0.77;
-
-                    if (textView instanceof TextView) {
-                        ((TextView) textView).setGravity(Gravity.CENTER);
-                        textView.getLayoutParams().height =  ViewGroup.LayoutParams.MATCH_PARENT;
-                        textView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
-                    }
-                }
-            }
+            ((TextView) textView).setAllCaps(false);
+            ((TextView) textView).setTypeface(type);
+            ((TextView) textView).setTextSize(16);
         }
-        tabHost.setOnTabChangedListener(TabFragment.this);
-        tabHost.setCurrentTab(currentTab);
+
+        tabHost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#FFFFFF"));
+        final View view = tabHost.getTabWidget().getChildTabViewAt(1);
+        final View textView = view.findViewById(android.R.id.title);
+        ((TextView) textView).setTextColor(Color.parseColor("#FFFFFF"));
+        ((TextView) textView).setSingleLine(true);
+        ((TextView) textView).setAllCaps(false);
+        ((TextView) textView).setTypeface(type);
+        ((TextView) textView).setTextSize(16);
     }
 
     private TabHost.TabSpec newTab(int titleId) {

@@ -36,6 +36,7 @@ public class LoginActivity extends TabActivity implements TabHost.OnTabChangeLis
 
         tabHost.getTabWidget().setCurrentTab(1);
         Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Helvetica Neue.ttf");
+
         for(int i=0;i<tabHost.getTabWidget().getChildCount();i++)
         {
             tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#FFFFFF"));
