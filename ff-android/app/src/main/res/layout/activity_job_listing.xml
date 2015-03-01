@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F5F6F7">
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:layout_marginTop="7dp"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="7dp">
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/job_list"
-        android:divider="#CECBC6"
-        android:dividerHeight="1dp"
+        android:dividerHeight="2dp"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

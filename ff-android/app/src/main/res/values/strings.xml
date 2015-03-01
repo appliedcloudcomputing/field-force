@@ -23,10 +23,10 @@
     <string name="how_to_use">How it works?</string>
 
     <!-- Add Customer -->
-    <string name="add_customer_customer_name">Customer Name</string>
-    <string name="add_customer_company_name">Company Name</string>
-    <string name="add_customer_customer_address">Customer Address</string>
-    <string name="add_customer_contact_number">Contact Number</string>
+    <string name="add_customer_customer_name">Name</string>
+    <string name="add_customer_company_name">Company</string>
+    <string name="add_customer_customer_address">Address</string>
+    <string name="add_customer_contact_number">Contact</string>
     <string name="add_customer_button_save">Save</string>
 
     <!--Accounts Main-->

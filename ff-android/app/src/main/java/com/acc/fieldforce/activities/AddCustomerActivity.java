@@ -1,10 +1,13 @@
 package com.acc.fieldforce.activities;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,6 +34,7 @@ public class AddCustomerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_customer);
 
+
         mContext = this;
 
         customerName = (EditText) findViewById(R.id.c_name);
@@ -42,10 +46,61 @@ public class AddCustomerActivity extends Activity {
 
         error.setGravity(Gravity.CENTER);
         error.setTextColor(0xF7F7F7);
+
+        customerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    v.setBackgroundResource(R.drawable.edittext_focus);
+                }else{
+                    v.setBackgroundResource(R.drawable.edittextstyle);
+                }
+            }
+        });
+
+        customerAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    v.setBackgroundResource(R.drawable.edittext_focus);
+                }else{
+                    v.setBackgroundResource(R.drawable.edittextstyle);
+                }
+            }
+        });
+
+        companyName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    v.setBackgroundResource(R.drawable.edittext_focus);
+                }else{
+                    v.setBackgroundResource(R.drawable.edittextstyle);
+                }
+            }
+        });
+
+        contactNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    v.setBackgroundResource(R.drawable.edittext_focus);
+                }else{
+                    v.setBackgroundResource(R.drawable.edittextstyle);
+                }
+            }
+        });
+
+        Button save = (Button) findViewById(R.id.c_save);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validate();
+            }
+        });
     }
 
     public void validate() {
-
         String cNameText = customerName.getText().toString();
         String cCompanyText = companyName.getText().toString();
         String cAddressText = customerAddress.getText().toString();
@@ -66,8 +121,6 @@ public class AddCustomerActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.c_submit:
-                validate();
             default:
                 return super.onOptionsItemSelected(item);
 
