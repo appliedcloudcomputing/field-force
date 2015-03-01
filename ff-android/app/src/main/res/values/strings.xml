@@ -20,6 +20,7 @@
 
     <!--Colors-->
     <string name="sign_up">Sign up</string>
+    <string name="sign_in">Sign in</string>
     <string name="how_to_use">How it works?</string>
 
     <!-- Add Customer -->

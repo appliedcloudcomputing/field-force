@@ -73,7 +73,6 @@ public class LoginActivity extends TabActivity implements TabHost.OnTabChangeLis
             tv.setTextColor(Color.parseColor("#FFFFFF"));
             tv.setAllCaps(false);
             tv.setTypeface(type);
-            tv.setText("Sign In");
             tv.setTextSize(16);
         }
 
@@ -82,7 +81,6 @@ public class LoginActivity extends TabActivity implements TabHost.OnTabChangeLis
         tv1.setTextColor(Color.parseColor("#035c8e"));
         tv1.setAllCaps(false);
         tv1.setTypeface(type);
-        tv1.setText("Sign Up");
         tv1.setTextSize(14);
     }
 }
