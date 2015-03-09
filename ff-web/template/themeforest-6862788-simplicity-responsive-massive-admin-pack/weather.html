@@ -1,0 +1,676 @@
+<!doctype html>
+<html class="fuelux" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simplicity - Massive Admin Pack</title>
+
+  <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/weather-icons/weather-icons.min.css">
+
+  <link rel="stylesheet" type="text/css" href="assets/effects/menu-effects.css">
+
+  <!-- Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,100italic,100,300italic,300,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Assets -->
+  <link rel='stylesheet' type='text/css' href='assets/jquery-ui/ui-lightness/jquery-ui-1.10.3.custom.css' />
+  <link rel='stylesheet' type='text/css' href='assets/morrischarts/morris.css' />
+  <link rel='stylesheet' type='text/css' href='assets/fullcalendar/fullcalendar.css' />
+  <link rel='stylesheet' type='text/css' href='assets/datatables/jquery.dataTables.css' />
+
+  <!-- Theme Styles -->
+  <link rel="stylesheet" type="text/css" href="css/styles-less.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link rel="stylesheet" type="text/css" href="_demo/demo.css">
+
+  <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="assets/flotcharts/excanvas.min.js"></script><![endif]-->
+
+  <!-- Google Maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<style type="text/css">
+  #map-canvas {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+  }
+
+</style>
+
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/png">
+  <link rel="shortcut icon" type="image/png" href="favicon.ico" />
+
+</head>
+
+<body>
+
+
+
+
+
+<section class="content">
+
+  <div class="sidebar">
+    
+<a href="#">
+  <div class="logo-container" id="step1">
+    <h1>Simplicity</h1>
+    <h4>admin template</h4>
+  </div>
+</a>
+
+<div class="sidebar-profile">
+  <div class="user-avatar">
+    <img src="http://www.placehold.it/60x60" alt="Samantha Lenna Wilson" />
+  </div>
+  <div class="user-info">
+    <a href="profile.php">Samantha Lenna Wilson</a>
+  </div>
+</div>
+
+<div class="responsive-menu">
+  <a href="#"><i class="fa fa-bars"></i></a>
+</div>
+
+<ul class="menu">
+      <li class="lightblue">
+      <a href="index.php">
+        <span class="menu-icon"><i class="fa fa-home"></i></span>
+        <span class="menu-text">Dashboard</span>
+
+                <span class="notification <br />
+<b>Notice</b>:  Undefined index: notification_color in <b>C:\xampp\htdocs\pack\Simplicity-v2\includes\main-menu.php</b> on line <b>102</b><br />
+">4</span>
+              </a>
+
+          <li class="parent purple">
+      <a href="">
+        <span class="menu-icon"><i class="fa fa-desktop"></i></span>
+        <span class="menu-text">Layouts</span>
+
+              </a>
+
+      <ul class="child"><li><a href="index-fixed-sidebar.php">Fixed Sidebar</a></li><li><a href="index-collapsed-sidebar.php">Collapsed Sidebar</a></li><li><a href="index-fixed-header-bar.php">Fixed Header Bar</a></li></ul>    <li class="orange">
+      <a href="animated.php">
+        <span class="menu-icon"><i class="fa fa-css3"></i></span>
+        <span class="menu-text">Animated Elements</span>
+
+                <span class="notification lightgreen">62</span>
+              </a>
+
+          <li class="parent lightred">
+      <a href="">
+        <span class="menu-icon"><i class="fa fa-windows"></i></span>
+        <span class="menu-text">Pages</span>
+
+              </a>
+
+      <ul class="child"><li><a href="login.php">Login Page</a></li><li><a href="register.php">Register Page</a></li><li><a href="mail.php">Mail Page</a></li><li><a href="404.php">404 Error Page</a></li><li><a href="500.php">500 Error Page</a></li><li><a href="blank.php">Blank Page</a></li><li><a href="profile.php">Profile Page</a></li></ul>    <li class="parent green">
+      <a href="">
+        <span class="menu-icon"><i class="fa fa-rocket"></i></span>
+        <span class="menu-text">UI Elements</span>
+
+              </a>
+
+      <ul class="child"><li><a href="general.php">General</a></li><li><a href="buttons.php">Buttons</a></li><li><a href="grid.php">Grids</a></li><li><a href="calendar.php">Calendar</a></li><li><a href="tocify.php">Tocify</a></li><li><a href="tables.php">Tables</a></li></ul>    <li class="blue">
+      <a href="icons.php">
+        <span class="menu-icon"><i class="fa  fa-asterisk"></i></span>
+        <span class="menu-text">Icons</span>
+
+                <span class="notification purple">7</span>
+              </a>
+
+          <li class="parent lightblue">
+      <a href="">
+        <span class="menu-icon"><i class="fa fa-map-marker"></i></span>
+        <span class="menu-text">Maps</span>
+
+                <span class="notification lightblue">21</span>
+              </a>
+
+      <ul class="child"><li><a href="google-maps.php">Google Maps</a></li><li><a href="vector-maps.php">Vector Maps</a></li></ul>    <li class="lightorange">
+      <a href="progress-bars.php">
+        <span class="menu-icon"><i class="fa fa-signal"></i></span>
+        <span class="menu-text">Progress Bars</span>
+
+              </a>
+
+          <li class="parent lightyellow">
+      <a href="">
+        <span class="menu-icon"><i class="fa fa-book"></i></span>
+        <span class="menu-text">Forms</span>
+
+              </a>
+
+      <ul class="child"><li><a href="general-forms.php">General Form Elements</a></li><li><a href="smart-forms.php">Smart Form Elements</a></li><li><a href="form-wizards.php">Form Wizards</a></li></ul>    <li class="pink">
+      <a href="settings.php">
+        <span class="menu-icon"><i class="fa fa-cogs"></i></span>
+        <span class="menu-text">Settings</span>
+
+                <span class="notification blue">2</span>
+              </a>
+
+          <li class="cream">
+      <a href="pricing-tables.php">
+        <span class="menu-icon"><i class="fa fa-table"></i></span>
+        <span class="menu-text">Pricing Tables</span>
+
+                <span class="notification green">2</span>
+              </a>
+
+          <li class="marine">
+      <a href="tabs.php">
+        <span class="menu-icon"><i class="fa fa-bars"></i></span>
+        <span class="menu-text">Tabs & Accordions</span>
+
+              </a>
+
+          <li class="darkblue">
+      <a href="projects.php">
+        <span class="menu-icon"><i class="fa fa-folder-open-o"></i></span>
+        <span class="menu-text">Projects</span>
+
+              </a>
+
+          <li class="lightyellow">
+      <a href="tasks.php">
+        <span class="menu-icon"><i class="fa fa-file-text-o"></i></span>
+        <span class="menu-text">Tasks</span>
+
+              </a>
+
+          <li class="purple">
+      <a href="invoice.php">
+        <span class="menu-icon"><i class="fa fa-money"></i></span>
+        <span class="menu-text">Invoice</span>
+
+              </a>
+
+      
+    </li>
+</ul>
+
+  </div>
+
+  <div class="content-liquid-full">
+    <div class="container">
+
+      <!-- Header Bar Start -->
+<div class="row header-bar" id="step2">
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hidden-xs hidden-sm">
+    <ul class="left-icons">
+      <li><a href="#" class="collapse-sidebar"><i class="fa fa-bars"></i></a></li>
+      <li><input type="text" class="search" placeholder="Input your search..." /></li>
+      <li><a href="#"><i class="fa fa-refresh"></i></a></li>
+    </ul>
+  </div>
+
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+    <ul class="right-icons" id="step3">
+      <li>
+        <a href="#" class="user"><i class="fa fa-user"></i></a>
+        <ul class="dropdown">
+          <li><a href="settings.php"><i class="fa fa-cogs"></i>Settings</a></li>
+          <li><a href="profile.php"><i class="fa fa-user"></i>My Profile</a></li>
+          <li><a href="login.php"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="email">
+          <i class="fa fa-envelope-o"></i>
+          <div class="notify">13</div>
+        </a>
+        <ul class="dropdown">
+          <li><a href="#"><i class="fa fa-envelope-o"></i>Inbox</a></li>
+          <li><a href="#"><i class="fa fa-reply-all"></i>Send</a></li>
+          <li><a href="#"><i class="fa fa-folder"></i>Draft</a></li>
+          <li><a href="#"><i class="fa fa-pencil-square-o"></i>Compose</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="info">
+          <i class="fa fa-info"></i>
+          <div class="notify">2</div>
+        </a>
+        <ul class="dropdown big">
+          <li>
+            <a href="#">
+              <i class="fa fa-check-circle green"></i>
+              Uploaded successfully
+              <span class="description">1 minute ago</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-comments blue"></i>
+              Jenna commented on your link
+              <span class="description">1 hour ago</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-calendar orange"></i>
+              Jason invited you on a event
+              <span class="description">3 hours ago</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#" class="settings"><i class="fa fa-cog"></i></a></li>
+      <li><a href="#" class="lock"><i class="fa fa-lock"></i></a></li>
+    </ul>
+  </div>
+
+</div>
+<!-- Header Bar End -->
+
+
+      <!-- Breadcrumbs Start -->
+      <div class="row breadcrumbs">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumbs">
+            <li><a href="#"><i class="fa fa-home"></i></a></li>
+            <li><a href="#">UI Elements</a></li>
+            <li><a href="#">Grid</a></li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- Breadcrumbs End -->
+
+      <div class="row">
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <h3>Grid System</h3>
+
+        <div class="alert alert-info">
+          <span class="badge"><i class="fa fa-info"></i></span>
+          Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. Grid systems are used for creating page layouts throguht a series of rows.
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="boxed col-lg-12 col-md-12 col-sm-12 col-xs-12"><div class="inner">
+
+                <div class="weather-widget big dark" id="step5">
+
+                  <!-- Weather Icon -->
+                  <div class="weather-icon">
+                    <i class="wi-day-rain-mix"></i>
+                    <div class="temperatures">
+                      <span class="max">26 &#176;</span>
+                      <span class="min">17 &#176;</span>
+                    </div>
+                  </div>
+
+                  <!-- Weather Status -->
+                  <div class="weather-status">
+
+                    <div class="background-image">
+                      <img src="_demo/weather/blue_clouds.jpg" alt="Blue Clouds" />
+                    </div>
+
+                    <div class="info">
+                      <span class="date-time">Sunday, Dec 12, 2014 / 10:54 PM</span>
+                      <span class="city">Los Angeles</span>
+                      <span class="location">CA, United States</span>
+                      <span class="weather-state">Cloudy Gusts</span>
+                    </div>
+
+                  </div>
+
+                  <!-- Weather Prediction -->
+                  <div class="weather-prediction">
+                    <ul>
+                      <!-- Day 01 -->
+                      <li>
+                        <span class="day">Mon</span>
+                        <span class="icon"><i class="wi-day-cloudy-gusts"></i></span>
+                        <span class="temperature">17 &#176;</span>
+                      </li>
+                      <!-- Day 02 -->
+                      <li>
+                        <span class="day">Tue</span>
+                        <span class="icon"><i class="wi-day-sunny"></i></span>
+                        <span class="temperature">24 &#176;</span>
+                      </li>
+                      <!-- Day 03 -->
+                      <li>
+                        <span class="day">Wed</span>
+                        <span class="icon"><i class="wi-day-cloudy-windy"></i></span>
+                        <span class="temperature">14 &#176;</span>
+                      </li>
+                      <!-- Day 04 -->
+                      <li>
+                        <span class="day">Thu</span>
+                        <span class="icon"><i class="wi-day-sunny-overcast"></i></span>
+                        <span class="temperature">26 &#176;</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+
+            </div></div>
+          </div>
+
+          <div class="row">
+            <div class="boxed col-lg-6 col-md-6 col-sm-6 col-xs-12"><div class="inner">6 Columns</div></div>
+            <div class="boxed col-lg-6 col-md-6 col-sm-6 col-xs-12"><div class="inner">6 Columns</div></div>
+          </div>
+
+          <div class="row">
+            <div class="boxed col-lg-3 col-md-3 col-sm-12 col-xs-12"><div class="inner">3 Columns</div></div>
+            <div class="boxed col-lg-6 col-md-6 col-sm-12 col-xs-12"><div class="inner">6 Columns</div></div>
+            <div class="boxed col-lg-3 col-md-3 col-sm-12 col-xs-12"><div class="inner">3 Columns</div></div>
+          </div>
+
+          <div class="row">
+            <div class="boxed col-lg-2 col-md-2 col-sm-6 col-xs-12"><div class="inner">2 Columns</div></div>
+            <div class="boxed col-lg-2 col-md-2 col-sm-6 col-xs-12"><div class="inner">2 Columns</div></div>
+            <div class="boxed col-lg-2 col-md-2 col-sm-6 col-xs-12"><div class="inner">2 Columns</div></div>
+            <div class="boxed col-lg-2 col-md-2 col-sm-6 col-xs-12"><div class="inner">2 Columns</div></div>
+            <div class="boxed col-lg-2 col-md-2 col-sm-6 col-xs-12"><div class="inner">2 Columns</div></div>
+            <div class="boxed col-lg-2 col-md-2 col-sm-6 col-xs-12"><div class="inner">2 Columns</div></div>
+          </div>
+
+          <div class="row">
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+            <div class="boxed col-lg-1 col-md-2 col-sm-3 col-xs-6"><div class="inner">1 Columns</div></div>
+          </div>
+
+          <div class="row">
+            <div class="boxed col-lg-2 col-md-2 col-sm-4 col-xs-4"><div class="inner">2 Columns</div></div>
+            <div class="boxed col-lg-20 col-md-10 col-sm-8 col-xs-8"><div class="inner">10 Columns</div></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      </div>
+      
+    </div>
+  </div>
+
+</section>
+
+
+<!-- Javascript -->
+<script src="assets/jquery/jquery.min.js"></script>
+
+<!-- Custom Scroll Bar -->
+<script src="assets/nicescroll/jquery.nicescroll.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+  $("html").niceScroll({cursorwidth:'10px',
+                        cursorborderradius: '2px',
+                        cursoropacitymin: '0.3'});
+
+  /* Close container elements */
+  $('a', '.close-box').click(function(){
+    var obj = $(this);
+    var box   = $(obj).parents('.box');
+    var chart = $(obj).parents('.chart');
+
+    if ($(box).length) {
+      $(box).slideUp(400);
+    } else if ($(chart).length) {
+      $(chart).slideUp(400);
+    }
+
+    return false;
+  });
+
+  /* Close container elements */
+  $('a.remove-box', '.boxed').click(function(){
+    var link = $(this);
+    var icon = $('i', link);
+    var parent = $(this).parent().parent().parent().parent();
+
+    if ($(parent).length) {
+      $(parent).slideUp(400);
+    }
+
+    return false;
+  });
+
+  /* Delete Tasks */
+  $('a.delete', '.actions').click(function(){
+    var obj = $(this);
+    var li = $(obj).parents('li');
+
+    if ($(li).length) {
+      $(li).slideUp(350);
+    }
+
+    return false;
+  });
+
+
+
+});
+</script>
+
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/charts/table-to-chart.js"></script>
+<script src="assets/fullcalendar/fullcalendar.min.js"></script>
+<script src="assets/fullcalendar/gcal.js"></script>
+<script src="assets/sidebar/min-height.js"></script>
+
+<!-- Bootstrap Assets -->
+
+
+<!-- DataTables -->
+<script src="assets/datatables/jquery.dataTables.min.js"></script>
+<script src="assets/datatables/jquery.dataTables.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="assets/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+
+<!-- Morris Charts -->
+<script src="assets/morrischarts/raphael.js"></script>
+<script src="assets/morrischarts/morris.js"></script>
+
+
+<!-- FlotCharts  -->
+<script src="assets/flotcharts/flotcharts-common.js"></script>
+<script src="assets/flotcharts/jquery.flot.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.resize.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.canvas.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.image.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.categories.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.crosshair.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.errorbars.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.fillbetween.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.navigate.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.pie.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.selection.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.stack.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.symbol.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.threshold.min.js"></script>
+<script src="assets/flotcharts/jquery.colorhelpers.min.js"></script>
+<script src="assets/flotcharts/jquery.flot.time.min.js"></script>
+<script src="_demo/charts/dashboard.js"></script>
+
+<script>
+  Morris.Bar({
+    element: 'myfirstchart',
+    data: [
+      { y: 'Sun', a: 1000 },
+      { y: 'Mon', a: 754 },
+      { y: 'Tue', a: 824 },
+      { y: 'Wed', a: 1144 },
+      { y: 'Thu', a: 985 },
+      { y: 'Fri', a: 1180 },
+      { y: 'Sat', a: 760 }
+    ],
+    barColors: function (row, series, type) {
+      if (type === 'bar') {
+        var red = Math.ceil(234 * row.y / this.ymax);
+        return 'rgb(234,' + red + ',137)';
+      }
+    },
+    xkey: 'y',
+    ykeys: ['a'],
+    labels: ['Series A'],
+    lineColors:['#E67A77','#79D1CF']
+  });
+</script>
+
+<!-- Tocify -->
+<script src="assets/tocify/tocify.js"></script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script>
+  $(function() {
+    $( ".vertical-tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+    $( ".vertical-tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+  });
+
+</script>
+
+
+<script type="text/javascript">
+
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.load('visualization', '1', {'packages': ['geochart']});
+
+  jQuery(document).ready(function($){
+
+    $('.collapse-sidebar').click(function(){
+      var body = $('body');
+      if ($(body).hasClass('collapsed-sidebar')) {
+        $(body).removeClass('collapsed-sidebar');
+        $('.logo-container', body).show();
+        $('.sidebar-profile', body).show();
+        $('ul.menu li .menu-text, ul.menu li .notification', body).show();
+      } else {
+        $(body).addClass('collapsed-sidebar');
+        $('.logo-container', body).hide();
+        $('.sidebar-profile', body).hide();
+        $('ul.menu li .menu-text, ul.menu li .notification', body).hide();
+      }
+      return false;
+    });
+
+    $('.responsive-menu>a').click(function(){
+      var menu = $('ul.menu', '.sidebar');
+      if ($(menu).is(':visible')) {
+        $(menu).slideUp(800);
+      } else {
+        $(menu).slideDown(800);
+      }
+    });
+
+    $('a.close-box', '.boxed').click(function(){
+      var link = $(this);
+      var icon = $('i', link);
+      var parent = $(this).parent().parent().parent().parent();
+      var inner = $('.inner', parent);
+      if ($(inner).is(':visible')) {
+        $(inner).slideUp(800);
+        $(icon).removeClass('fa-chevron-up').addClass('fa-chevron-down');
+      } else {
+        $(inner).slideDown(800);
+        $(icon).removeClass('fa-chevron-down').addClass('fa-chevron-up');
+      }
+    });
+
+    $('li.parent>a', 'ul.menu').click(function(){
+      var link = $(this);
+      var obj = $(this).parent();
+      var child = $('ul.child', obj);
+
+      if ($(child).is(':visible')) {
+        $(child).slideUp(400);
+        $(link).removeClass('close-child');
+      } else {
+        $(child).slideDown(400);
+        $(link).addClass('close-child');
+      }
+
+      return false;
+    });
+
+    $('.table-to-chart').tabletochart();
+
+    $('.data-table').dataTable();
+
+    $('.calendar-widget').datepicker();
+
+    $(".tocify-nav").tocify({scrollTo:80, context:'.tocify-content',selectors:"h2,h3,h4,h5"});
+
+    // ToolTips
+    $('[data-toggle="tooltip"]').each(function(i, el) {
+      var tooltip = $(el);
+      $(tooltip).tooltip();
+    });
+
+    // PopOver
+    $('[data-toggle="popover"]').each(function(i, el) {
+      var popover = $(el);
+      $(popover).popover();
+      $(popover).on('shown.bs.popover',function(ev) {
+        var $popover = $(popover).next();
+        $popover.addClass($(popover).attr('data-popover-class'));
+      });
+    });
+
+    // Collapsible Accordion
+    $('.collapsible-accordion').accordion({collapsible: true});
+
+    // Collapsible Accordion - Custom Icons
+    $('.collapsible-accordion.custom-icons').accordion({icons: {header:'ui-accordion-open', activeHeader:'ui-accordion-close'}});
+
+    // Animated Loading Progress Bar
+    $('.progress.animated').each(function(index, el) {
+      var obj   = $(el);
+      var bar   = $('.progress-bar', obj);
+      var value = $(bar).attr('aria-valuenow');
+      var text  = $('.sr-only', obj);
+      var percentage_size = $(obj).width()*(value/100);
+
+      var width = 0;
+      var i = setInterval(function(){
+        width = $(bar).width();
+        $(bar).css('width', width+35);
+        if (width >= percentage_size) {
+          clearInterval(i);
+          $(bar).html(value + '%');
+        }
+      }, 250);
+    });
+
+
+
+
+  });
+</script>
+<script type="text/javascript" src="_demo/introjs/init.js"></script>
+</body>
+</html>
