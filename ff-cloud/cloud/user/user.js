@@ -19,6 +19,7 @@ exports.save = function(params) {
 		var user = new User();
 		user.set("name", params.name);
 		user.set("username", params.username);
+		user.set("password", params.password);
 		user.set("email", params.email);
 		user.set("phone", params.phone);
 		user.set("address", params.address);

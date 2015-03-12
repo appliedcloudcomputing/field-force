@@ -68,7 +68,7 @@ Parse.Cloud.beforeSave('User', function(req, res) {
 		var email = user.get('email');
 		var phone = user.get('phone');
 		tags = '#' + name + '#' + userType + '#' + email + '#' + phone;
-		client.set('tags', tags);
+		user.set('tags', tags);
 		res.success();
 	} else {
 		res.error(Response.LoginError);
