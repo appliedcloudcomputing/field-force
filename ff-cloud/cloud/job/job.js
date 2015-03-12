@@ -18,11 +18,9 @@ exports.save = function(params) {
 	} 
 	else {
 
-	 var job = new Job();
-    
+	var job = new Job();
     var _customer = {__type: "Pointer", className:"_User", 'objectId': params.customer};// pointer variable
     var _currentlyAssignedTo = {__type: "Pointer", className: "_User", 'objectId':params.currentlyAssignedTo};
-
 
 		job.set("title", params.title);
 		job.set("customer", _customer);
