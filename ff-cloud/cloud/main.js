@@ -1,4 +1,5 @@
 var user = require('cloud/user/user.js');
+var job  = require('cloud/job/job.js');
 
 // Use Parse.Cloud.define to define as many cloud functions as you want.
 // For example:
@@ -73,6 +74,29 @@ Parse.Cloud.beforeSave('User', function(req, res) {
 	} else {
 		res.error(Response.LoginError);
 	}
+});
+
+/*-----------------------------------------------JOBS-----------------------------------------------*/
+
+Parse.Cloud.define('saveJob', function(req, res) {
+	if(!req.params.id || req.params.id == 0) {
+		job.save({
+			title: req.params.title,
+			customer: req.params.customer,
+			currentlyAssignedTo: req.params.currentlyAssignedTo,
+			assigned: req.params.assigned,
+			description: req.params.description,
+			completed: req.params.completed,
+			currentStage: req.params.currentStage,
+			
+			success: function(message) {
+				res.success(message);
+			},
+			error: function(error) {
+				res.error(error);
+			}
+		});
+	} 
 });
 
 
