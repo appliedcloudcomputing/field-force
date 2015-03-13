@@ -51,13 +51,13 @@
                
                 <div class="row">
                 <div class="col-md-6">
-                    <label for="firstName">First Name:</label>
-                    <input type="firstName" name="firstName" id="firstName" placeholder="Please enter your firstname" />
+                    <label for="name">First Name:</label>
+                    <input type="name" name="name" id="name" placeholder="Please enter your firstname" />
                 </div>
 
                  
                   <div class="col-md-6">
-                    <label for="lastName">Full Name:</label>
+                    <label for="lastName">Last Name:</label>
                     <input type="lastName" name="lastName" id="lastName" placeholder="Please enter your lastname" />
                   </div>
                 </div>
@@ -90,7 +90,7 @@
                     <label for="rep-password">Repeat Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                      <input type="repeatPassword" placeholder="RepeatPassword" class="form-control">
+                      <input type="password" placeholder="password" class="form-control"/>
                     </div>
                   </div>
                   </div>
@@ -127,11 +127,21 @@
                   </div>
                   </div>
 
+                  <div class="col-md-6">
+                  <label for="usertype">User Type:</label>
+                  <select id="userType" name="userType">
+                      <option selected="selected" value="EMPLOYEE">EMPLOYEE</option>
+                      <option value="CUSTOMER">CUSTOMER</option>
+                  </select>
+                  </div>
+
                   <div class="col-md-4">
                   <div class="row">
                   <label for="phone">Phone:</label>
                   <input type="phone" name="phone" id="phone" placeholder="Enter your Phone Number" />
                   </div>
+
+
                   
 
                 <div class="col-md-12 text-left">
@@ -140,7 +150,7 @@
                   </div>
                   </div>
 
-            
+
 
               </div>
 

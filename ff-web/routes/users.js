@@ -10,23 +10,39 @@ router.get('/save', function(req, res, next) {
 router.post('/save', function(req, res, next) {
   console.log("********************* SAVE USER CALLED ***********************");
   console.log("Username: "+  req.body.username + ", Password"+ req.body.password + " Email :"+ req.body.email);
-  var user = new Parse.User();
-  user.set("username", req.body.username);
-  user.set("password",  req.body.password);
-  user.set("email",  req.body.email);
-//  user.set("phone", "req.body.phone");
-  user.signUp(null, {
-    success: function(user) {
-      console.log("****************User SAVED SUCESSFULLY******************");
-      res.render('user', {error: ""});
-    },
-    error: function(user, error) {
-      //res.render('user', {error: error.message});
-      console.log("*****************ERROR ********************");
-      res.render('user', {error: "Error"});
-    }
-  }); 
+
+  var data = {
+    name:req.body.name,
+    username: req.body.username,
+    password:req.body.password,
+    email:req.body.email,
+    phone:req.body.phone,
+    address:req.body.address,
+    userType:req.body.userType
+
+
+  };
+
+    Parse.Cloud.run('saveUser', data, {
+        success: function(message) {
+
+        console.log("cloud call save user success");
+        var response = {
+          message: message,
+          status: 200
+        }
+        res.end(JSON.stringify(response));
+      },
+      error: function(error) {
+        var response = {
+          message: error.message,
+         }
+        res.end(JSON.stringify(response));
+      }
+    });
 });
+
+
 
 /*userListing*/
 router.get('/userlist', function(req, res, next) {
