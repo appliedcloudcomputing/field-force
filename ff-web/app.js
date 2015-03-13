@@ -12,7 +12,7 @@ if(process && process.env && process.env.APPLICATION_ID && process.env.JAVASCRIP
     Parse.initialize(process.env.APPLICATION_ID, process.env.JAVASCRIPT_KEY, process.env.MASTER_KEY);
 } else {
     //Parse.initialize("O3zQqGoHN3vFLHnxftd2zzdUV3Rwu1KZ8fEclJ8n", "ANEYTgsWpOcH5VyB7RhM2E95tvNRBUcicMkifrRs");//Field Force App Id and JS ID
-      Parse.initialize("PME7lKHj8eotzuQfdx4JpeiJyWxWYUa3gyOCnKiL", "Vz8UTQy0oBatlwjW7XSz8g0ZBw4RTmOGRm1p1Cts", "Ek2SiEsM7wlx3p9CZYlmv1GEep3kWFwGYLG1Dfx2");
+      Parse.initialize("O3zQqGoHN3vFLHnxftd2zzdUV3Rwu1KZ8fEclJ8n", "ANEYTgsWpOcH5VyB7RhM2E95tvNRBUcicMkifrRs", "fwdGtSRoEOa07ZnHgsozoVm9kV0qzW4XqMhZZw3U");
 }
 
 
@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret:'PME7lKHj8eotzuQfdx4JpeiJyWxWYUa3gyOCnKiL',
+app.use(session({secret:'O3zQqGoHN3vFLHnxftd2zzdUV3Rwu1KZ8fEclJ8n',
                 resave: true,
                 saveUninitialized: false}));
 
@@ -43,6 +43,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/dashboard', dashboard);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
