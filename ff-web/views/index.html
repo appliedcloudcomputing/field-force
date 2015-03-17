@@ -10,7 +10,7 @@
 <section class="content">
 
   <!-- Sidebar Start -->
-    <% include partials/sidebar.html %>
+    <% include partials/sidebardashonly.html %>
   <!-- Sidebar End -->
 
 <div class="content-liquid-full">
@@ -34,7 +34,6 @@
     <!-- Breadcrumbs End -->
 
 <!--Form start-->
- <form method="post" class="basic-form" action="/users/save" >
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h3>Users</h3>
@@ -48,64 +47,58 @@
 
               <div class="inner no-radius">
 
-               
-                <div class="row">
-                <div class="col-md-6">
-                    <label for="name">First Name:</label>
-                    <input type="name" name="name" id="name" placeholder="Please enter your firstname" required/>
-                </div>
+                <form method="post" class="basic-form" action="users/register">
 
-                 
-                  <div class="col-md-6">
-                    <label for="lastName">Last Name:</label>
-                <input type="lastName" name="lastName" id="lastName" placeholder="Please enter your lastname" required/>
+                  <div class="row">
+                  <div class="col-md-12">
+                    <label for="bio">Full Name:</label>
+                    <textarea name="fullName" id="bio" placeholder="Enter Your Full Name..."></textarea>
                   </div>
-                </div>
-                  
+                  </div>
 
                   <div class="row">
                   <div class="col-md-6">
                     <label for="username">Username:</label>
-                    <input type="username" name="username" id="username" placeholder="Use alphanumeric characters and limit it to 8!" required/>
+                    <input type="text" name="username" id="username" placeholder="Use alphanumeric characters and limit it to 8!" />
                   </div>
 
                   <div class="col-md-6">
                     <label for="email">E-Mail:</label>
-                    <input type="email" name="email" id="email" placeholder="email" required/>
+                    <input type="text" name="email" id="email" placeholder="email" />
                   </div>
                   </div>
 
                   
 
-                 <div class="row">
+                  <div class="row">
                   <div class="col-md-6">
-                    <label for="inputpassword">Password:</label>
+                    <label for="password">Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-              <input type="password" name="password" id="inputpassword" placeholder="password" class="form-control" required/>
+                      <input type="password" placeholder="password" class="form-control">
                     </div>
                   </div>
 
                   <div class="col-md-6">
-                    <label for="inputpasswordconfirm">confirm Password:</label>
+                    <label for="rep-password">Repeat Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                      <input type="password" id="inputpasswordconfirm" data-match="#inputpassword"                   
-  data-match-error="password dont match" placeholder="confirm password" class="form-control" required/>
+                      <input type="repeatPassword" placeholder="Repeat Password" class="form-control">
                     </div>
+                  </div>
+                  </div>
 
                 <div class="row">
-                  <div class="col-md-6">
-                    <label for="address">Address:</label>
-                    <textarea name="address" id="address" placeholder="Enter Your Address..." required></textarea>
+                  <div class="col-md-12">
+                    <label for="bio">Address:</label>
+                    <textarea name="address" id="address" placeholder="Enter Your Full Name..."></textarea>
                   </div>
-                </div>
                   </div>
 
-                  
-                  <div class="col-md-5">
+                  <div class="row">
+                  <div class="col-md-4">
                     <label for="country">Country:</label>
-                    <select id="country" name="country">
+                    <select id="dropdown" name="dropdown">
                       <option selected="selected" value="1">India</option>
                       <option value="2">USA</option>
                       <option value="3">Croatia</option>
@@ -114,44 +107,34 @@
                       <option value="3">France</option>
                     </select>
                   </div>
-                  </div>
 
-                  <div class="row">  
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <label for="city">City:</label>
-                    <input type="city" name="city" id="city" placeholder="Enter your current city..." required/>
+                    <input type="text" name="city" id="city" placeholder="Enter your current city..." />
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <label for="post-code">Post code:</label>
-                    <input type="post-code" name="post-code" id="post-code" placeholder="Enter your city post code..." required/>
+                    <input type="text" name="post-code" id="post-code" placeholder="Enter your city post code..." />
                   </div>
-                </div>
+                  </div>
 
+                  <div class="col-md-4">
                   <div class="row">
-                  <div class="col-md-6">
-                  <label for="usertype">User Type:</label>
-                  <select id="userType" name="userType">
-                      <option selected="selected" value="EMPLOYEE">EMPLOYEE</option>
-                      <option value="CUSTOMER">CUSTOMER</option>
-                  </select>
+                  <label for="Phone">Phone:</label>
+                  <input type="text" name="phone" id="Phone" placeholder="Enter your Phone Number" />
                   </div>
-
-                  <div class="col-md-6">
-                  <label for="phone">Phone:</label>
-                  <input type="phone" name="phone" id="phone" placeholder="Enter your Phone Number" required />
-                  </div>
-                  </div>
-
-                                 
+                  
 
                 <div class="col-md-12 text-left">
-                      <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Save</button>
+                      <button type="button" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Save</button>
                     </div>
                   </div>
                   </div>
+                </form>
 
               </div>
+
             
       </div>
     </div>
@@ -160,7 +143,6 @@
   </div>
 
 </section>
-    </form>
 <!-- Form End-->
 
 
