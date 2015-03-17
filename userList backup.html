@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="fuelux" lang="en">
 <!-- Header start -->
@@ -7,14 +8,7 @@
 <!-- Header end -->
 
 <body>
-  <!--Search Integration start-->
-    <!-- jQuery -->
-    <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 
-     <!-- DataTables -->
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
-    <script src="/js/user/events.js"></script>
-    <!--Search Integration end-->
 <section class="content">
 
   <!-- Sidebar Start -->
@@ -42,6 +36,7 @@
     <!-- Breadcrumbs End -->
 
 
+
 <!--Form start-->
  <form method="post" class="basic-form" action="/users/userList">
     <div class="row">
@@ -58,8 +53,6 @@
          </div>
         <!--button end-->
 
-       
-
         <div class="boxed">
 
               <!-- Title Bar Start -->
@@ -71,28 +64,31 @@
         <!--table header start-->
         <div class="inner">
         <table class="theme-table invoice-table" id="user-list" >
-       
+         
         <div style="width:400px;">
           <thead>
             <tr>
-              <th style="border-bottom: 0;">username</th>
-              <th style="border-bottom: 0;">name</th>
-              <th style="border-bottom: 0;">email</th>
-              <th style="border-bottom: 0;">phone</th>
-              <th style="border-bottom: 0;">address</th>
-              <th style="border-bottom: 0;">userType</th>
-        </thead>
+              <th>username</th>
+              <th>name</th>
+              <th>email</th>
+              <th>phone</th>
+              <th>address</th>
+              <th>userType</th>
+        
             </tr>
+          </thead>
         <!--table body start-->
                 <tbody>
                     <% for(var i = 0; i < userList.length; i++) { %>
                         <tr>
             
                             <td><%= userList[i].username %></td>
+                            <td><%= userList[i].name %></td>
                             <td><%= userList[i].email %></td>
                             <td><%= userList[i].phone %></td>
                             <td><%= userList[i].address %></td>
                             <td><%= userList[i].userType %></td>
+                          
                         </tr>
                     <% } %>
                 </tbody>
@@ -114,13 +110,9 @@
       </div>
   
 
-
 </section>
-
     </form>
-
 <!-- Form End-->
-
 
 
 <!-- Javascript -->
@@ -131,3 +123,4 @@
 
 </body>
 </html>
+

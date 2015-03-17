@@ -2,8 +2,16 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-/*function for user to appear on userlist   */
-router.get('/save', function(req, res, next) {
+
+router.get('/index', function(req, res, next) {
+  res.render('index', {error: ""});
+});
+ router.get('/userList', function(req, res) {
+  console.log('Rendering user list page...');
+  res.render('userList',{error: ""});
+});
+
+ router.get('/save', function(req, res, next) {
    res.render('user', {error: ""});
 });
    
@@ -14,7 +22,9 @@ router.get('/save', function(req, res, next) {
 
 
 
+
 router.post('/save', function(req, res, next) {
+<<<<<<< HEAD
   console.log("********************* SAVE USER CALLED ***********************");
   console.log("Username: "+  req.body.username + ", Password"+ req.body.password + " Email :"+ req.body.email);
 
@@ -34,6 +44,7 @@ router.post('/save', function(req, res, next) {
         success: function(message) {
 
         console.log("cloud call save user success");
+
         var response = {
           message: message,
           status: 200
@@ -43,12 +54,13 @@ router.post('/save', function(req, res, next) {
       error: function(error) {
         var response = {
           message: error.message,
-         }
+
+          status: error.code
+        }
         res.end(JSON.stringify(response));
       }
     });
 });
-
 
 
 /*userListing*/
