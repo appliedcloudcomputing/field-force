@@ -19,7 +19,7 @@ var Response = {
 };
 
 /*-----------------------------------------------USER-----------------------------------------------*/
-
+// insert password 
 Parse.Cloud.define('saveUser', function(req, res) {
 	if(!req.params.id || req.params.id == 0) {
 		user.save({
@@ -29,6 +29,7 @@ Parse.Cloud.define('saveUser', function(req, res) {
 			phone: req.params.phone,
 			address: req.params.address,
 			userType: req.params.userType,
+			password:req.params.password,
 			imei: req.params.imei,
 			currentLocation: req.params.currentLocation,
 			success: function(message) {
@@ -58,7 +59,6 @@ Parse.Cloud.define('saveUser', function(req, res) {
 		});
 	}
 });
-
 Parse.Cloud.beforeSave('User', function(req, res) {
 	var user = req.object;
 	var currentUser = client.get('lastUpdatedBy');
@@ -100,4 +100,4 @@ Parse.Cloud.define('saveJob', function(req, res) {
 });
 
 
-
+-->
