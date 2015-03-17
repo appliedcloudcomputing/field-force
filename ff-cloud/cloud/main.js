@@ -48,8 +48,8 @@ Parse.Cloud.define('saveUser', function(req, res) {
 			phone: req.params.phone,
 			address: req.params.address,
 			userType: req.params.userType,
-			imei: req.params.imei,
-			currentLocation: req.params.currentLocation,
+			//imei: req.params.imei,
+			//currentLocation: req.params.currentLocation,
 			success: function(message) {
 				res.success(message);
 			},
