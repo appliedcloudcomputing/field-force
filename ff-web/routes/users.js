@@ -24,7 +24,6 @@ router.get('/index', function(req, res, next) {
 
 
 router.post('/save', function(req, res, next) {
-<<<<<<< HEAD
   console.log("********************* SAVE USER CALLED ***********************");
   console.log("Username: "+  req.body.username + ", Password"+ req.body.password + " Email :"+ req.body.email);
 

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="fuelux" lang="en">
 <!-- Header start -->
@@ -7,6 +8,7 @@
 <!-- Header end -->
 
 <body>
+  
   <!--Search Integration start-->
     <!-- jQuery -->
     <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -15,6 +17,7 @@
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
     <script src="/js/user/events.js"></script>
     <!--Search Integration end-->
+
 <section class="content">
 
   <!-- Sidebar Start -->
@@ -40,6 +43,7 @@
       </div>
     </div>
     <!-- Breadcrumbs End -->
+
 
 
 <!--Form start-->
@@ -72,17 +76,17 @@
         <div class="inner">
         <table class="theme-table invoice-table" id="user-list" >
        
-        <div style="width:400px;">
+        <div style="width:200px;">
           <thead>
             <tr>
-              <th style="border-bottom: 0;">username</th>
-              <th style="border-bottom: 0;">name</th>
-              <th style="border-bottom: 0;">email</th>
-              <th style="border-bottom: 0;">phone</th>
-              <th style="border-bottom: 0;">address</th>
-              <th style="border-bottom: 0;">userType</th>
-        </thead>
+              <th style="border-bottom: 0px;">username</th>
+              <th style="border-bottom: 0px;">email</th>
+              <th style="border-bottom: 0px;">phone</th>
+              <th style="border-bottom: 0px;">address</th>
+              
+        
             </tr>
+          </thead>
         <!--table body start-->
                 <tbody>
                     <% for(var i = 0; i < userList.length; i++) { %>
@@ -92,7 +96,7 @@
                             <td><%= userList[i].email %></td>
                             <td><%= userList[i].phone %></td>
                             <td><%= userList[i].address %></td>
-                            <td><%= userList[i].userType %></td>
+                    
                         </tr>
                     <% } %>
                 </tbody>
@@ -131,3 +135,4 @@
 
 </body>
 </html>
+
