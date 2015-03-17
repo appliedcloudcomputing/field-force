@@ -34,7 +34,7 @@
     <!-- Breadcrumbs End -->
 
 <!--Form start-->
- <form method="post" class="basic-form" action="/users/save" >
+<form method="post" class="basic-form" action="/users/save" >
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h3>Users</h3>
@@ -53,7 +53,7 @@
                 <div class="col-md-6">
 
                     <label for="name">Full Name:</label>
-                    <input type="name" name="name" id="name" placeholder="Please enter your firstname" />
+                    <input type="name" name="name" id="name" placeholder="Please enter your fullname" />
                 </div>
                   
 
@@ -77,56 +77,33 @@
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                       <input type="password" name="password" id="password" placeholder="password" class="form-control"/>
-
-                    </div>
+               </div>
+                  </div>
                   </div>
 
+                  <div class="row">
                   <div class="col-md-6">
-                    <label for="inputpasswordconfirm">confirm Password:</label>
+                    <label for="inputpasswordconfirm">Confirm Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
                       <input type="password" placeholder="password" class="form-control"/>
+                  </div>
+                  </div>  
 
-                    </div>
-
-                <div class="row">
                   <div class="col-md-6">
                     <label for="address">Address:</label>
                     <textarea name="address" id="address" placeholder="Enter Your Address..." required></textarea>
                   </div>
-                </div>
                   </div>
-
-                  
-                  <div class="col-md-5">
-                    <label for="country">Country:</label>
-                    <select id="country" name="country">
-                      <option selected="selected" value="1">India</option>
-                      <option value="2">USA</option>
-                      <option value="3">Croatia</option>
-                      <option value="3">England</option>
-                      <option value="3">Poland</option>
-                      <option value="3">France</option>
-                    </select>
-                  </div>
-                  </div>
+                
 
                   <div class="row">  
                   <div class="col-md-6">
-                    <label for="city">City:</label>
-                    <input type="city" name="city" id="city" placeholder="Enter your current city..." required/>
-                  </div>
-
-                  <div class="col-md-6">
                     <label for="post-code">Post code:</label>
-
                     <input type="post-code" name="post-code" id="post-code" placeholder="Enter your city post code..." />
-
                   </div>
-                </div>
-
-                  <div class="row">
+                 
                   <div class="col-md-6">
                   <label for="usertype">User Type:</label>
                   <select id="userType" name="userType">
@@ -134,7 +111,9 @@
                       <option value="CUSTOMER">CUSTOMER</option>
                   </select>
                   </div>
+                  </div>
 
+                  <div class="row">  
                   <div class="col-md-6">
                   <label for="phone">Phone:</label>
                   <input type="phone" name="phone" id="phone" placeholder="Enter your Phone Number" required />
@@ -153,7 +132,6 @@
       
  </form>
 </section>
-   
 <!-- Form End-->
 
 
