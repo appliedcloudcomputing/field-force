@@ -1,29 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-
 router.get('/index', function(req, res, next) {
   res.render('index', {error: ""});
 });
- router.get('/userList', function(req, res) {
-  console.log('Rendering user list page...');
-  res.render('userList',{error: ""});
+
+
+router.get('/signup', function(req, res, next) {
+  res.render('signup', {error: ""});
 });
+
+ 
+
 
  router.get('/save', function(req, res, next) {
    res.render('user', {error: ""});
 });
-   
-  /*router.get('/userList', function(req, res, next) {
-   res.render('userList', {error: ""});
-});
-*/
-
-
-
-
-router.post('/save', function(req, res, next) {
+  
+ router.post('/save', function(req, res, next) {
   console.log("********************* SAVE USER CALLED ***********************");
   console.log("Username: "+  req.body.username + ", Password"+ req.body.password + " Email :"+ req.body.email);
 
@@ -34,7 +28,9 @@ router.post('/save', function(req, res, next) {
     email:req.body.email,
     phone:req.body.phone,
     address:req.body.address,
-    userType:req.body.userType
+    userType:req.body.userType,
+    imei:req.body.imei,
+    location:req.body.location
 
 
   };
@@ -79,9 +75,9 @@ router.get('/', function(req, res, next)
 
             email: user.getUsername(),
             username:user.get('username'),
-            password :user.get('password'),
             address :user.get('address'),
-            phone :user.get('phone')
+            phone :user.get('phone'),
+            usertype:user.get('userType')
                       }
           userList.push(_user);
         });
