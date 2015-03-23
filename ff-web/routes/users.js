@@ -44,7 +44,7 @@ router.get('/signup', function(req, res, next) {
           message: message,
           status: 200
         }
-        res.end(JSON.stringify(response));
+         res.render('user', {message: "User Data Save successfully"});///////////////////
       },
       error: function(error) {
         var response = {

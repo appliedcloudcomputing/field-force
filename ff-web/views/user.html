@@ -3,13 +3,16 @@
 <!-- Header start -->
   <% include partials/head.html %>
 
+<<<<<<< HEAD
 <!--Password Validator start-->
   <script type="text/javascript">
+=======
+<!-- Password validation starts  -->
+>>>>>>> 56c0079951e7d96f979fc18d96d3dfedff9c989a
 
- 
-
-function validatePassword()
-{
+<script type="text/javascript">
+ function validatePassword()
+ {
   var password = document.getElementById("password").value;
   var confirm_password = document.getElementById("confirm_password").value;
 
@@ -21,20 +24,28 @@ function validatePassword()
   } 
   else 
   {
-    alert('Password matched');
+    
   }
-}
+ }
+</script>
 
-
+<<<<<<< HEAD
   </script>
   <!--Password Validator end-->
+=======
+<!-- Password validation End  -->
+>>>>>>> 56c0079951e7d96f979fc18d96d3dfedff9c989a
 </head>
 <!-- Header end -->
 
 <body>
+<<<<<<< HEAD
 
 
 <section class="content">
+=======
+ <section class="content">
+>>>>>>> 56c0079951e7d96f979fc18d96d3dfedff9c989a
 
   <!-- Sidebar Start -->
     <% include partials/sidebar.html %>
@@ -52,7 +63,7 @@ function validatePassword()
     <div class="row breadcrumbs">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="breadcrumbs">
-          <li><a href="#"><i class="fa fa-home"></i></a></li>
+          <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
           <li><a href="#">Pages</a></li>
           <li><a href="#">Blank Page</a></li>
         </ul>
@@ -61,7 +72,11 @@ function validatePassword()
     <!-- Breadcrumbs End -->
 
 <!--Form start-->
+<<<<<<< HEAD
 <form method="post" class="basic-form" action="/users/save" name="form">
+=======
+<form method="post" class="basic-form" action="/users/save" name="frm" id=>
+>>>>>>> 56c0079951e7d96f979fc18d96d3dfedff9c989a
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h3>Users</h3>
@@ -115,7 +130,11 @@ function validatePassword()
                     <label for="password">Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+<<<<<<< HEAD
                       <input type="password" name="password" id="password" placeholder="Password" class="form-control"/>
+=======
+                      <input type="password" name="password" id="password" placeholder="password" class="form-control" required/>
+>>>>>>> 56c0079951e7d96f979fc18d96d3dfedff9c989a
                      </div>
                     </div>
                  
@@ -126,7 +145,11 @@ function validatePassword()
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
+<<<<<<< HEAD
                       <input type="password" placeholder="Repeat Password" class="form-control" id="confirm_password" 
+=======
+                      <input type="password" placeholder="Re-type" class="form-control" id="confirm_password" required
+>>>>>>> 56c0079951e7d96f979fc18d96d3dfedff9c989a
                       onblur="validatePassword()"/>
                    </div>
                   </div>  
@@ -139,7 +162,7 @@ function validatePassword()
                     </div>
                     <div class="col-md-6">
                      <label for="phone">IMEI:</label>
-                     <input type="text"  name="imei" id="imei" placeholder="Enter imei Number" required 
+                     <input type="text"  name="imei" id="imei" placeholder="Enter 16 digit imei Number" required 
                      pattern="\d{16}" />
                      
                     </div>
@@ -170,6 +193,7 @@ function validatePassword()
                     </div>
 
                   </div>
+                    
               </div>
 
             </div>
