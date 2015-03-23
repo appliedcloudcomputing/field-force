@@ -3,6 +3,7 @@
 <!-- Header start -->
   <% include partials/head.html %>
 
+<!--Password Validator start-->
   <script type="text/javascript">
 
  
@@ -26,10 +27,12 @@ function validatePassword()
 
 
   </script>
+  <!--Password Validator end-->
 </head>
 <!-- Header end -->
 
 <body>
+
 
 <section class="content">
 
@@ -39,8 +42,8 @@ function validatePassword()
 
 <div class="content-liquid-full">
   <div class="container">
-
-          <!-- Header Bar Start -->
+    
+              <!-- Header Bar Start -->
         <% include partials/header.html %>
       <!-- Header Bar End -->
 
@@ -58,11 +61,13 @@ function validatePassword()
     <!-- Breadcrumbs End -->
 
 <!--Form start-->
-<form method="post" class="basic-form" action="/users/save" name="frm">
+<form method="post" class="basic-form" action="/users/save" name="form">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h3>Users</h3>
+    </div>    
           <div class="boxed">
+
 
               <!-- Title Bar Start -->
               <div class="title-bar">
@@ -110,7 +115,7 @@ function validatePassword()
                     <label for="password">Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                      <input type="password" name="password" id="password" placeholder="password" class="form-control"/>
+                      <input type="password" name="password" id="password" placeholder="Password" class="form-control"/>
                      </div>
                     </div>
                  
@@ -121,7 +126,7 @@ function validatePassword()
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-                      <input type="password" placeholder="Re-type" class="form-control" id="confirm_password" 
+                      <input type="password" placeholder="Repeat Password" class="form-control" id="confirm_password" 
                       onblur="validatePassword()"/>
                    </div>
                   </div>  
@@ -157,20 +162,22 @@ function validatePassword()
 
                   <div class="row">  
                    <div class="col-md-6 text-left">
-                      <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Save</button>
+                      <button type="submit" class="btn btn-lg btn-success" id="submit"><i class="fa fa-check"></i> Save</button>
                     </div>
                                     
                   <div class="col-md-6 text-right">
-                      <button type="" class="btn btn-lg btn-success"><i class="fa fa-reply"></i>Reset</button>
+                      <button type="reset" class="btn btn-lg btn-success"><i class="fa fa-reply"></i>Reset</button>
                     </div>
+
                   </div>
               </div>
 
             </div>
             
       </div>
-      
- </form>
+</div>
+      </div>
+ 
 </section>
 <!-- Form End-->
 
