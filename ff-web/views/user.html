@@ -3,12 +3,11 @@
 <!-- Header start -->
   <% include partials/head.html %>
 
-  <script type="text/javascript">
+<!-- Password validation starts  -->
 
- 
-
-function validatePassword()
-{
+<script type="text/javascript">
+ function validatePassword()
+ {
   var password = document.getElementById("password").value;
   var confirm_password = document.getElementById("confirm_password").value;
 
@@ -20,17 +19,17 @@ function validatePassword()
   } 
   else 
   {
-    alert('Password matched');
+    
   }
-}
+ }
+</script>
 
-
-  </script>
+<!-- Password validation End  -->
 </head>
 <!-- Header end -->
 
 <body>
-
+ 
 <section class="content">
 
   <!-- Sidebar Start -->
@@ -49,7 +48,7 @@ function validatePassword()
     <div class="row breadcrumbs">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="breadcrumbs">
-          <li><a href="#"><i class="fa fa-home"></i></a></li>
+          <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
           <li><a href="#">Pages</a></li>
           <li><a href="#">Blank Page</a></li>
         </ul>
@@ -58,7 +57,7 @@ function validatePassword()
     <!-- Breadcrumbs End -->
 
 <!--Form start-->
-<form method="post" class="basic-form" action="/users/save" name="frm">
+<form method="post" class="basic-form" action="/users/save" name="frm" id=>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h3>Users</h3>
@@ -110,7 +109,7 @@ function validatePassword()
                     <label for="password">Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                      <input type="password" name="password" id="password" placeholder="password" class="form-control"/>
+                      <input type="password" name="password" id="password" placeholder="password" class="form-control" required/>
                      </div>
                     </div>
                  
@@ -121,7 +120,7 @@ function validatePassword()
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-                      <input type="password" placeholder="Re-type" class="form-control" id="confirm_password" 
+                      <input type="password" placeholder="Re-type" class="form-control" id="confirm_password" required
                       onblur="validatePassword()"/>
                    </div>
                   </div>  
@@ -134,7 +133,7 @@ function validatePassword()
                     </div>
                     <div class="col-md-6">
                      <label for="phone">IMEI:</label>
-                     <input type="text"  name="imei" id="imei" placeholder="Enter imei Number" required 
+                     <input type="text"  name="imei" id="imei" placeholder="Enter 16 digit imei Number" required 
                      pattern="\d{16}" />
                      
                     </div>
@@ -164,6 +163,7 @@ function validatePassword()
                       <button type="" class="btn btn-lg btn-success"><i class="fa fa-reply"></i>Reset</button>
                     </div>
                   </div>
+
               </div>
 
             </div>
