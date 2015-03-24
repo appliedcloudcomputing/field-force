@@ -3,9 +3,9 @@
 <!-- Header start -->
   <% include partials/head.html %>
 
+
 <!--Password Validator start-->
   <script type="text/javascript">
-
 
 function validatePassword()
 {
@@ -23,16 +23,13 @@ function validatePassword()
     alert('Password matched');
   }
 }
-
-
-  </script>
+ </script>
   <!--Password Validator end-->
   
 </head>
 <!-- Header end -->
 
 <body>
-
 
 <section class="content">
 
@@ -61,6 +58,7 @@ function validatePassword()
     <!-- Breadcrumbs End -->
 
 <!--Form start-->
+
 <form method="post" class="basic-form" action="/users/save"name="form">
   <!--Success Message on submit start-->
   <div id="" class="alert alert-error alert-info" style="display: block;">
@@ -121,7 +119,6 @@ function validatePassword()
                     <label for="password">Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                      <input type="password" name="password" id="password" placeholder="Password" class="form-control"/>
                      </div>
                     </div>
                  
@@ -132,8 +129,6 @@ function validatePassword()
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-                      <input type="password" placeholder="Repeat Password" class="form-control" id="confirm_password" 
-                      onblur="validatePassword()"/>
                    </div>
                   </div>  
                   </div>

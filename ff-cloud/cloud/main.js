@@ -30,7 +30,7 @@ Parse.Cloud.define('saveUser', function(req, res) {
 			address: req.params.address,
 			userType: req.params.userType,
 			password:req.params.password,
-			imei: req.params.imei,
+			//imei: req.params.imei,
 			//currentLocation: req.params.currentLocation,
 			success: function(message) {
 				res.success(message);
@@ -49,7 +49,7 @@ Parse.Cloud.define('saveUser', function(req, res) {
 			address: req.params.address,
 			userType: req.params.userType,
 			imei: req.params.imei,
-			//currentLocation: req.params.currentLocation,
+			currentLocation: req.params.currentLocation,
 			success: function(message) {
 				res.success(message);
 			},
