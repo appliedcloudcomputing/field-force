@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="fuelux" lang="en">
+<haed>
+<!-- Header start -->
+  <% include partials/head.html %>
+
+</head>
+<!-- Header end -->
+
+<body>
+
+<section class="content">
+
+  <!-- Sidebar Start -->
+    <% include partials/sidebar.html %>
+  <!-- Sidebar End -->
+
+<div class="content-liquid-full">
+  <div class="container">
+
+          <!-- Header Bar Start -->
+        <% include partials/header.html %>
+      <!-- Header Bar End -->
+
+
+    <!-- Breadcrumbs Start -->
+    <div class="row breadcrumbs">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul class="breadcrumbs">
+          <li><a href="#"><i class="fa fa-home"></i></a></li>
+          <li><a href="#">Pages</a></li>
+          <li><a href="#">Blank Page</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Breadcrumbs End -->
+
+<!--Form start-->
+<form method="post" class="basic-form" action="/job/save" >
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3>JOB</h3>
+          <div class="boxed">
+
+              <!-- Title Bar Start -->
+              <div class="title-bar">
+                <h4>Job Form</h4>
+              </div>
+              <!-- Title Bar End -->
+
+              <div class="inner no-radius">
+
+               
+                <div class="row">
+                <div class="col-md-6">
+
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title" placeholder="jobs title" />
+                </div>
+                  
+
+                <div class="col-md-6">
+                  <label for="customer">customer:</label>
+                  <input type="text" name="customer" id="customer" 
+                  placeholder="customers name to whom the job is related" />
+                </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="currentlyAssignedTo">CurrentlyAssignedTo:</label>
+                    <input type="text" name="currentlyAssignedTo" id="currentlyAssignedTo"
+                     placeholder="employees name to whom the job is assigned" />
+                  </div>
+                
+              
+                  <div class="col-md-3">
+                    <label for="assigned">assigned:</label>
+                     <select id="assigned" name="assigned">
+                        <option selected="selected" value="true">true</option>
+                        <option value="false">false</option>
+                    </select>
+                  </div>
+                   <div class="col-md-3" style="margin-top: 5%;padding-left: 12%;">
+                      completed :
+                      <input type="checkbox" name="completed" id="completed" value="true" class="icheck-blue" />
+                      <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display:none; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);">
+                       </ins>
+                 
+                 
+                  </div> 
+                  
+                  
+                  </div>
+                
+
+                <div class="row">
+                   <div class="col-md-6">
+                    <label for="descroption">Description:</label>
+                    <textarea name="description" id="description" placeholder="Enter Your description..." >
+                    </textarea>
+                  </div>
+                  
+                  
+                    
+            
+                    
+                        
+                   <div class="row">      
+                  <div class="col-md-6">
+                  <label for="currentStage">CurrentStage:</label>
+                  <input type="currentStage" name="currentStage" id="currentStage"
+                   placeholder="current stage of the job" />
+                </div>
+              </div>
+                
+                
+                 <div class="row">  
+                <div class="col-md-12 text-left">
+                      <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Save</button>
+                    </div>
+                  </div>
+                  </div>
+                   </div>
+
+              </div>
+            
+ 
+      
+ </form>
+</section>
+<!-- Form End-->
+
+
+<!-- Javascript -->
+
+  <% include partials/foot.html %>
+
+<!-- End Javascript -->
+
+
+</body>
+</html>
