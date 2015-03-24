@@ -24,7 +24,7 @@ exports.save = function(params) {
 		user.set("phone", params.phone);
 		user.set("address", params.address);
 		user.set("userType", params.userType);
-		//user.set("imei", params.imei);
+		user.set("imei", params.imei);
 		//user.set("currentLocation", params.currentLocation);
 		
 		user.save(null, {
@@ -58,7 +58,7 @@ exports.update = function(params) {
 					user.set("phone", params.phone);
 					user.set("address", params.address);
 					user.set("userType", params.userType);
-					//user.set("imei", params.imei);
+					user.set("imei", params.imei);
 					//user.set("currentLocation", params.currentLocation);
 					//user.set("lastUpdatedBy", currentUser);
 					user.save(null, {
