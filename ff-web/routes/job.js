@@ -38,7 +38,7 @@ router.post('/save', function(req, res, next) {
           message: message,
           status: 200
         }
-        res.end(JSON.stringify(response));
+       res.render('job', {msg: "User Data Save successfully"});
       },
       error: function(error) {
         var response = {

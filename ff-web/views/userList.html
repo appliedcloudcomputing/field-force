@@ -71,7 +71,7 @@
         <div class="inner">
         <table class="theme-table invoice-table" id="user-list" >
           <!--Add user start-->
-        <div class="input-group" style="margin:right;">
+        <div class="input-group" style="float:right;">
           <a href="/users/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
           </div>
           <!--Add User end-->
@@ -98,11 +98,11 @@
                     <% for(var i = 0; i < userList.length; i++) { %>
                         <tr>
             
-                            <td><%= userList[i].username %></td>
-                            <td><%= userList[i].email %></td>
-                            <td><%= userList[i].phone %></td>
-                            <td><%= userList[i].address %></td>
-                            <td><%= userList[i].imei %></td>
+                  <td style="background-color:transparent;"><%= userList[i].username %></td>
+                  <td style="background-color:transparent;"><%= userList[i].email %></td>
+                  <td style="background-color:transparent;"><%= userList[i].phone %></td>
+                  <td style="background-color:transparent;"><%= userList[i].address %></td>
+                  <td style="background-color:transparent;"><%= userList[i].imei %></td>
                     
                         </tr>
                     <% } %>

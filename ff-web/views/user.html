@@ -1,31 +1,26 @@
 <!doctype html>
 <html class="fuelux" lang="en">
 <!-- Header start -->
+<head>
   <% include partials/head.html %>
 
+  <!--saved success message display path start-->
+  <!--<script src="/javascripts/forms.js"></script>-->
+  <!--saved success message display path end-->
 
-<!--Password Validator start-->
-  <script type="text/javascript">
+  <!--Submit button save message-->
+ <!-- <link rel="stylesheet" href="/css/boostrap.min.css" />
+  <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+  <script type = "text/javascript">
+$(document).on('click' , '#btn-success' , functions(evt){
+evt.preventDefault();
 
-function validatePassword()
-{
-  var password = document.getElementById("password").value;
-  var confirm_password = document.getElementById("confirm_password").value;
 
-  if(password!= confirm_password) 
-  {
-    alert('Wrong confirm password !\n Doesnt match with other field');
-    document.getElementById("password").value= "";
-   document.getElementById("confirm_password").value= "";
-  } 
-  else 
-  {
-    alert('Password matched');
-  }
-}
- </script>
-  <!--Password Validator end-->
-  
+
+$('#alert').removeClass('alert alert-success').text('Success!');
+});
+</script> -->
+
 </head>
 <!-- Header end -->
 
@@ -59,12 +54,15 @@ function validatePassword()
 
 <!--Form start-->
 
-<form method="post" class="basic-form" action="/users/save"name="form">
+<form method="post" class="basic-form" action="/users/save"name="form" onsubmit="return checkForm(this);">
+   <div id="message" class="alert">
+      <p></p>
+    </div> 
   <!--Success Message on submit start-->
-  <div id="" class="alert alert-error alert-info" style="display: block;">
+  <!--<div id="" class="alert alert-error alert-info" style="display: block;">
                 <p>Resource saved successfully!</p>
               </div>
-              <!--Success Message on submit end-->
+              <//Success Message on submit end-->
 
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -78,7 +76,7 @@ function validatePassword()
                 <h4>User Form</h4>
               </div>
               <!-- Title Bar End -->
-
+            
               <div class="inner no-radius">
 
                
@@ -111,27 +109,22 @@ function validatePassword()
                   </select>
                   </div>
                   </div>
-
-
-
-                 <div class="row">
-                   <div class="col-md-6">
+				  <div class="row">
+				  <div class="col-md-6">
                     <label for="password">Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                     </div>
+                      <input type="password" id="password" name="password" placeholder="password" class="form-control">
                     </div>
-                 
-
-                  
-                  <div class="col-md-6">
-                    <label for="inputpasswordconfirm">Confirm Password:</label>
+                  </div>
+				<div class="col-md-6">
+                    <label for="rep-password">Repeat Password:</label>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-
-                   </div>
-                  </div>  
+                      <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm_password" class="form-control">
+                    </div>
                   </div>
+                </div>
 
                   <div class="row">  
                     <div class="col-md-6">
@@ -163,11 +156,11 @@ function validatePassword()
 
                   <div class="row">  
                    <div class="col-md-6 text-left">
-                      <button type="submit" class="btn btn-lg btn-success" id="submit"><i class="fa fa-check"></i> Save</button>
+                      <button type="submit" id="btn-success" class="btn btn-lg btn-success" id="submit"><i class="fa fa-check"></i> Save</button>
                     </div>
                                     
                   <div class="col-md-6 text-right">
-                      <button type="reset" class="btn btn-lg btn-success"><i class="fa fa-reply"></i>Reset</button>
+                      <button type="reset"  class="btn btn-lg btn-success"><i class="fa fa-reply"></i>Reset</button>
                     </div>
 
                   </div>
@@ -182,7 +175,9 @@ function validatePassword()
  
 </section>
 <!-- Form End-->
-
+ <div id="message" class="alert">
+               <p></p>
+                </div>  
 
 <!-- Javascript -->
 
