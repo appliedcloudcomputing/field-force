@@ -1,5 +1,7 @@
 var user = require('cloud/user/user.js');
 var job  = require('cloud/job/job.js');
+var changepass = require('cloud/user/changePassword.js');
+
 
 // Use Parse.Cloud.define to define as many cloud functions as you want.
 // For example:
@@ -100,3 +102,24 @@ Parse.Cloud.define('saveJob', function(req, res) {
 	} 
 });
 
+
+/*-----------------------------------------------CHANGE PASSWORD-----------------------------------------------*/
+
+Parse.Cloud.define('changePassword', function(req, res) {
+	console.log("Cahnge password Code Called");
+      Parse.Cloud.useMasterKey();
+        changepass.save({    
+            newPassword:req.params.newPassword,
+            username:req.params.username,
+			
+			success: function(message){
+             res.success(message);
+             },
+              error: function(error){
+                    res.error(error);
+               }
+            });
+       
+        
+    });
+	
