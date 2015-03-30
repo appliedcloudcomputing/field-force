@@ -10,7 +10,7 @@ router.get('/signup', function(req, res, next) {
   res.render('signup', {error: ""});
 });
 
- 
+
 
 
  router.get('/save', function(req, res, next) {
@@ -44,7 +44,7 @@ router.get('/signup', function(req, res, next) {
           message: message,
           status: 200
         }
-         res.render('user', {msg: "User Data Save successfully"});///////////////////
+         res.render('user', {msg: "User Data Save successfully"});
       },
       error: function(error) {
         var response = {
@@ -56,6 +56,7 @@ router.get('/signup', function(req, res, next) {
       }
     });
 });
+
 
 
 /*userListing*/
