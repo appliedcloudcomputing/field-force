@@ -20,8 +20,8 @@ var users = require('./routes/users');
 var login = require('./routes/login');
 var dashboard = require('./routes/dashboard');
 var job = require('./routes/job');
-var changepass = require('./routes/changepass')
-
+var changepassword = require('./routes/changepassword');
+var customer = require('./routes/customer');
 var app = express();
 
 // view engine setup
@@ -45,8 +45,8 @@ app.use('/users', users);
 app.use('/login', login);
 app.use('/dashboard', dashboard);
 app.use('/job',job);
-app.use('/changepass',changepass);
-
+app.use('/changepassword',changepassword);
+app.use('/customer',customer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
