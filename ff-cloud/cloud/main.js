@@ -100,5 +100,3 @@ Parse.Cloud.define('saveJob', function(req, res) {
 	} 
 });
 
-
--->
