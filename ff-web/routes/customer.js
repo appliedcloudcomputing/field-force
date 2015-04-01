@@ -13,7 +13,7 @@ var router = express.Router();
   console.log("********************* SAVE CUSTOMER CALLED ***********************");
   
   var data = {
-    fullname:req.body.fullname,
+    fullname:req.body.name,
     email:req.body.email,
     password:req.body.password,
     phone:req.body.phone,
@@ -44,8 +44,8 @@ var router = express.Router();
     });
 });
 
-/*customerListing*/
-/*
+//customerListing
+
 router.get('/', function(req, res, next) 
 {
  var customerList = [];
@@ -59,12 +59,12 @@ var userQuery = new Parse.Query(Parse.User);
         users.forEach(function(user) 
         {
           var _customer = {
-
-            email: customerList.get ('email'),
-            address :customerList.get('address'),
-            phone :customerList.get('phone'),
-            usertype:customerList.get('userType')
-                      }
+            email: user.get('email'),
+            name:user.get('name'),
+            address :user.get('address'),
+            phone :user.get('phone')
+            
+        }
           customerList.push(_customer);
         });
         res.render('customerList', {customerList: customerList});
@@ -80,7 +80,7 @@ var userQuery = new Parse.Query(Parse.User);
     }
   });
 });
-*/
+
 module.exports = router;
 
 

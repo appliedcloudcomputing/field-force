@@ -3,28 +3,6 @@
 <!-- Header start -->
   <% include partials/head.html %>
 
-
-
-<script type="text/javascript">
- function validatePassword()
- {
-  var password = document.getElementById("password").value;
-  var confirm_password = document.getElementById("confirm_password").value;
-
-  if(password!= confirm_password) 
-  {
-    alert('Wrong confirm password !\n Doesnt match with other field');
-    document.getElementById("password").value= "";
-   document.getElementById("confirm_password").value= "";
-  } 
-  else 
-  {
-    
-  }
- }
-</script>
-
-<!-- Password validation End  -->
 </head>
 <!-- Header end -->
 
@@ -79,7 +57,7 @@
                 <div class="col-md-6">
 
                     <label for="name">Full Name:</label>
-                    <input type="text" name="fullname" id="fullname" placeholder="Last name  First Name Middle name" required  autofocus />
+                    <input type="text" name="name" id="name" placeholder="Last name  First Name Middle name" required  autofocus />
                 </div>
                   <div class="col-md-6">
                     <label for="email">E-Mail:</label>

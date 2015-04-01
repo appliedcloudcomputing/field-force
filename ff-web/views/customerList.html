@@ -1,0 +1,141 @@
+<!doctype html>
+<html class="fuelux" lang="en">
+<!-- Header start -->
+<head>
+  <% include partials/head.html %>
+    <!--Search Integration start-->
+    <!-- jQuery -->
+
+   <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+     <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+    <script src="/js/user/events.js"></script>
+   
+
+    <!--Search Integration end-->
+</head>
+<!-- Header end -->
+
+<body>
+<section class="content">
+
+  <!-- Sidebar Start -->
+    <% include partials/sidebar.html %>
+  <!-- Sidebar End -->
+
+<div class="content-liquid-full">
+  <div class="container">
+
+          <!-- Header Bar Start -->
+        <% include partials/header.html %>
+      <!-- Header Bar End -->
+
+
+    <!-- Breadcrumbs Start -->
+    <div class="row breadcrumbs">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul class="breadcrumbs">
+          <li><a href="#"><i class="fa fa-home"></i></a></li>
+          <li><a href="#">Pages</a></li>
+          <li><a href="#">Blank Page</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Breadcrumbs End -->
+
+
+
+<!--Form start-->
+ <form method="post" class="basic-form" action="/customer/customerList">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <h3>Users</h3>
+      </div>
+    </div>
+       
+       <div class="boxed">
+              <!-- Title Bar Start -->
+              <div class="title-bar">
+                <h4>Customer List</h4>               
+              </div>
+
+             <!-- Title Bar End -->
+
+       <!--button start-->
+
+      
+      <!--table header start-->
+
+        <div class="inner">
+        <table class="theme-table invoice-table" id="customer-list" >
+          <!--Add user start-->
+
+        <div class="input-group" style="float:right;">
+        <a href="/customer/save" padding-right: 5px;><i class="fa fa-plus">
+        </i>
+          </a>
+          </div>
+
+          <!--Add User end-->
+  
+        <div style="width:200px;">
+          <thead>
+            <tr>
+              <th style="border-bottom: 0px;">name</th>
+            
+              <th style="border-bottom: 0px;">email</th>
+         
+              <th style="border-bottom: 0px;">address</th>
+             
+              <th style="border-bottom: 0px;">phone</th>
+         
+        
+            </tr>
+          </thead>
+          <!--table body start-->
+                <tbody>
+
+                    <% for(var i = 0; i < customerList.length; i++) { %>
+                        <tr>
+            
+        <td style="background-color:transparent;"><%= customerList[i].name %></td>
+        <td style="background-color:transparent;"><%= customerList[i].email %></td>
+        <td style="background-color:transparent;"><%= customerList[i].phone %></td>
+        <td style="background-color:transparent;"><%= customerList[i].address %></td>
+                            
+                        </tr>
+                    <% } %>
+                </tbody>
+              <!--table body end-->
+
+             
+        </div>       
+        </table>
+      
+        <!--table end-->
+  
+  </div>          
+  </div>
+    </div>
+      
+      </div>
+  
+
+
+</section>
+
+    </form>
+
+<!-- Form End-->
+
+
+
+<!-- Javascript -->
+
+  <% include partials/foot.html %>
+
+<!-- End Javascript -->
+
+</body>
+</html>
