@@ -4,8 +4,21 @@ var User = Parse.Object.extend("User");
 
 
 router.get('/', function(req, res, next) {
-  res.render('changepassword', {error: ""});
-}); 
+  var currentUser = Parse.User.current();
+  if (currentUser) {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+    var _user = {
+       name : currentUser.get("name"),
+    }
+      res.render('changepassword', {user : _user});
+
+  } else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }   
+  
+});
+
 
 router.post('/save', function(req, res) {
   console.log("Called changepassword.js");
@@ -28,7 +41,7 @@ router.post('/save', function(req, res) {
           message: message,
           status: 200
         }
-        res.end(JSON.stringify(response));
+        //res.end(JSON.stringify(response));
         res.render('changepassword',{error:""})
       },
       error: function(error) {
