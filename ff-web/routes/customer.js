@@ -3,12 +3,22 @@ var router = express.Router();
 
 
   router.get('/save', function(req, res, next) {
-  res.render('customer', {error: ""});
+  var currentUser = Parse.User.current();
+  if (currentUser) {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+    var _user = {
+       name : currentUser.get("name"),
+    }
+      res.render('customer', {user : _user});
+
+  } else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }   
+  
 });
- router.get('/', function(req, res, next) {
-  res.render('customerList', {error: ""});
-});
- 
+
+
  router.post('/save', function(req, res, next) {
   console.log("********************* SAVE CUSTOMER CALLED ***********************");
   
@@ -45,7 +55,7 @@ var router = express.Router();
 });
 
 //customerListing
-
+/*
 router.get('/', function(req, res, next) 
 {
  var customerList = [];
@@ -80,7 +90,7 @@ var userQuery = new Parse.Query(Parse.User);
     }
   });
 });
-
+*/
 module.exports = router;
 
 

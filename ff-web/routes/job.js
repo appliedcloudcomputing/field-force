@@ -8,13 +8,39 @@ var router = express.Router();
   */ 
 router.get('/save', function(req, res) {
 	console.log('Rendering job save page...');
-	res.render('job', {error: ""});
 
+var currentUser = Parse.User.current();
+  if (currentUser) {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+    var _user = {
+       name : currentUser.get("name"),
+    }
+      res.render('job', {user : _user});
+
+  } else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }   
+  
 });
+
+	
+
+
+
 
 router.post('/save', function(req, res, next) {
   console.log("saving job...............");
   console.log("******************** CHECK BOX VALUE : "+ req.body.checkbox);
+
+  var currentUser = Parse.User.current();
+ 
+  if (currentUser) 
+  {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+    var _user = {
+       name : currentUser.get("name"),
+             }
 
 
    var data = {
@@ -38,7 +64,7 @@ router.post('/save', function(req, res, next) {
           message: message,
           status: 200
         }
-       res.render('job', {msg: "User Data Save successfully"});
+       res.render('job', {user : _user});
       },
       error: function(error) {
         var response = {
@@ -49,5 +75,11 @@ router.post('/save', function(req, res, next) {
         res.end(JSON.stringify(response));
       }
     });
+
+  }else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }  
+
 });
 module.exports = router;
