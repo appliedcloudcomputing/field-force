@@ -140,7 +140,7 @@ Parse.Cloud.define('saveCustomer', function(req, res) {
 				res.success(message);
 			},
 			error: function(error) {
-				res.error(error);
+				   res.error(error);
 			}
 		});
 	} 

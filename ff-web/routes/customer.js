@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
-  router.get('/save', function(req, res, next) {
+  router.get('/', function(req, res, next) {
   var currentUser = Parse.User.current();
   if (currentUser) {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
