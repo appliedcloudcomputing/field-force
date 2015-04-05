@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
-  router.get('/', function(req, res, next) {
+  router.get('/save', function(req, res, next) {
   var currentUser = Parse.User.current();
   if (currentUser) {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
@@ -80,10 +80,10 @@ router.get('/', function(req, res, next)
             {
               var _customer = {
                
-                username:customer.get('name'),
-                address :customer.get('email'),
-                phone :customer.get('phone'),
-                usertype:customer.get('address')
+                name:customer.get('name'),
+                email :customer.get('email'),
+                phonr :customer.get('phone'),
+                address:customer.get('address')
                           }
               customerList.push(_customer);
             });
