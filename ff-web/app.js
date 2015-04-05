@@ -22,6 +22,7 @@ var dashboard = require('./routes/dashboard');
 var job = require('./routes/job');
 var changepassword = require('./routes/changepassword');
 var customer = require('./routes/customer');
+var profile = require('./routes/profile');
 var app = express();
 
 // view engine setup
@@ -47,7 +48,7 @@ app.use('/dashboard', dashboard);
 app.use('/job',job);
 app.use('/changepassword',changepassword);
 app.use('/customer',customer);
-
+app.use('/profile',profile);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

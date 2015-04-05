@@ -23,7 +23,7 @@ var router = express.Router();
   console.log("********************* SAVE CUSTOMER CALLED ***********************");
   
   var data = {
-    fullname:req.body.name,
+    name:req.body.name,
     email:req.body.email,
     password:req.body.password,
     phone:req.body.phone,
@@ -41,7 +41,7 @@ var router = express.Router();
           message: message,
           status: 200
         }
-         res.render('customer', {msg: "customer Data Save successfully"});
+        res.render('customer', {msg: "customer Data Save successfully"});  //
       },
       error: function(error) {
         var response = {
@@ -55,42 +55,55 @@ var router = express.Router();
 });
 
 //customerListing
-/*
+
 router.get('/', function(req, res, next) 
 {
- var customerList = [];
-  
-var userQuery = new Parse.Query(Parse.User);
-  userQuery.find({
-    success: function(users) 
-    {
-      console.log('USER SUCCESS');
-      if(customer) {
-        users.forEach(function(user) 
-        {
-          var _customer = {
-            email: user.get('email'),
-            name:user.get('name'),
-            address :user.get('address'),
-            phone :user.get('phone')
-            
-        }
-          customerList.push(_customer);
-        });
-        res.render('customerList', {customerList: customerList});
-       } 
+ // start.. checks if user is registered in our database
+  var currentUser = Parse.User.current();
 
-       else 
-       {
-        console.log('NO USERS PRESENT');
-       }
-    },
-    error: function(error) {
-      console.log('ERROR FINDING USERS: ' + error.message);
+  if (currentUser) 
+  {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+    var _u = {
+       name : currentUser.get("name"),
     }
-  });
-});
-*/
-module.exports = router;
+    // end.. checks if user is registered in our databases
+     var customerList = [];
+      
+      var userQuery = new Parse.Query(Parse.User);
+      userQuery.find({
+        success: function(customer) 
+        {
+          console.log('USER SUCCESS');
+          if(customer) {
+            customer.forEach(function(customer) //name of html page
+            {
+              var _customer = {
+               
+                username:customer.get('name'),
+                address :customer.get('email'),
+                phone :customer.get('phone'),
+                usertype:customer.get('address')
+                          }
+              customerList.push(_customer);
+            });
+            res.render('customerList', {customerList: customerList, user : _u});
+           } 
 
+           else 
+           {
+            console.log('NO USERS PRESENT');
+           }
+        },
+        error: function(error) {
+          console.log('ERROR FINDING USERS: ' + error.message);
+        }
+      });
+
+  }else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }   
+});
+module.exports = router;
 

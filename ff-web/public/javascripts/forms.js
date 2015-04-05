@@ -53,7 +53,7 @@ $(document).ready(function() {
         });
 	});
 
-//FUNCTIOZN TO SERIALIZE OBJECT
+    //FUNCTIOZN TO SERIALIZE OBJECT
     $.fn.serializeObject = function() {
         var o = {};
         var a = this.serializeArray();

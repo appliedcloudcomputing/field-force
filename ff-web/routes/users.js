@@ -93,9 +93,9 @@ var currentUser = Parse.User.current();
 /*userListing*/
 router.get('/', function(req, res, next) 
 {
-
+ // checks if user is registered in our databases
   var currentUser = Parse.User.current();
- 
+
   if (currentUser) 
   {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
@@ -114,7 +114,8 @@ router.get('/', function(req, res, next)
             {
               var _user = {
 
-                email: user.getUsername(),
+                email: user.get('email'),//made changes old email param = user.getUsername(),
+
                 username:user.get('username'),
                 address :user.get('address'),
                 phone :user.get('phone'),

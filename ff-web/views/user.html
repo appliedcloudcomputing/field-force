@@ -20,7 +20,11 @@ evt.preventDefault();
 $('#alert').removeClass('alert alert-success').text('Success!');
 });
 </script> -->
-
+<script>
+$('#submit').click(function() {
+        $( "#form" ).dialog( "open" );
+      });
+</script>
 </head>
 <!-- Header end -->
 
@@ -55,9 +59,7 @@ $('#alert').removeClass('alert alert-success').text('Success!');
 <!--Form start-->
 
 <form method="post" class="basic-form" action="/users/save"name="form" onsubmit="return checkForm(this);">
-   <div id="message" class="alert">
-      <p></p>
-    </div> 
+  
   <!--Success Message on submit start-->
   <!--<div id="" class="alert alert-error alert-info" style="display: block;">
                 <p>Resource saved successfully!</p>
@@ -133,7 +135,7 @@ $('#alert').removeClass('alert alert-success').text('Success!');
                     </div>
                     <div class="col-md-6">
                      <label for="phone">IMEI:</label>
-                     <input type="text"  name="imei" id="imei" placeholder="Enter imei Number" required 
+                     <input type="text"  name="imei" id="imei" placeholder="Enter 16 Digit imei Number" required 
                      pattern="\d{16}" />
                      
                     </div>
@@ -148,7 +150,7 @@ $('#alert').removeClass('alert alert-success').text('Success!');
 
                     <div class="col-md-6">
                     <label for="post-code">Location:</label>
-                    <input type="text" name="location" id="location" placeholder=""/>
+                    <input type="text" name="location" id="location" placeholder="Location"/>
                     </div>
                  </div>
                   
@@ -156,7 +158,8 @@ $('#alert').removeClass('alert alert-success').text('Success!');
 
                   <div class="row">  
                    <div class="col-md-6 text-left">
-                      <button type="submit" id="btn-success" class="btn btn-lg btn-success" id="submit"><i class="fa fa-check"></i> Save</button>
+                  <button type="submit" class="btn btn-lg btn-success" id="submit">
+                    <i class="fa fa-check"></i> Save</button>
                     </div>
                                     
                   <div class="col-md-6 text-right">
@@ -174,6 +177,7 @@ $('#alert').removeClass('alert alert-success').text('Success!');
       </div>
  
 </section>
+</form>
 <!-- Form End-->
  <div id="message" class="alert">
                <p></p>

@@ -36,9 +36,9 @@
     <div class="row breadcrumbs">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="breadcrumbs">
-          <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
-          <li><a href="">User </a></li>
-          
+          <li><a href="#"><i class="fa fa-home"></i></a></li>
+          <li><a href="#">Pages</a></li>
+          <li><a href="#">Blank Page</a></li>
         </ul>
       </div>
     </div>
@@ -47,18 +47,29 @@
 
 
 <!--Form start-->
- <form method="post" class="basic-form" action="/users/userList">
+ <form method="post" class="basic-form" action="/profile/">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-       <h3>Users</h3>
+       <h3> PROFILE</h3>
       </div>
-    </div>
+       </div>
        
        <div class="boxed">
               <!-- Title Bar Start -->
+              <div class="row">
               <div class="title-bar">
-                <h4>User List</h4>  
+                <h4>profile</h4>   
+                <div class="input-group" style="float:right;">
+        <a href="/profile/"><i class="fa fa-edit">
+        </i>
+          </a>
+          </div>
+            
               </div>
+                      </div>
+                    </div>
+    
+
 
              <!-- Title Bar End -->
 
@@ -68,28 +79,22 @@
       <!--table header start-->
 
         <div class="inner">
-          
-        <table class="theme-table invoice-table" id="user-list" >
+        <table class="theme-table invoice-table" id="customer-list" >
           <!--Add user start-->
 
-        <div class="input-group" style="float:right;">
-          <a href="/users/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
-          </div>        
-
+       
           <!--Add User end-->
   
         <div style="width:200px;">
           <thead>
             <tr>
-              <th style="border-bottom: 0px;">username</th>
+              <th style="border-bottom: 0px;">name</th>
             
               <th style="border-bottom: 0px;">email</th>
          
-              <th style="border-bottom: 0px;">phone</th>
-           
               <th style="border-bottom: 0px;">address</th>
              
-              <th style="border-bottom: 0px;">imei</th>
+              <th style="border-bottom: 0px;">phone</th>
          
         
             </tr>
@@ -97,27 +102,22 @@
           <!--table body start-->
                 <tbody>
 
-                    <% for(var i = 0; i < userList.length; i++) { %>
-                        <tr>
+                
+    <tr>
             
-                <td style="background-color:transparent;"><%= userList[i].username %>
-                </td>
-                  <td style="background-color:transparent;"><%= userList[i].email %>
-                  </td>
-                  <td style="background-color:transparent;"><%= userList[i].phone %>
-                  </td>
-                  <td style="background-color:transparent;"><%= userList[i].address %></td>
-                  <td style="background-color:transparent;"><%= userList[i].imei %>
-                  </td>
-                    
-                        </tr>
-                    <% } %>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.address %></td>
+                           
+    </tr>
                 </tbody>
               <!--table body end-->
 
              
         </div>       
         </table>
+
       
         <!--table end-->
   

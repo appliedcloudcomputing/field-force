@@ -6,7 +6,7 @@ jQuery(document).ready(function($){
       steps: [
         {
           element: '#step1',
-          intro: "<h3>Welcome to Simplicity!</h3><p>This is a quick tour of features Simplicity has to offer!</p>",
+          intro: "<h3>Welcome to Field-Force!</h3><p>This is a quick tour of features Field Force has to offer!</p>",
           position: "right"
         },
         {
