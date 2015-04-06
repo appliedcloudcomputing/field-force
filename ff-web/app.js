@@ -23,6 +23,7 @@ var job = require('./routes/job');
 var changepassword = require('./routes/changepassword');
 var customer = require('./routes/customer');
 var profile = require('./routes/profile');
+var expenses = require('./routes/expenses');
 var app = express();
 
 // view engine setup
@@ -49,6 +50,7 @@ app.use('/job',job);
 app.use('/changepassword',changepassword);
 app.use('/customer',customer);
 app.use('/profile',profile);
+app.use('/expenses',expenses);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
