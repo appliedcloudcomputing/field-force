@@ -17,8 +17,7 @@
 	<!-- edit javascript start-->
 
 	 <script type="text/javascript">
-        function display() {
-         
+  function display() {       
 		
 			 //<!-- name -->
    document.getElementById( 'h4_name' ).style.display = 'none'; //hides field and shows only on submit button click
@@ -66,9 +65,8 @@
     <div class="row breadcrumbs">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="breadcrumbs">
-          <li><a href="#"><i class="fa fa-home"></i></a></li>
-          <li><a href="#">Pages</a></li>
-          <li><a href="#">Blank Page</a></li>
+          <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
+          <li><a href="/profile">My Profile Page</a></li>
         </ul>
       </div>
     </div>
@@ -115,7 +113,7 @@
                 <!-- Right Side Start -->
            <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
 
-           <form method="post" class="basic-form" action="/profile/save" name="form" >
+           <form method="post" class="basic-form" action="/profile/update" name="form" >
                  
            <ul class="icon-list">
             <!-- name start-->
@@ -180,7 +178,7 @@
            <!--Save info button start -->
 
       <div class="col-md-6 text-right">
-      <button type="button" id="button" style ="float:right; display: none;"class="btn btn-lg btn-success"><i class="fa fa-check"></i> Save</button>
+      <button type="submit" id="button" style ="float:right; display: none;"class="btn btn-lg btn-success"><i class="fa fa-check"></i>Update</button>
        </div>
 
                <!--Save info button end -->
@@ -188,70 +186,19 @@
                    
 					
        </ul>
-					</form>
+		</form>
 
                 </div>
                 <!-- Right Side End -->
               </div>
               <!-- row profile end -->
-			  
-              <!-- Profile Stats Start -->
-              <div class="row">
-                <ul class="profile-stats">
-                  <li class="followers col-md-3 col-lg-3 col-sm-3 col-xs-6">
-                    <p>1,315</p>
-                    <h3>Followers</h3>
-                  </li>
-                  <li class="following col-md-3 col-lg-3 col-sm-3 col-xs-6">
-                    <p>218</p>
-                    <h3>Following</h3>
-                  </li>
-                  <li class="projects col-md-3 col-lg-3 col-sm-3 col-xs-6">
-                    <p>28</p>
-                    <h3>Projects</h3>
-                  </li>
-                  <li class="courses col-md-3 col-lg-3 col-sm-3 col-xs-6">
-                    <p>39</p>
-                    <h3>Courses</h3>
-                  </li>
-                </ul>
-              </div>
-              <!-- Profile Stats End -->
-
-              <!-- Profile Footer Start -->
-             <!-- <div class="footer">
-                <div class="col-lg-5 col-md-12 col-sm-6 col-xs-12">
-                  <h4>Follow my work at</h4>
-                </div>
-                <div class="col-lg-7 col-md-12 col-sm-6 col-xs-12">
-                  <ul class="profile-socials">
-                    <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#" class="dribbble"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
-                </div>
-              </div> -->
-              <!-- Profile Footer End -->
-
+			        <!-- Profile Stats Start -->                      
             </div>
           </div>
-
         </div>
-
-
-
 <!-- Form End-->
-
-
-
 <!-- Javascript -->
-
-  <% include partials/foot.html %>
-
+ <% include partials/foot.html %>
 <!-- End Javascript -->
-
 </body>
 </html>
