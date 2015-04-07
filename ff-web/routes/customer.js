@@ -54,6 +54,8 @@ var router = express.Router();
     });
 });
 
+
+/*
 //customerListing
 
 router.get('/', function(req, res, next) 
@@ -104,6 +106,6 @@ router.get('/', function(req, res, next)
       // show the signup or login page
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
-});
+}); */
 module.exports = router;
 
