@@ -36,9 +36,9 @@
     <div class="row breadcrumbs">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="breadcrumbs">
-          <li><a href="#"><i class="fa fa-home"></i></a></li>
-          <li><a href="#">Pages</a></li>
-          <li><a href="#">Blank Page</a></li>
+          <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
+          <li><a href="/customerList">Customer List</a></li>
+          
         </ul>
       </div>
     </div>
@@ -101,8 +101,8 @@
             
         <td style="background-color:transparent;"><%= customerList[i].name %></td>
         <td style="background-color:transparent;"><%= customerList[i].email %></td>
-        <td style="background-color:transparent;"><%= customerList[i].phone %></td>
         <td style="background-color:transparent;"><%= customerList[i].address %></td>
+        <td style="background-color:transparent;"><%= customerList[i].phone %></td>
                             
                         </tr>
                     <% } %>

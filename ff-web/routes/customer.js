@@ -71,6 +71,7 @@ router.get('/', function(req, res, next)
      var customerList = [];
       
       var userQuery = new Parse.Query(Parse.User);
+      userQuery.equalTo("userType","Customer");
       userQuery.find({
         success: function(customer) 
         {
@@ -82,7 +83,7 @@ router.get('/', function(req, res, next)
                
                 name:customer.get('name'),
                 email :customer.get('email'),
-                phonr :customer.get('phone'),
+                phone :customer.get('phone'),
                 address:customer.get('address')
                           }
               customerList.push(_customer);
