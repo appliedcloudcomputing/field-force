@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="fuelux" lang="en">
+<!-- Header start -->
+<head>
+  <% include partials/head.html %>
+ <script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+function initialize() {
+  var mapProp = {
+    zoom:15,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+  navigator.geolocation.getCurrentPosition(function(position) {
+        
+            var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            
+            var infowindow = new google.maps.InfoWindow({
+                map: map,
+                position: geolocate,
+                content:
+                    '<h1>User Location Is</h1>' +
+                    '<h2>Latitude: ' + position.coords.latitude + '</h2>' +
+                    '<h2>Longitude: ' + position.coords.longitude + '</h2>'
+            });
+            
+            map.setCenter(geolocate);
+            
+        });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+</head>
+<!-- Header end -->
+<body>
+<section class="content">
+  <!-- Sidebar Start -->
+    <% include partials/sidebar.html %>
+  <!-- Sidebar End -->
+<div class="content-liquid-full">
+  <div class="container">
+          <!-- Header Bar Start -->
+        <% include partials/header.html %>
+      <!-- Header Bar End -->
+    <!-- Breadcrumbs Start -->
+    <!-- Breadcrumbs Start -->
+    <div class="row breadcrumbs">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul class="breadcrumbs">
+          <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
+          <li><a href="/users/userDetails">Details Page</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Breadcrumbs End -->
+
+  <!--Form start-->
+  <form method="post" class="basic-form" action="" data-uri="">
+    <!--<div id="message" class="alert">
+      <p></p>
+    </div> -->
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3>User Detail</h3>
+    </div>
+    </div>
+          <div class="boxed">
+  
+
+              <!-- Title Bar Start -->
+              <div class="title-bar">
+                <h4>Details</h4>
+              </div>
+              <!-- Title Bar End -->
+              <div class="inner no-radius">               
+               <fieldset>
+                 <legend>Personal Details</legend>
+
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="title">Username : </label>                    
+                          <i class="fa fa-user"></i>&nbsp;<%= user.name %>        
+                </div>               
+
+                <div class="col-md-6">
+                  <label for="customer">E-mail :</label>
+                  <i class="fa fa-envelope" ></i><%= user.email %>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="title">Address : </label>                    
+                          <i class="fa fa-map-marker"></i><%= user.address %>      
+                </div>               
+
+                <div class="col-md-6">
+                  <label for="customer">Phone No :</label>
+                  <i class="fa fa-phone"></i> <%= user.phone %>
+                </div>
+                </div>
+              </fieldset>
+              <fieldset>
+                 <legend>Job Details</legend>
+
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="title">Job Assigned : </label>                    
+                          <i class="fa fa-user"></i>&nbsp;<%= user.name %>        
+                </div>               
+
+                <div class="col-md-6">
+                  <label for="customer">E-mail :</label>
+                  <i class="fa fa-envelope" ></i><%= user.email %>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="title">Address : </label>                    
+                          <i class="fa fa-map-marker"></i><%= user.address %>      
+                </div>               
+
+                <div class="col-md-6">
+                  <label for="customer">Phone No :</label>
+                  <i class="fa fa-phone"></i> <%= user.phone %>
+                </div>
+                </div>
+              </fieldset>
+              <fieldset>
+                 <legend>Geo Location</legend>
+
+                <div class="row">
+                <div id="googleMap" style="width:800px; height:380px;"></div>
+                </div>                
+              </fieldset>
+              <fieldset>
+                 <legend>Other</legend>
+
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="title"><a href="">View Lead Assigned</a></label>                    
+                                
+                </div>               
+
+                <div class="col-md-6">
+                  <label for="title"><a href="">View Expenses</a></label>
+                </div>
+                </div> 
+
+              </fieldset>
+
+                
+                 <div class="row">  
+                    <div class="col-md-12 text-left">
+                      <button type="Button" class="btn btn-lg btn-success"><i class="fa fa-check"></i>Go To Home</button>
+                    </div>
+                  </div>
+
+
+
+                </div>
+               </div>
+              </div>
+            
+ 
+      
+ </form>
+</section>
+<!-- Form End-->
+
+
+<!-- Javascript -->
+
+  <% include partials/foot.html %>
+
+<!-- End Javascript -->
+
+
+</body>
+</html>

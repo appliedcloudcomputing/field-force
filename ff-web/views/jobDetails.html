@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="fuelux" lang="en">
+<!-- Header start -->
+<head>
+  <% include partials/head.html %>
+ </head>
+<!-- Header end -->
+<body>
+<section class="content">
+  <!-- Sidebar Start -->
+    <% include partials/sidebar.html %>
+  <!-- Sidebar End -->
+<div class="content-liquid-full">
+  <div class="container">
+          <!-- Header Bar Start -->
+        <% include partials/header.html %>
+      <!-- Header Bar End -->
+    <!-- Breadcrumbs Start -->
+    <!-- Breadcrumbs Start -->
+    <div class="row breadcrumbs">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul class="breadcrumbs">
+          <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
+          <li><a href="">Details Page</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Breadcrumbs End -->
+
+  <!--Form start-->
+  <form method="post" class="basic-form" action="/expenses/save" data-uri="/expenses/save">
+    <!--<div id="message" class="alert">
+      <p></p>
+    </div> -->
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3>Job Detail</h3>
+        
+    </div>
+    </div>
+          <div class="boxed">
+  
+
+              <!-- Title Bar Start -->
+              <div class="title-bar">
+                <h4>Details</h4>
+                <div class="input-group" style="float:right;">
+          <a href="/job/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
+          </div>
+              </div>
+              <!-- Title Bar End -->
+              <div class="inner no-radius">               
+               <fieldset>
+                 <legend>Job Details</legend>
+
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="title">Job Title : </label>                    
+                          <i class="fa fa-user"></i>&nbsp;<%= user.name %>        
+                </div>               
+
+                <div class="col-md-6">
+                  <label for="customer">Job Status :</label>
+                  <i class="fa fa-envelope" ></i><%= user.email %>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="col-md-6">
+                    <label for="title">Customer : </label>                    
+                          <i class="fa fa-map-marker"></i><%= user.address %>      
+                </div>               
+
+                <div class="col-md-6">
+                  <label for="customer">Employee :</label>
+                  <i class="fa fa-phone"></i> <%= user.phone %>
+                </div>
+                </div>
+              </fieldset>
+                            
+                 <div class="row">  
+                    <div class="col-md-12 text-left">
+                      <button type="Button" class="btn btn-lg btn-success"><i class="fa fa-check"></i>Go To Home</button>
+                    </div>
+                  </div>
+                </div>
+               </div>
+              </div>           
+ </form>
+</section>
+<!-- Form End-->
+
+
+<!-- Javascript -->
+
+  <% include partials/foot.html %>
+
+<!-- End Javascript -->
+
+
+</body>
+</html>
