@@ -81,62 +81,38 @@
         <div style="width:200px;">
           <thead>
             <tr>
-              <th style="border-bottom: 0px;">username</th>
-            
-              <th style="border-bottom: 0px;">email</th>
-         
-              <th style="border-bottom: 0px;">phone</th>
-           
-              <th style="border-bottom: 0px;">address</th>
-             
-              <th style="border-bottom: 0px;">imei</th>
-         
-        
-            </tr>
+              <th style="border-bottom: 0px;">username</th>            
+              <th style="border-bottom: 0px;">email</th>         
+              <th style="border-bottom: 0px;">phone</th>                  
+              <th style="border-bottom: 0px;">User Type</th>
+              <th style="border-bottom: 0px;">Action</th>  
+             </tr>
           </thead>
           <!--table body start-->
                 <tbody>
 
                     <% for(var i = 0; i < userList.length; i++) { %>
-                        <tr>
-            
-                <td style="background-color:transparent;"><%= userList[i].username %>
-                </td>
-                  <td style="background-color:transparent;"><%= userList[i].email %>
-                  </td>
-                  <td style="background-color:transparent;"><%= userList[i].phone %>
-                  </td>
-                  <td style="background-color:transparent;"><%= userList[i].address %></td>
-                  <td style="background-color:transparent;"><%= userList[i].imei %>
-                  </td>
-                    
-                        </tr>
+                <tr>
+                  <td style="background-color:transparent;"><%= userList[i].username %></td>
+                  <td style="background-color:transparent;"><%= userList[i].email %></td>
+                  <td style="background-color:transparent;"><%= userList[i].phone %></td>             
+                  <td style="background-color:transparent;"><%= userList[i].userType %></td>
+                  <td style="background-color:transparent;"><a href="/users/userDetails">View</a></td>
+                </tr>
                     <% } %>
                 </tbody>
-              <!--table body end-->
-
-             
+              <!--table body end-->          
         </div>       
-        </table>
-      
-        <!--table end-->
-  
+        </table>      
+        <!--table end-->  
   </div>          
   </div>
-    </div>
-      
+    </div>      
       </div>
-  
-
-
 </section>
-
     </form>
 
 <!-- Form End-->
-
-
-
 <!-- Javascript -->
 
   <% include partials/foot.html %>

@@ -1,21 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
+/****************************************************************************/
 router.get('/index', function(req, res, next) {
   res.render('index', {error: ""});
 });
 
-
+/****************************************************************************/
 router.get('/signup', function(req, res, next) {
   res.render('signup', {error: ""});
 });
+/****************************************************************************/
 
-
-
-
- router.get('/save', function(req, res, next) {
-
-
+ router.get('/save', function(req, res, next) 
+ {
   var currentUser = Parse.User.current();
   if (currentUser) {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
@@ -30,8 +28,7 @@ router.get('/signup', function(req, res, next) {
   }   
   
 });
-
-  
+/****************************************************************************/  
  router.post('/save', function(req, res, next) {
   console.log("********************* SAVE USER CALLED ***********************");
   console.log("Username: "+  req.body.username + ", Password"+ req.body.password + " Email :"+ req.body.email);
@@ -88,9 +85,10 @@ var currentUser = Parse.User.current();
   }  
 });
 
-
+/****************************************************************************/
 
 /*userListing*/
+
 router.get('/', function(req, res, next) 
 {
  // checks if user is registered in our databases
@@ -114,12 +112,10 @@ router.get('/', function(req, res, next)
             {
               var _user = {
 
-                email: user.get('email'),//made changes old email param = user.getUsername(),
-
+                email: user.get('email'),
                 username:user.get('username'),
-                address :user.get('address'),
                 phone :user.get('phone'),
-                usertype:user.get('userType')
+                userType:user.get('userType')
                           }
               userList.push(_user);
             });
@@ -140,6 +136,25 @@ router.get('/', function(req, res, next)
       // show the signup or login page
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
+});
+
+/****************************************************************************/
+
+router.get('/userDetails', function(req, res, next) 
+ {
+  var currentUser = Parse.User.current();
+  if (currentUser) {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+    var _user = {
+       name : currentUser.get("name"),
+    }
+      res.render('userDetails', {user : _user});
+
+  } else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }   
+  
 });
 module.exports = router;
 

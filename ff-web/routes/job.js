@@ -82,4 +82,42 @@ router.post('/save', function(req, res, next) {
   }  
 
 });
+
+
+router.get('/jobDetail', function(req, res) {
+  console.log('Rendering job save page...');
+
+var currentUser = Parse.User.current();
+  if (currentUser) {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+    var _user = {
+       name : currentUser.get("name"),
+    }
+      res.render('jobDetails', {user : _user});
+
+  } else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }   
+  
+});
+
+router.get('/jobList', function(req, res) {
+  console.log('Rendering job save page...');
+
+var currentUser = Parse.User.current();
+  if (currentUser) {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+    var _user = {
+       name : currentUser.get("name"),
+    }
+      res.render('jobList', {user : _user});
+
+  } else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }   
+  
+});
+
 module.exports = router;
