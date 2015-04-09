@@ -4,6 +4,13 @@
   <% include partials/head.html %>
 </head>
 <!-- Header end -->
+   <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+     <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+    <script src="/js/user/events.js"></script>
+   
+</head>
 <body>
 <section class="content">
   <!-- Sidebar Start -->
@@ -34,9 +41,11 @@
     </div> -->
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h3>EXPENSES</h3>
+  
     </div>
     </div>
+
+
           <div class="boxed">
   
 
@@ -46,27 +55,63 @@
               </div>
               <!-- Title Bar End -->
 
-              <div class="inner no-radius">
+                            <div class="inner no-radius">
+                  <div class="row" style="margin-top: 20px;">
+               
+                <div class="col-md-3" style="padding-left: 5%">
+                <label for="employeeName">Name :</label>
+              </div>
+                 <div class="col-md-6">
+                  <select id="employeeName" name="employeeName">
+                    <% for(var i = 0; i < userList.length; i++)
+                     { %>
+
+ 
+
+ <option value = "<%= userList[i].username %>" >
+ </option> 
+ <option value = "<%= userList[i].username %>" placeholder="select employee name"><%= userList[i].username %>
+ </option>
+                     <% } %>
+  </select>
+                </div>
+              </div>
+          
 
                
-                <div class="row">
-                <div class="col-md-6">
+                <div class="row" style="margin-top: 20px;">
+                <div class="col-md-3" style="padding-left: 5%">
 
-                    <label for="title">ExpensesType:</label>
+                    <label for="expenses">ExpensesType:</label>
+                  </div>
+                  <div class="col-md-6">
                     <input type="text" name="expenses" id="expenses" placeholder="Type of Expenses" />
                 </div>
+              </div>
                   
-
-                <div class="col-md-6">
-                  <label for="customer">ExpensesAmount:</label>
-                  <input type="text" name="expensesamt" id="expensesamt" placeholder="Rs"
-                  placeholder=""/>
+                   <div class="row" style="margin-top: 20px;">
+                <div class="col-md-3" style="padding-left: 5%">
+                  <label for="expensesamt">ExpensesAmount:</label>
                 </div>
-                </div>
+                <div class="col-md-3" style="padding-right: 10%">
 
+              <input type="number" name="expensesamt" id="expensesamt" placeholder="Rs"/>
+                                  </div>
+                </div>
+                <div class="row" style="margin-top: 20px">
+                <div class="col-md-3" style="padding-left: 5%">
+                    <label for="assigned">Assigned:</label>
+                  </div>
+                  <div class="col-md-3" style="padding-right: 10%">
+                     <select id="assigned" name="assigned">
+                       <option value=""></option>
+                        <option value="">true</option>
+                        <option >false</option>
+                    </select>
+                  </div>
                 
-                 <div class="row">  
-                <div class="col-md-12 text-left">
+                 <div class="row" style="margin-top: 7%;">  
+                <div class="col-md-12 text-left" style=" margin-left:4%";>
                       <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Save</button>
                     </div>
                   </div>
@@ -85,8 +130,6 @@
 <!-- Javascript -->
 
   <% include partials/foot.html %>
-
-<!-- End Javascript -->
 
 
 </body>
