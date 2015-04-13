@@ -4,6 +4,13 @@
   <% include partials/head.html %>
 </head>
 <!-- Header end -->
+   <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+     <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+    <script src="/js/user/events.js"></script>
+   
+</head>
 <body>
 <section class="content">
   <!-- Sidebar Start -->
@@ -34,9 +41,11 @@
     </div> -->
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h3>EXPENSES</h3>
+  
     </div>
     </div>
+
+
           <div class="boxed">
   
 
@@ -46,7 +55,23 @@
               </div>
               <!-- Title Bar End -->
 
-              <div class="inner no-radius">
+                            <div class="inner no-radius">
+
+                 <div class="row">               
+                <div class="col-md-6">
+                <label for="employeeName">Name :</label>
+                
+                  <select id="employeeName" name="employeeName">
+                    <% for(var i = 0; i < userList.length; i++)
+                     { %>
+                  <option value = <%= userList[i].id %>>
+                    <%= userList[i].name %>
+                  </option>
+                     <% } %>
+                  </select>
+                </div>
+              </div>
+          
 
                
                 <div class="row">
@@ -85,8 +110,6 @@
 <!-- Javascript -->
 
   <% include partials/foot.html %>
-
-<!-- End Javascript -->
 
 
 </body>

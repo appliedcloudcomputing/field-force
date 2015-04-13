@@ -1,7 +1,7 @@
 $body = $("body");
 
 $(document).ready(function() {
-
+    alert("DOCUMENT READY CALLED");
     //HIDING ERROR AND SUCCESS DIVS ON PAGE LOAD
     //$("div.error-box").hide();
     $("div#message").hide();
@@ -27,7 +27,7 @@ $(document).ready(function() {
                             msgBox.show();
                             $(window).scrollTop($('div#message').offset().top);
                             $("form")[0].reset();
-                            /*window.location=$(e.currentTarget).data().uri;*/
+                             /*window.loca   tion=$(e.currentTarget).data().uri;*/
                         /*} else {
                             msgBox.html(data.message);
                             msgBox.addClass("alert-error");

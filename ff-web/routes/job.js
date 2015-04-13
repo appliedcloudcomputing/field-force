@@ -64,7 +64,8 @@ router.post('/save', function(req, res, next) {
           message: message,
           status: 200
         }
-       res.render('job', {user : _user});
+        res.end(JSON.stringify(response));  
+       //res.render('job', {user : _user});
       },
       error: function(error) {
         var response = {
