@@ -57,6 +57,7 @@
 
                             <div class="inner no-radius">
 
+
                  <div class="row">               
                 <div class="col-md-6">
                 <label for="employeeName">Name :</label>
@@ -69,29 +70,45 @@
                   </option>
                      <% } %>
                   </select>
+
                 </div>
               </div>
           
 
                
-                <div class="row">
-                <div class="col-md-6">
+                <div class="row" style="margin-top: 20px;">
+                <div class="col-md-3" style="padding-left: 5%">
 
-                    <label for="title">ExpensesType:</label>
+                    <label for="expenses">ExpensesType:</label>
+                  </div>
+                  <div class="col-md-6">
                     <input type="text" name="expenses" id="expenses" placeholder="Type of Expenses" />
                 </div>
+              </div>
                   
-
-                <div class="col-md-6">
-                  <label for="customer">ExpensesAmount:</label>
-                  <input type="text" name="expensesamt" id="expensesamt" placeholder="Rs"
-                  placeholder=""/>
+                   <div class="row" style="margin-top: 20px;">
+                <div class="col-md-3" style="padding-left: 5%">
+                  <label for="expensesamt">ExpensesAmount:</label>
                 </div>
-                </div>
+                <div class="col-md-3" style="padding-right: 10%">
 
+              <input type="number" name="expensesamt" id="expensesamt" placeholder="Rs"/>
+                                  </div>
+                </div>
+                <div class="row" style="margin-top: 20px">
+                <div class="col-md-3" style="padding-left: 5%">
+                    <label for="assigned">Assigned:</label>
+                  </div>
+                  <div class="col-md-3" style="padding-right: 10%">
+                     <select id="assigned" name="assigned">
+                       <option value=""></option>
+                        <option value="">true</option>
+                        <option >false</option>
+                    </select>
+                  </div>
                 
-                 <div class="row">  
-                <div class="col-md-12 text-left">
+                 <div class="row" style="margin-top: 7%;">  
+                <div class="col-md-12 text-left" style=" margin-left:4%";>
                       <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Save</button>
                     </div>
                   </div>

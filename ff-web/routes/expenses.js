@@ -92,6 +92,7 @@ router.get('/save', function(req, res, next)
           console.log('USER SUCCESS');
           if(users) {
             users.forEach(function(user) 
+
             { 
               console.log("ID: "+user.id);
               var _user = {
@@ -101,6 +102,7 @@ router.get('/save', function(req, res, next)
                 name:user.get('name'),
                 id :user.id
               }
+
               userList.push(_user);
             });
             res.render('expenses', {userList: userList, user : _u});
