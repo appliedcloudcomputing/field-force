@@ -19,6 +19,9 @@ var router = express.Router();
 });
 
 
+
+
+
  router.post('/save', function(req, res, next) {
   console.log("********************* SAVE CUSTOMER CALLED ***********************");
   
@@ -55,7 +58,7 @@ var router = express.Router();
 });
 
 
-/*
+
 //customerListing
 
 router.get('/', function(req, res, next) 
@@ -73,11 +76,12 @@ router.get('/', function(req, res, next)
      var customerList = [];
       
       var userQuery = new Parse.Query(Parse.User);
-      userQuery.equalTo("userType","Customer");
+      userQuery.equalTo("userType", "Customer");
       userQuery.find({
+        
         success: function(customer) 
         {
-          console.log('USER SUCCESS');
+          console.log('customer SUCCESS');
           if(customer) {
             customer.forEach(function(customer) //name of html page
             {
@@ -107,6 +111,7 @@ router.get('/', function(req, res, next)
       // show the signup or login page
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
-}); */
+}); 
+
 module.exports = router;
 

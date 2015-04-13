@@ -58,13 +58,17 @@
                             <div class="inner no-radius">
 
 
-                 <div class="row">               
-                <div class="col-md-6">
+                 <div class="row" style="margin-top: 20px;">               
+                <div class="col-md-3" style="padding-left: 5%">
                 <label for="employeeName">Name :</label>
-                
+              </div>
+                <div class="col-md-6">
                   <select id="employeeName" name="employeeName">
                     <% for(var i = 0; i < userList.length; i++)
                      { %>
+                     <option ></option>
+
+                  
                   <option value = <%= userList[i].id %>>
                     <%= userList[i].name %>
                   </option>

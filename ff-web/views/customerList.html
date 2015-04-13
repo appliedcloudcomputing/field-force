@@ -10,7 +10,7 @@
 
      <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
-    <script src="/js/user/events.js"></script>
+    <script src="/js/customer/events.js"></script>
    
 
     <!--Search Integration end-->
@@ -57,7 +57,12 @@
        <div class="boxed">
               <!-- Title Bar Start -->
               <div class="title-bar">
-                <h4>Customer List</h4>               
+                <h4>Customer List</h4>  
+                        <div class="input-group" style="float:right;">
+        <a href="/customer/save" padding-right: 5px;><i class="fa fa-plus">
+        </i>
+          </a>
+          </div>             
               </div>
 
              <!-- Title Bar End -->
@@ -71,11 +76,7 @@
         <table class="theme-table invoice-table" id="customer-list" >
           <!--Add user start-->
 
-        <div class="input-group" style="float:right;">
-        <a href="/customer/save" padding-right: 5px;><i class="fa fa-plus">
-        </i>
-          </a>
-          </div>
+
 
           <!--Add User end-->
   
@@ -95,17 +96,17 @@
           </thead>
           <!--table body start-->
                 <tbody>
-
                     <% for(var i = 0; i < customerList.length; i++) { %>
-                        <tr>
-            
-        <td style="background-color:transparent;"><%= customerList[i].name %></td>
-        <td style="background-color:transparent;"><%= customerList[i].email %></td>
-        <td style="background-color:transparent;"><%= customerList[i].address %></td>
-        <td style="background-color:transparent;"><%= customerList[i].phone %></td>
-                            
-                        </tr>
+                <tr>
+                  <td style="background-color:transparent;"><%= customerList[i].name %></td>
+                  <td style="background-color:transparent;"><%= customerList[i].email %></td>
+                  <td style="background-color:transparent;"><%= customerList[i].address %></td>             
+                  <td style="background-color:transparent;"><%= customerList[i].phone %></td>
+                  
+                </tr>
                     <% } %>
+
+                    
                 </tbody>
               <!--table body end-->
 
