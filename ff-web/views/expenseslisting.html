@@ -25,7 +25,7 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="breadcrumbs">
           <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
-          <li><a href="">Job Listing Page</a></li>
+          <li><a href="">Expenses Listing Page</a></li>
         </ul>
       </div>
     </div>
@@ -37,7 +37,7 @@
                 <p></p>
     <div class="row" >
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h3> Listing</h3>
+        <h3>EXPENSES LISTING</h3>
         
     </div>
     </div>
@@ -45,10 +45,10 @@
   
 
               <!-- Title Bar Start -->
-              <div class="title-bar" style="padding-left:40%;">
-                <h4> JOB Listing</h4>
+              <div class="title-bar">
+                <h4>Listing</h4>
                 <div class="input-group" style="float:right;">
-          <a href="/job/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
+          <a href="/expenses/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
           </div>
               </div>
               <!-- Title Bar End -->
@@ -65,25 +65,50 @@
 
             <table id="stripe-table" class="theme-table stripe-rows">
               <thead>
-                <tr>
-                <th>Job Title</th>
-                <th>Customer</th>
-                <th>employee</th>
-                <th>Status</th>                
+                <tr><th class="id hidden-xs">#</th>
+                <th>EMPLOYEE NAME</th>
+                <th class="hidden-sm hidden-xs">EXPENSES TYPE </th>
+                <th>EXPENSES APPROVED</th>
+                         
                 <th>Actions</th>
               </tr></thead>
               
               <tbody>
-                 <% for(var i = 0; i < jobList.length; i++) { %>
                 <tr>
-                  <td ><%= jobList[i].title %></td>
-                  <td ><%= jobList[i].customer %></td>
-                  <td ><%= jobList[i].employee %></td>             
-                  <td ><%= jobList[i].status %></td>
-                  <td ><a href="/job/jobDetails">View</a></td>
+                  <td class="id hidden-xs">1</td>
+                  <td>Agile Team Project</td>
+                  <td class="hidden-sm hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc condimentum arcu risus.</td>
+                  <td>Doe Jane</td>
+                  
+                  <td>
+                    <a href="#" class="edit"><i class="fa fa-pencil"></i></a>
+                    <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                  </td>
                 </tr>
-                    <% } %>
-      </tbody>
+                <tr>
+
+                  <td class="id hidden-xs">2</td>
+                  <td>Bug Tracking Project</td>
+                  <td class="hidden-sm hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc condimentum arcu risus.</td>
+                  <td>Johhny Jane</td>
+                 
+                  <td>
+                    <a href="#" class="edit"><i class="fa fa-pencil"></i></a>
+                    <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                  </td>
+                 </tr>
+                 <tr>
+                   <td class="id hidden-xs">3</td>
+                   <td>Mango Project</td>
+                   <td class="hidden-sm hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc condimentum arcu risus.</td>
+                   <td>Danny</td>
+                   
+                   <td>
+                     <a href="#" class="edit"><i class="fa fa-pencil"></i></a>
+                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                   </td>
+                 </tr>
+              </tbody>
             </table>
           </div>
           <!-- Table Holder End -->

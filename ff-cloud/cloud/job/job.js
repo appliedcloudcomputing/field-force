@@ -12,7 +12,7 @@ var Response = {
 
 
 exports.save = function(params) {
-	if(!params || !params.title || !params.currentlyAssignedTo || !params.customer || !params.assigned || !params.description || !params.completed || !params.currentStage) 
+	if(!params.title || !params.currentlyAssignedTo || !params.customer || !params.description || !params.completed || !params.currentStage) 
 	{
 		params.error(Response.ParametersEmpty);
 	} 

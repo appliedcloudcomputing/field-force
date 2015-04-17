@@ -50,7 +50,7 @@
   
 
               <!-- Title Bar Start -->
-              <div class="title-bar">
+              <div class="title-bar" style="padding-left: 40%;">
                 <h4>Expenses Form</h4>
               </div>
               <!-- Title Bar End -->
@@ -59,17 +59,16 @@
 
 
                  <div class="row" style="margin-top: 20px;">               
-                <div class="col-md-3" style="padding-left: 5%">
+                <div class="col-md-3" style="padding-left: 12%">
                 <label for="employeeName">Name :</label>
-              </div>
-                <div class="col-md-6">
-                  <select id="employeeName" name="employeeName">
+            </div>
+                <div class="col-md-6" style="padding-right: 12%">
+                  <select id="employeeName" name="employeeName" autofocus>
                     <% for(var i = 0; i < userList.length; i++)
-                     { %>
-                     <option ></option>
 
-                  
-                  <option value = <%= userList[i].id %>>
+                     { %>
+                     
+                  <option>
                     <%= userList[i].name %>
                   </option>
                      <% } %>
@@ -81,11 +80,11 @@
 
                
                 <div class="row" style="margin-top: 20px;">
-                <div class="col-md-3" style="padding-left: 5%">
+                <div class="col-md-3" style="padding-left: 7%">
 
                     <label for="expenses">ExpensesType:</label>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6" style="padding-right: 12%">
                     <input type="text" name="expenses" id="expenses" placeholder="Type of Expenses" />
                 </div>
               </div>
@@ -94,25 +93,25 @@
                 <div class="col-md-3" style="padding-left: 5%">
                   <label for="expensesamt">ExpensesAmount:</label>
                 </div>
-                <div class="col-md-3" style="padding-right: 10%">
+                <div class="col-md-3" style="padding-right:5%">
 
               <input type="number" name="expensesamt" id="expensesamt" placeholder="Rs"/>
                                   </div>
                 </div>
                 <div class="row" style="margin-top: 20px">
-                <div class="col-md-3" style="padding-left: 5%">
+                <div class="col-md-3" style="padding-left: 10%">
                     <label for="assigned">Assigned:</label>
                   </div>
-                  <div class="col-md-3" style="padding-right: 10%">
+                  <div class="col-md-3" style="padding-right: 5%">
                      <select id="assigned" name="assigned">
                        <option value=""></option>
-                        <option value="">true</option>
-                        <option >false</option>
+                        <option value="">TRUE</option>
+                        <option >FALSE</option>
                     </select>
                   </div>
                 
                  <div class="row" style="margin-top: 7%;">  
-                <div class="col-md-12 text-left" style=" margin-left:4%";>
+                <div class="col-md-12 text-left" style=" margin-left:10%";>
                       <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Save</button>
                     </div>
                   </div>

@@ -85,23 +85,46 @@ document.getElementById(toggle).style.display = 'block';
                 <div class="col-md-6">
 
                     <label for="title">Title:</label>
-                    <input type="text" name="title" id="title" placeholder="jobs title" />
+                    <input type="text" name="title" id="title" placeholder="jobs title" AUTOFOCUS />
                 </div>
                   
 
                 <div class="col-md-6">
                   <label for="customer">Customer:</label>
-                  <input type="text" name="customer" id="customer" 
-                  placeholder="customers name to whom the job is related" />
+                 
+                    <select id="customer" name="customer">
+                  
+                   <% for(var j = 0; j < customerList.length; j++)
+
+                     { %>
+                     
+                  <option value="<%= customerList[j].id %>">
+                    <%= customerList[j].name %>
+                  </option>
+                     <% } %>
+                  </select>
+
+
                 </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="currentlyAssignedTo">CurrentlyAssignedTo:</label>
-                    <input type="text" name="currentlyAssignedTo" id="currentlyAssignedTo"
-                     placeholder="employees name to whom the job is assigned" />
-                  </div>
+                    <label for="emp">CurrentlyAssignedTo:</label>
+                   <select id="emp" name="currentlyAssignedTo">
+                    <% for(var i = 0; i < userList.length; i++)
+
+                     { %>
+                     
+                  <option>
+                    <%= userList[i].name %>
+                  </option>
+                     <% } %>
+                  </select>
+
+
+                  
+                    </div>
                 
               
                   <div class="col-md-3">
@@ -111,11 +134,13 @@ document.getElementById(toggle).style.display = 'block';
                         <option value="false">false</option>
                     </select>
                   </div>
-                   <div class="col-md-3" style="margin-top: 5%;padding-left: 12%;">
-                      completed :
-                      <input type="checkbox" name="completed" id="completed" value="true" class="icheck-blue" />
-                      <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display:none; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);">
-                       </ins>
+                   <div class="col-md-3">
+                     <label for="completed">completed:</label>
+                     <select id="completed" name="completed">
+                        <option selected="selected" value="true">true</option>
+                        <option value="false">false</option>
+                    </select>
+                                       
                  
                  
                   </div> 

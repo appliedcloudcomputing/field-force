@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res) {
+router.get('/expenseslisting', function(req, res) {
 	console.log("Rendering expenses save page...");
 	
 	var currentUser = Parse.User.current();
@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 		var _user = {
 			 name : currentUser.get("name"),
 		}
-	    res.render('expenses', {user : _user});
+	    res.render('expenseslisting', {user : _user});
 
 	} else {
 	    // show the signup or login page
