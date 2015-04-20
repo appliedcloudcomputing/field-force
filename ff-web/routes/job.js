@@ -99,8 +99,7 @@ console.log("CURRENT USER : "+ JSON.stringify(currentUser));
           message: message,
           status: 200
         }
-        res.end(JSON.stringify(response));  
-       //res.render('job', {user : _user});
+       res.render('job', {user : _user});
       },
       error: function(error) {
         var response = {
@@ -152,7 +151,8 @@ var currentUser = Parse.User.current();
       
       var job = Parse.Object.extend("Job");
       var userQuery = new Parse.Query(job);
-      userQuery.include("objectId");
+      userQuery.include("currentlyAssignedTo");
+      userQuery.include("customer");
       userQuery.find({
         success: function(job) 
         {
@@ -161,13 +161,11 @@ var currentUser = Parse.User.current();
             job.forEach(function(job) 
             {
 
-
-
               var _job = {
 
-                title: job.get('title'),
-                customer:job.id.get('customer'),
-                employee:job.get("objectId").get('currentlyAssignedTo'),
+                title: job.get('title'),                
+                customer:job.get('customer').get("username"),
+                employee:job.get('currentlyAssignedTo').get("username"),
                 status:job.get('currentStage')
                           }
               jobList.push(_job);

@@ -83,24 +83,24 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <div class="row">
                 <div class="col-md-6">
                     <label for="title">Username : </label>                    
-                          <i class="fa fa-user"></i>&nbsp;<%= user.username %>        
+                          <i class="fa fa-user"></i>&nbsp;<%= userList.username %>        
                 </div>               
 
                 <div class="col-md-6">
                   <label for="customer">E-mail :&nbsp;&nbsp;</label>
-                  <i class="fa fa-envelope" ></i><%= user.email %>
+                  <i class="fa fa-envelope" ></i><%= userList.email %>
                 </div>
                 </div>
 
                 <div class="row">
                 <div class="col-md-6">
                     <label for="title">Address :&nbsp;</label>                    
-                          <i class="fa fa-map-marker"></i><%= user.address %>      
+                          <i class="fa fa-map-marker"></i><%= userList.address %>      
                 </div>               
 
                 <div class="col-md-6">
                   <label for="customer">Phone No :&nbsp;</label>
-                  <i class="fa fa-phone"></i> <%= user.phone %>
+                  <i class="fa fa-phone"></i> <%= userList.phone %>
                 </div>
                 </div>
               </fieldset>
@@ -111,24 +111,24 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <div class="row">
                 <div class="col-md-6">
                     <label for="title">Job Title : </label>                    
-                          <i class="fa fa-user"></i>&nbsp;<%= user.name %>        
+                          <i class="fa fa-user"></i>&nbsp;<%= jobList.title %>        
                 </div>               
 
                 <div class="col-md-6">
                   <label for="customer">Current Stage :</label>
-                  <i class="fa fa-envelope" ></i><%= user.email %>
+                  <i class="fa fa-envelope" ></i><%= jobList.status %>
                 </div>
                 </div>
 
                 <div class="row">
                 <div class="col-md-6">
                     <label for="title">Customer : </label>                    
-                          <i class="fa fa-map-marker"></i><%= user.address %>      
+                          <i class="fa fa-map-marker"></i><%= jobList.customer %>      
                 </div>               
 
                 <div class="col-md-6">
                   <label for="customer">Description :</label>
-                  <i class="fa fa-phone"></i> <%= user.phone %>
+                  <i class="fa fa-phone"></i> <%= jobList.title %>
                 </div>
                 </div>
               </fieldset>
