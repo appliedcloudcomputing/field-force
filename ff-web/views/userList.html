@@ -98,7 +98,8 @@
                   <td style="background-color:transparent;"><%= userList[i].email %></td>
                   <td style="background-color:transparent;"><%= userList[i].phone %></td>             
                   <td style="background-color:transparent;"><%= userList[i].userType %></td>
-                  <td style="background-color:transparent;"><a href="/users/userDetails">View</a></td>
+                  <td style="background-color:transparent;"><a class="btn btn-round btn-xs btn-info" role="button" 
+                    href="/users/fetchDetails?email=<%=userList[i].email%>">View</a></td>
                 </tr>
                     <% } %>
                 </tbody>

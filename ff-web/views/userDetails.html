@@ -10,7 +10,7 @@ src="http://maps.googleapis.com/maps/api/js">
 <script>
 function initialize() {
   var mapProp = {
-    zoom:15,
+    zoom:30,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
@@ -83,50 +83,51 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <div class="row">
                 <div class="col-md-6">
                     <label for="title">Username : </label>                    
-                          <i class="fa fa-user"></i>&nbsp;<%= user.name %>        
+                          <i class="fa fa-user"></i>&nbsp;<%= user.username %>        
                 </div>               
 
                 <div class="col-md-6">
-                  <label for="customer">E-mail :</label>
+                  <label for="customer">E-mail :&nbsp;&nbsp;</label>
                   <i class="fa fa-envelope" ></i><%= user.email %>
                 </div>
                 </div>
 
                 <div class="row">
                 <div class="col-md-6">
-                    <label for="title">Address : </label>                    
+                    <label for="title">Address :&nbsp;</label>                    
                           <i class="fa fa-map-marker"></i><%= user.address %>      
                 </div>               
 
                 <div class="col-md-6">
-                  <label for="customer">Phone No :</label>
+                  <label for="customer">Phone No :&nbsp;</label>
                   <i class="fa fa-phone"></i> <%= user.phone %>
                 </div>
                 </div>
               </fieldset>
+              
               <fieldset>
                  <legend>Job Details</legend>
 
                 <div class="row">
                 <div class="col-md-6">
-                    <label for="title">Job Assigned : </label>                    
+                    <label for="title">Job Title : </label>                    
                           <i class="fa fa-user"></i>&nbsp;<%= user.name %>        
                 </div>               
 
                 <div class="col-md-6">
-                  <label for="customer">E-mail :</label>
+                  <label for="customer">Current Stage :</label>
                   <i class="fa fa-envelope" ></i><%= user.email %>
                 </div>
                 </div>
 
                 <div class="row">
                 <div class="col-md-6">
-                    <label for="title">Address : </label>                    
+                    <label for="title">Customer : </label>                    
                           <i class="fa fa-map-marker"></i><%= user.address %>      
                 </div>               
 
                 <div class="col-md-6">
-                  <label for="customer">Phone No :</label>
+                  <label for="customer">Description :</label>
                   <i class="fa fa-phone"></i> <%= user.phone %>
                 </div>
                 </div>

@@ -160,6 +160,43 @@ router.get('/userDetails', function(req, res, next)
   }   
   
 });
+/* ************........................................................................................*/
+
+router.get('/fetchDetails', function(req, res, next) 
+ {
+  console.log("username "+req.query.email);
+     
+  var currentUser = Parse.User.current();
+  if (currentUser) 
+  {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+     var userList = [];      
+      var userQuery = new Parse.Query(Parse.User);
+      userQuery.equalTo("email",req.query.email);
+      userQuery.first({
+        success: function(users) 
+        {
+          console.log('USER SUCCESS');       
+              var _user = {
+                email: users.get('email'),
+                username:users.get('username'),
+                phone :users.get('phone'),
+                address: users.get('address'),
+                userType:users.get('userType')
+                          }             
+            res.render('userDetails', {user: _user});                    
+        },
+        error: function(error) {
+          console.log('ERROR FINDING USERS: ' + error.message);
+        }
+      });
+  } else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }   
+  
+});
+
 module.exports = router;
 
 

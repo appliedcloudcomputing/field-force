@@ -1,39 +1,29 @@
 
 var express = require('express');
 var router = express.Router();
-
-/*router.get('/', function(req, res, next) {
-   res.render('job', {error: ""});
-});
-  */ 
 router.get('/save', function(req, res, next) 
 {
- // start.. checks if user is registered in our database
   var currentUser = Parse.User.current();
-
   if (currentUser) 
   {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
     var _u = {
        name : currentUser.get("name"),
     }
-    // end.. checks if user is registered in our databases
-     
-    //GET CUSTOMER
+       //GET CUSTOMER
      var customerList = [];
       
       var userQuery = new Parse.Query(Parse.User);
-      userQuery.equalTo("userType", "Customer");
+      userQuery.equalTo("userType","Customer");
       userQuery.find({
         success: function(customer){
           console.log('customer SUCCESS');
           if(customer) {
-            customer.forEach(function(customer) //name of html page
+            customer.forEach(function(customer)
             {
-              console.log("ID: "+customer.id);
-              var _customer = {
-               
-                name:customer.get('name')
+             var _customer = {               
+                           name:customer.get('name'),
+                           id:customer.id
                           }
               customerList.push(_customer);
             });
@@ -47,19 +37,22 @@ router.get('/save', function(req, res, next)
       // EMPLOYEE
       var userList = [];
       
-      var _userQuery = new Parse.Query(Parse.User);
-      _userQuery.equalTo("userType", "Employee");
-      _userQuery.find({
+      var query = new Parse.Query(Parse.User);
+      query.equalTo("userType", "Employee");
+      query.find({
         success: function(employee){
           console.log('employee SUCCESS');
           if(employee) {
             employee.forEach(function(emp) //name of html page
             {
               var _employee = {
-                name:emp.get('name')
+                name:emp.get('name'),
+                id:emp.id
               }
               userList.push(_employee);
             });
+            console.log("USER LIST :"+JSON.stringify(userList));
+            console.log("CUSTOMER LIST :"+JSON.stringify(customerList));
             res.render('job', { userList: userList,customerList :customerList, user : _u});
           }
         },
@@ -67,13 +60,7 @@ router.get('/save', function(req, res, next)
           console.log('ERROR FINDING USERS: ' + error.message);
         }      
       });
-        
-
-
-
- 
 }
-
   else 
   {
       // show the signup or login page
@@ -81,25 +68,18 @@ router.get('/save', function(req, res, next)
   }   
 }); 
 
-	
+/****************************************** save job******************************/
 
-/* savin job*/
-
-router.post('/save', function(req, res, next) {
-  console.log("saving job...............");
-  
-
-  var currentUser = Parse.User.current();
- 
+router.post('/save', function(req, res, next) 
+{
+ var currentUser = Parse.User.current();
   if (currentUser) 
   {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
     var _user = {
-       name : currentUser.get("name"),
+              name : currentUser.get("name"),
              }
-
-
-   var data = {
+    var data = {
     title:req.body.title,
     customer: req.body.customer,
     currentlyAssignedTo:req.body.currentlyAssignedTo,
@@ -107,11 +87,10 @@ router.post('/save', function(req, res, next) {
     description:req.body.description,
     completed:req.body.completed,
     currentStage:req.body.currentStage
+             };
 
-
-  };
-
-    Parse.Cloud.run('saveJob', data, {
+console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+  Parse.Cloud.run('saveJob', data, {
         success: function(message) {
 
         console.log("cloud call save user success");
@@ -140,7 +119,7 @@ router.post('/save', function(req, res, next) {
 
 });
 
-
+/****************************************** save job******************************/
 router.get('/jobDetail', function(req, res) {
   console.log('Rendering job save page...');
 
@@ -158,6 +137,7 @@ var currentUser = Parse.User.current();
   }   
   
 });
+/****************************************** Job List ******************************/
 
 router.get('/jobList', function(req, res) {
   console.log('Rendering job save page...');
@@ -172,6 +152,7 @@ var currentUser = Parse.User.current();
       
       var job = Parse.Object.extend("Job");
       var userQuery = new Parse.Query(job);
+      userQuery.include("objectId");
       userQuery.find({
         success: function(job) 
         {
@@ -179,16 +160,20 @@ var currentUser = Parse.User.current();
           if(job) {
             job.forEach(function(job) 
             {
+
+
+
               var _job = {
 
                 title: job.get('title'),
-                customer:job.get('customer'),
-                employee:job.get('currentlyAssignedTo'),
+                customer:job.id.get('customer'),
+                employee:job.get("objectId").get('currentlyAssignedTo'),
                 status:job.get('currentStage')
                           }
               jobList.push(_job);
             });
             res.render('jobList', {jobList: jobList, user : _user});
+            console.log("job LIST :"+JSON.stringify(jobList));
            } 
 
            else 

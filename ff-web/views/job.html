@@ -2,18 +2,8 @@
 <html class="fuelux" lang="en">
 <head>
 <!-- Header start -->
-  <% include partials/head.html %>
 
-
-  <!--save message alert on submit start-->
-
-  <!--<script type="text/javascript">
-function Confirm(form){
-alert("Record insert successfully!"); 
-form.submit();
-}
-</script>
-<!save message alert on submit start-->
+<% include partials/head.html %>
 
 <script type="text/javascript">
 function showDiv(toggle){
@@ -23,15 +13,11 @@ document.getElementById(toggle).style.display = 'block';
 
 </head>
 <!-- Header end -->
-
 <body>
-
 <section class="content">
-
   <!-- Sidebar Start -->
     <% include partials/sidebar.html %>
   <!-- Sidebar End -->
-
 <div class="content-liquid-full">
   <div class="container">
 
@@ -44,9 +30,8 @@ document.getElementById(toggle).style.display = 'block';
     <div class="row breadcrumbs">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="breadcrumbs">
-          <li><a href="#"><i class="fa fa-home"></i></a></li>
-          <li><a href="#">Pages</a></li>
-          <li><a href="#">Blank Page</a></li>
+          <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
+          <li><a href="/jobList">Listing Page</a></li>
         </ul>
       </div>
     </div>
@@ -70,8 +55,6 @@ document.getElementById(toggle).style.display = 'block';
       
     </div>
           <div class="boxed">
-  
-
               <!-- Title Bar Start -->
               <div class="title-bar">
                 <h4>Job Form</h4>
@@ -79,32 +62,24 @@ document.getElementById(toggle).style.display = 'block';
               <!-- Title Bar End -->
 
               <div class="inner no-radius">
-
                
                 <div class="row">
                 <div class="col-md-6">
 
                     <label for="title">Title:</label>
                     <input type="text" name="title" id="title" placeholder="jobs title" AUTOFOCUS />
-                </div>
-                  
+                </div>                  
 
                 <div class="col-md-6">
-                  <label for="customer">Customer:</label>
-                 
-                    <select id="customer" name="customer">
-                  
+                  <label for="customer">Customer:</label>                 
+                    <select id="cust" name="customer" >                  
                    <% for(var j = 0; j < customerList.length; j++)
-
-                     { %>
-                     
-                  <option value="<%= customerList[j].id %>">
+                     { %>                     
+                  <option selected="selected"  value="<%= customerList[j].id %>">
                     <%= customerList[j].name %>
                   </option>
                      <% } %>
                   </select>
-
-
                 </div>
                 </div>
 
@@ -113,20 +88,13 @@ document.getElementById(toggle).style.display = 'block';
                     <label for="emp">CurrentlyAssignedTo:</label>
                    <select id="emp" name="currentlyAssignedTo">
                     <% for(var i = 0; i < userList.length; i++)
-
-                     { %>
-                     
-                  <option>
+                     { %>                     
+                  <option value=<%= userList[i].id %>>
                     <%= userList[i].name %>
                   </option>
                      <% } %>
-                  </select>
-
-
-                  
-                    </div>
-                
-              
+                  </select>                  
+              </div>                        
                   <div class="col-md-3">
                     <label for="assigned">Assigned:</label>
                      <select id="assigned" name="assigned">
@@ -139,37 +107,26 @@ document.getElementById(toggle).style.display = 'block';
                      <select id="completed" name="completed">
                         <option selected="selected" value="true">true</option>
                         <option value="false">false</option>
-                    </select>
-                                       
-                 
-                 
+                    </select>                 
                   </div> 
-                  
-                  
                   </div>
-                
-
                 <div class="row">
                    <div class="col-md-6">
                     <label for="descroption">Description:</label>
                     <textarea name="description" id="description" placeholder="Enter Your description..." >
                     </textarea>
                   </div>
-                  
-                  
-                    
-            
-                    
-                        
+
                    <div class="row">      
                   <div class="col-md-6">
                   <label for="currentStage">CurrentStage:</label>
-                  <input type="currentStage" name="currentStage" id="currentStage"
-                   placeholder="current stage of the job" />
+                  <select id="completed" name="currentStage">
+                        <option selected="selected" value="Current">Current</option>
+                        <option value="Awating">Awaiting</option>
+                        <option value="Complete">Complete</option>
+                    </select>                  
                 </div>
               </div>
-                
-                
                  <div class="row">  
                 <div class="col-md-12 text-left">
                       <button type="submit" id="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i> Save</button>
@@ -177,15 +134,10 @@ document.getElementById(toggle).style.display = 'block';
                   </div>
                   </div>
                    </div>
-
               </div>
-            
- 
-      
  </form>
 </section>
 <!-- Form End-->
-
 
 <!-- Javascript -->
 
@@ -195,7 +147,6 @@ document.getElementById(toggle).style.display = 'block';
   <!--saved success message display path end-->
 
 <!-- End Javascript -->
-
 
 </body>
 </html>
