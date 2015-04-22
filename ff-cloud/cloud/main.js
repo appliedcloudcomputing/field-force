@@ -4,6 +4,7 @@ var changepass = require('cloud/user/changePassword.js');
 var customer = require('cloud/customer/customer.js');
 
 
+
 // Use Parse.Cloud.define to define as many cloud functions as you want.
 // For example:
 Parse.Cloud.define("hello", function(request, response) {
@@ -145,3 +146,4 @@ Parse.Cloud.define('saveCustomer', function(req, res) {
 		});
 	} 
 });
+

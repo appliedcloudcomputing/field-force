@@ -44,20 +44,14 @@
   
     </div>
     </div>
-
-
-          <div class="boxed">
-  
+          <div class="boxed"> 
 
               <!-- Title Bar Start -->
               <div class="title-bar" style="padding-left: 40%;">
                 <h4>Expenses Form</h4>
               </div>
               <!-- Title Bar End -->
-
-                            <div class="inner no-radius">
-
-
+              <div class="inner no-radius">
                  <div class="row" style="margin-top: 20px;">               
                 <div class="col-md-3" style="padding-left: 12%">
                 <label for="employeeName">Name :</label>
@@ -65,27 +59,21 @@
                 <div class="col-md-6" style="padding-right: 12%">
                   <select id="employeeName" name="employeeName" autofocus>
                     <% for(var i = 0; i < userList.length; i++)
-
-                     { %>
-                     
+                     { %>                     
                   <option>
                     <%= userList[i].name %>
                   </option>
                      <% } %>
                   </select>
-
                 </div>
-              </div>
-          
-
-               
+              </div>                         
                 <div class="row" style="margin-top: 20px;">
                 <div class="col-md-3" style="padding-left: 7%">
 
                     <label for="expenses">ExpensesType:</label>
                   </div>
                   <div class="col-md-6" style="padding-right: 12%">
-                    <input type="text" name="expenses" id="expenses" placeholder="Type of Expenses" />
+                    <input type="text" name="expensesType" id="expenses" placeholder="Type of Expenses" />
                 </div>
               </div>
                   
@@ -95,18 +83,18 @@
                 </div>
                 <div class="col-md-3" style="padding-right:5%">
 
-              <input type="number" name="expensesamt" id="expensesamt" placeholder="Rs"/>
-                                  </div>
+              <input type="text" name="expensesAmt" id="expensesamt" placeholder="Rs"/>
                 </div>
-                <div class="row" style="margin-top: 20px">
+            </div>
+            
+               <div class="row" style="margin-top: 20px">
                 <div class="col-md-3" style="padding-left: 10%">
-                    <label for="assigned">Assigned:</label>
+                    <label for="assigned">Staus</label>
                   </div>
                   <div class="col-md-3" style="padding-right: 5%">
-                     <select id="assigned" name="assigned">
-                       <option value=""></option>
-                        <option value="">TRUE</option>
-                        <option >FALSE</option>
+                     <select id="assigned" name="approved">
+                        <option value="Approved">Approved</option>
+                        <option value="dis-approved">Dis-approved</option>
                     </select>
                   </div>
                 

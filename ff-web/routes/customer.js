@@ -31,9 +31,7 @@ var router = express.Router();
     password:req.body.password,
     phone:req.body.phone,
     address:req.body.address
-   
-
-  };
+     };
 
     Parse.Cloud.run('saveCustomer', data, {
         success: function(message) {
@@ -59,7 +57,7 @@ var router = express.Router();
 
 
 
-//customerListing
+//customerListing ******************************
 
 router.get('/', function(req, res, next) 
 {
@@ -77,8 +75,7 @@ router.get('/', function(req, res, next)
       
       var userQuery = new Parse.Query(Parse.User);
       userQuery.equalTo("userType", "Customer");
-      userQuery.find({
-        
+      userQuery.find({        
         success: function(customer) 
         {
           console.log('customer SUCCESS');
@@ -86,7 +83,7 @@ router.get('/', function(req, res, next)
             customer.forEach(function(customer) //name of html page
             {
               var _customer = {
-               
+                id:customer.id,              
                 name:customer.get('name'),
                 email :customer.get('email'),
                 phone :customer.get('phone'),
@@ -112,6 +109,42 @@ router.get('/', function(req, res, next)
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
 }); 
+
+router.get('/fetchDetails', function(req, res, next) 
+ {
+  console.log("id "+req.query.id);
+     
+  var currentUser = Parse.User.current();
+  if (currentUser) 
+  {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+     var userList = [];      
+      var userQuery = new Parse.Query(Parse.User);
+      userQuery.equalTo("objectId",req.query.id);
+      userQuery.first({
+        success: function(users) 
+        {
+          console.log('USER SUCCESS');       
+              var _user = {
+                email: users.get('email'),
+                name:users.get('name'),
+                phone :users.get('phone'),
+                address: users.get('address'),
+                userType:users.get('userType')
+                          }           
+            res.render('customerDetails', {user: _user});                    
+        },
+        error: function(error) {
+          console.log('ERROR FINDING USERS: ' + error.message);
+        }
+      });
+  } else {
+      // show the signup or login page
+    res.render('login', {title: 'Login', message: Response.InvalidLogin});
+  }   
+  
+});
+
 
 module.exports = router;
 

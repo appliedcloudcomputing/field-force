@@ -59,7 +59,7 @@
               <div class="title-bar">
                 <h4>Customer List</h4>  
                         <div class="input-group" style="float:right;">
-        <a href="/customer/save" padding-right: 5px;><i class="fa fa-plus">
+        <a href="/users/save" padding-right: 5px;><i class="fa fa-plus">
         </i>
           </a>
           </div>             
@@ -83,15 +83,11 @@
         <div style="width:200px;">
           <thead>
             <tr>
-              <th style="border-bottom: 0px;">name</th>
-            
-              <th style="border-bottom: 0px;">email</th>
-         
-              <th style="border-bottom: 0px;">address</th>
-             
-              <th style="border-bottom: 0px;">phone</th>
-         
-        
+              <th style="border-bottom: 0px;">name</th>            
+              <th style="border-bottom: 0px;">email</th>         
+              <th style="border-bottom: 0px;">address</th>             
+              <th style="border-bottom: 0px;">phone</th> 
+              <th style="border-bottom: 0px;">Action</th>
             </tr>
           </thead>
           <!--table body start-->
@@ -102,6 +98,8 @@
                   <td style="background-color:transparent;"><%= customerList[i].email %></td>
                   <td style="background-color:transparent;"><%= customerList[i].address %></td>             
                   <td style="background-color:transparent;"><%= customerList[i].phone %></td>
+                  <td style="background-color:transparent;"><a class="btn btn-round btn-xs btn-info" role="button" 
+                    href="/customer/fetchDetails?id=<%=customerList[i].id%>">View</a></td>
                   
                 </tr>
                     <% } %>

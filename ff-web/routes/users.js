@@ -60,7 +60,7 @@ var currentUser = Parse.User.current();
     Parse.Cloud.run('saveUser', data, {
         success: function(message) {
 
-        console.log("cloud call save user success");
+        console.log("Cloud call save user success");
 
         var response = {
           message: message,
@@ -115,7 +115,9 @@ router.get('/', function(req, res, next)
                 email: user.get('email'),
                 username:user.get('username'),
                 phone :user.get('phone'),
+                id:user.id,
                 userType:user.get('userType')
+
                           }
               userList.push(_user);
             });
@@ -160,11 +162,11 @@ router.get('/userDetails', function(req, res, next)
   }   
   
 });
-/* ************........................................................................................*/
+/* ***********************************************************************/
 
 router.get('/fetchDetails', function(req, res, next) 
  {
-  console.log("username "+req.query.email);
+  console.log("username "+req.query.id);
      
   var currentUser = Parse.User.current();
   if (currentUser) 
@@ -172,18 +174,18 @@ router.get('/fetchDetails', function(req, res, next)
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
      var userList = [];      
       var userQuery = new Parse.Query(Parse.User);
-      userQuery.equalTo("email",req.query.email);
+      userQuery.equalTo("objectId",req.query.id);
       userQuery.first({
         success: function(users) 
         {
           console.log('USER SUCCESS');       
               var _user = {
                 email: users.get('email'),
-                username:users.get('username'),
+                name:users.get('name'),
                 phone :users.get('phone'),
                 address: users.get('address'),
                 userType:users.get('userType')
-                          }             
+                          }           
             res.render('userDetails', {user: _user});                    
         },
         error: function(error) {

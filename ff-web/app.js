@@ -9,21 +9,18 @@ var session = require('express-session');
 GLOBAL.Parse = require('parse').Parse;
 if(process && process.env && process.env.APPLICATION_ID && process.env.JAVASCRIPT_KEY && process.env.MASTER_KEY) {
     Parse.initialize(process.env.APPLICATION_ID, process.env.JAVASCRIPT_KEY, process.env.MASTER_KEY);
-} else {
-    //Parse.initialize("O3zQqGoHN3vFLHnxftd2zzdUV3Rwu1KZ8fEclJ8n", "ANEYTgsWpOcH5VyB7RhM2E95tvNRBUcicMkifrRs");//Field Force App Id and JS ID
+} else {    
       Parse.initialize("O3zQqGoHN3vFLHnxftd2zzdUV3Rwu1KZ8fEclJ8n", "ANEYTgsWpOcH5VyB7RhM2E95tvNRBUcicMkifrRs", "fwdGtSRoEOa07ZnHgsozoVm9kV0qzW4XqMhZZw3U");
 }
-
-
+var job = require('./routes/job');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
-var dashboard = require('./routes/dashboard');
-var job = require('./routes/job');
-var changepassword = require('./routes/changepassword');
 var customer = require('./routes/customer');
 var profile = require('./routes/profile');
 var expenses = require('./routes/expenses');
+var dashboard = require('./routes/dashboard');
+var changepassword = require('./routes/changepassword');
 var app = express();
 
 // view engine setup
@@ -65,9 +62,9 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-        console.log("----------------------------------------------ERROR OBJECT: " + JSON.stringify(err));
-        console.log("----------------------------------------------ERROR MESSAGE: " + err.message);
-        console.log("----------------------------------------------REQUEST URL: " + req.url);
+        console.log("------------ERROR OBJECT: " + JSON.stringify(err));
+        console.log("------------ERROR MESSAGE: " + err.message);
+        console.log("------------REQUEST URL: " + req.url);
         if(req.session.user){            
             res.render('404', {
                 message: err.message,
