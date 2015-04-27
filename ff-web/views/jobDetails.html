@@ -14,7 +14,7 @@
   <div class="container">
           <!-- Header Bar Start -->
         <% include partials/header.html %>
-      <!-- Header Bar End -->
+        <!-- Header Bar End -->
     <!-- Breadcrumbs Start -->
     <!-- Breadcrumbs Start -->
     <div class="row breadcrumbs">
@@ -56,24 +56,24 @@
                 <div class="row">
                 <div class="col-md-6">
                     <label for="title">Job Title : </label>                    
-                          <i class="fa fa-user"></i>&nbsp;<%= user.name %>        
+                          <i class="fa fa-user"></i>&nbsp;<%= user.title %>        
                 </div>               
 
                 <div class="col-md-6">
                   <label for="customer">Job Status :</label>
-                  <i class="fa fa-envelope" ></i><%= user.email %>
+                  <i class="fa fa-envelope" ></i><%= user.status %>
                 </div>
                 </div>
 
                 <div class="row">
                 <div class="col-md-6">
                     <label for="title">Customer : </label>                    
-                          <i class="fa fa-map-marker"></i><%= user.address %>      
+                          <i class="fa fa-map-marker"></i><%= user.customer %>      
                 </div>               
 
                 <div class="col-md-6">
                   <label for="customer">Employee :</label>
-                  <i class="fa fa-phone"></i> <%= user.phone %>
+                  <i class="fa fa-phone"></i> <%= user.employee %>
                 </div>
                 </div>
               </fieldset>

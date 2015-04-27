@@ -2,27 +2,22 @@ var express = require('express');
 var router = express.Router();
 
 
-  router.get('/save', function(req, res, next) {
-  var currentUser = Parse.User.current();
-  if (currentUser) {
-    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
-    var _user = {
-       name : currentUser.get("name"),
-    }
-      res.render('customer', {user : _user});
-
-  } else {
-      // show the signup or login page
-    res.render('login', {title: 'Login', message: Response.InvalidLogin});
-  }   
-  
+router.get('/save', function(req, res, next) {
+    var currentUser = Parse.User.current();
+    if (currentUser) {
+      console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+      var _user = {
+         name : currentUser.get("name"),
+      }
+        res.render('customer', {user : _user});
+    } else {
+        // show the signup or login page
+      res.render('login', {title: 'Login', message: Response.InvalidLogin});
+    }   
 });
 
 
-
-
-
- router.post('/save', function(req, res, next) {
+router.post('/save', function(req, res, next) {
   console.log("********************* SAVE CUSTOMER CALLED ***********************");
   
   var data = {
@@ -35,19 +30,16 @@ var router = express.Router();
 
     Parse.Cloud.run('saveCustomer', data, {
         success: function(message) {
-
-        console.log("cloud call save customer success");
-
-        var response = {
-          message: message,
-          status: 200
-        }
-        res.render('customer', {msg: "customer Data Save successfully"});  //
-      },
-      error: function(error) {
-        var response = {
-          message: error.message,
-
+          console.log("cloud call save customer success");
+          var response = {
+            message: message,
+            status: 200
+          }
+           res.render('customer', {msg: "customer Data Save successfully"});  //
+        },
+        error: function(error) {
+              var response = {
+                message: error.message,
           status: error.code
         }
         res.end(JSON.stringify(response));
@@ -55,13 +47,10 @@ var router = express.Router();
     });
 });
 
-
-
 //customerListing ******************************
 
 router.get('/', function(req, res, next) 
 {
- // start.. checks if user is registered in our database
   var currentUser = Parse.User.current();
 
   if (currentUser) 
@@ -70,9 +59,8 @@ router.get('/', function(req, res, next)
     var _u = {
        name : currentUser.get("name"),
     }
-    // end.. checks if user is registered in our databases
-     var customerList = [];
-      
+
+      var customerList = [];
       var userQuery = new Parse.Query(Parse.User);
       userQuery.equalTo("userType", "Customer");
       userQuery.find({        
@@ -80,7 +68,7 @@ router.get('/', function(req, res, next)
         {
           console.log('customer SUCCESS');
           if(customer) {
-            customer.forEach(function(customer) //name of html page
+            customer.forEach(function(customer)
             {
               var _customer = {
                 id:customer.id,              
@@ -93,7 +81,6 @@ router.get('/', function(req, res, next)
             });
             res.render('customerList', {customerList: customerList, user : _u});
            } 
-
            else 
            {
             console.log('NO USERS PRESENT');
@@ -105,7 +92,6 @@ router.get('/', function(req, res, next)
       });
 
   }else {
-      // show the signup or login page
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
 }); 
@@ -139,12 +125,9 @@ router.get('/fetchDetails', function(req, res, next)
         }
       });
   } else {
-      // show the signup or login page
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
-  
 });
-
 
 module.exports = router;
 

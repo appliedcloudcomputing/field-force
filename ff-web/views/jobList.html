@@ -68,7 +68,7 @@
                 <tr>
                 <th>Job Title</th>
                 <th>Customer</th>
-                <th>employee</th>
+                <th>Employee</th>
                 <th>Status</th>                
                 <th>Actions</th>
               </tr></thead>
@@ -80,7 +80,7 @@
                   <td ><%= jobList[i].customer %></td>
                   <td ><%= jobList[i].employee %></td>             
                   <td ><%= jobList[i].status %></td>
-                  <td ><a href="/job/jobDetails">View</a></td>
+                  <td style="background-color:transparent;"><a class="btn btn-round btn-xs btn-info" role="button" a href="/job/jobDetails?id=<%=jobList[i].id%>">View</a></td>
                 </tr>
                     <% } %>
       </tbody>
