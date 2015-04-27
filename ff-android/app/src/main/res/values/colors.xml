@@ -2,4 +2,11 @@
 <resources>
     <color name="orange">#f9851d</color>
     <color name="white">#ffffff</color>
+    <color name="text_color">#595959</color>
+    <color name="text_error_color">#C12121</color>
+
+    <color name="ColorPrimary">#2196F3</color>
+    <color name="ColorPrimaryDark">#FFFFFF</color>
+    <color name="tabsScrollColor">#FFFFFF</color>
+
 </resources>

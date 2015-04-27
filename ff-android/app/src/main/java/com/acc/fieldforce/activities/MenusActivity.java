@@ -36,7 +36,7 @@ public class MenusActivity extends Activity {
         leads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MenusActivity.this, LeadsListActivity.class);
+                Intent i = new Intent(MenusActivity.this, TabActivity.class);
                 startActivity(i);
             }
         });

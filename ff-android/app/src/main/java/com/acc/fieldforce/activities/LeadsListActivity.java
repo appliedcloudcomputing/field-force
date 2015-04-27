@@ -12,7 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.acc.fieldforce.R;
-import com.acc.fieldforce.fragments.TabFragment;
+//import com.acc.fieldforce.fragments.TabFragment;
 
 
 public class LeadsListActivity extends FragmentActivity {
@@ -23,7 +23,7 @@ public class LeadsListActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leads_list);
 
-        fragment = new TabFragment();
+        //fragment = new TabFragment();
 
         Log.i("fragment", "" + fragment.getId());
 

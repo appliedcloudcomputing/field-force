@@ -4,7 +4,7 @@
     <string name="app_name">FieldForce</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_sign_up">SignUp</string>
+    <string name="title_activity_sign_up">Field Force</string>
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_leads_list">LeadsList</string>
     <string name="title_activity_assigned">Assigned</string>
@@ -15,30 +15,51 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_job_casting">JobCasting</string>
     <string name="title_activity_add_leads">AddLeads</string>
-    <string name="title_activity_sign_in">SignIn</string>
+    <string name="title_activity_sign_in">Field Force</string>
     <string name="title_activity_login">Login</string>
-
-    <!--Colors-->
-    <string name="sign_up">Sign up</string>
     <string name="sign_in">Sign in</string>
     <string name="how_to_use">How it works?</string>
 
+    <!-- SignUp -->
+    <string name="name">name</string>
+    <string name="email_id">email id</string>
+    <string name="password">password</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="mobile_number">mobile number</string>
+    <string name="location">location</string>
+    <string name="already_member">Already a member?</string>
+
+    <!-- SignIn -->
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
+    <string name="not_a_member">Not a member?</string>
+
     <!-- Add Customer -->
-    <string name="add_customer_customer_name">Customer Name</string>
-    <string name="add_customer_company_name">Company Name</string>
-    <string name="add_customer_customer_address">Customer Address</string>
-    <string name="add_customer_contact_number">Contact Number</string>
+    <string name="add_customer_error_message">Enter All The Required Fields</string>
+    <string name="add_customer_customer_name">Name</string>
+    <string name="add_customer_company_name">Company</string>
+    <string name="add_customer_customer_address">Address</string>
+    <string name="add_customer_contact_number">Contact</string>
     <string name="add_customer_button_save">Save</string>
 
-    <!--Accounts Main-->
+    <!-- Add Customer -->
+    <string name="add_lead_company_error_message">Enter All The Required Fields</string>
+    <string name="add_lead_company_name">Company Name</string>
+    <string name="add_lead_company_address">Company Address</string>
+    <string name="add_lead_company_contact_person_name">Contact Person Name</string>
+    <string name="add_lead_company_contact_number">Contact</string>
+    <string name="add_lead_button_save">Save</string>
+
+    <!-- Accounts Main -->
     <string name="accounts_main_expenses">Expenses</string>
     <string name="accounts_main_incentives">Incentives</string>
     <string name="accounts_main_new_text">New Text</string>
     <string name="accounts_main_total">Total</string>
     <string name="accounts_main_account_summary">Account Summary</string>
 
-    <!--Expenses-->
+    <!-- Expenses -->
     <string name="activity_expense_type">Expense Type</string>
     <string name="activity_expense_amount">Expense Amount</string>
+    <string name="title_activity_tab">TabActivity</string>
 
 </resources>

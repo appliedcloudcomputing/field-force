@@ -7,38 +7,93 @@
     tools:context="com.acc.fieldforce.SignUp"
     android:background="#F7F7F7">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#2196F3"
+        android:layout_alignParentTop="true"
+        android:minHeight="?attr/actionBarSize"/>
+
+    <TextView
+        android:id="@id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_in"
+        android:textColor="@drawable/focus_color_text"
+        android:textSize="22sp"
+        android:fontFamily="Helvetica Neue"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"/>
+
 
 
     <EditText
-        android:layout_width="280dp"
-        android:layout_height="40dp"
-        android:hint="Email"
-        android:textColor="#595959"
-        android:textStyle="normal"
-        android:fontFamily="Helvetica Neue"
-        android:background="@drawable/rectangle_shape"
-        android:textSize="14sp"
-        android:paddingLeft="10dp"
         android:id="@+id/email"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"/>
-
-    <EditText
         android:layout_width="280dp"
         android:layout_height="40dp"
-        android:hint="Password"
-        android:textColor="#595959"
-        android:textStyle="normal"
-        android:paddingLeft="10dp"
-        android:fontFamily="Helvetica Neue"
-        android:background="@drawable/rectangle_shape"
+        android:textColor="@color/text_color"
+        android:textColorHint="#808080"
+        android:layout_below="@id/title"
+        android:layout_marginTop="30dp"
+        android:hint="@string/email_id"
+        android:background="@drawable/custom_theme_edit_text_holo_light"
+        android:paddingBottom="0dp"
+        android:gravity="center"
+        android:inputType="textEmailAddress"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"
+        android:nextFocusDown="@+id/password"
+        android:imeOptions="actionNext">
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/email_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:textSize="14sp"
+        android:text="invalid email"
+        android:contentDescription="@null"
+        android:textColor="@color/text_error_color"
+        android:visibility="gone"
+        android:layout_below="@id/email"/>
+
+
+    <EditText
         android:id="@+id/password"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:textColor="@color/text_color"
+        android:textColorHint="#808080"
+        android:layout_marginTop="10dp"
+        android:hint="@string/password"
+        android:background="@drawable/custom_theme_edit_text_holo_light"
+        android:paddingBottom="0dp"
+        android:gravity="center"
+        android:inputType="textPassword"
         android:layout_below="@+id/email"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:singleLine="true"
+        android:nextFocusDown="@+id/sign_in"
+        android:imeOptions="actionDone"/>
+
+    <TextView
+        android:id="@+id/password_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:text="password minimum 6 digit"
+        android:contentDescription="@null"
+        android:textColor="@color/text_error_color"
+        android:visibility="gone"
+        android:layout_below="@id/password"/>
 
     <Button
+        android:id="@+id/sign_in"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:text="@string/sign_in"
@@ -46,20 +101,20 @@
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:background="#F9851D"
-        android:id="@+id/signin"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
 
     <TextView
+        android:id="@+id/not_a_member"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot password?"
-        android:textColor="#595959"
-        android:textSize="14dp"
-        android:fontFamily="Helvetica Neue"
-        android:layout_below="@id/signin"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"/>
-
+        android:textColor="@drawable/focus_color_text"
+        android:textSize="16sp"
+        android:text="@string/not_a_member"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/sign_in"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"/>
 </RelativeLayout>
