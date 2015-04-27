@@ -12,14 +12,12 @@ var currentUser = Parse.User.current();
        email : currentUser.get("email"),
        phone : currentUser.get("phone"),
        address : currentUser.get("address"),
-    }
+             }
       res.render('profile', {user : _user});
 
-  } else {
-      // show the signup or login page
+   } else {
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
-  
 });
 
 
@@ -31,10 +29,9 @@ router.post('/update', function(req, res, next) {
   if (currentUser) 
   {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
-    var _user = {
-         name : currentUser.get("name"),
-                }
-
+         var _user = {
+                      name : currentUser.get("name"),
+                     }
 
           var data = {
             name:req.body.txtName,
@@ -66,13 +63,8 @@ router.post('/update', function(req, res, next) {
       }
     });
     }else {
-      
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }  
 });
-
-
-
-
 module.exports = router;
 

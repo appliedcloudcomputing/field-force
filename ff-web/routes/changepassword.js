@@ -11,12 +11,9 @@ router.get('/', function(req, res, next) {
        name : currentUser.get("name"),
     }
       res.render('changepassword', {user : _user});
-
   } else {
-      // show the signup or login page
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
-  
 });
 
 
@@ -28,26 +25,21 @@ router.post('/save', function(req, res) {
 
   var data ={
     username: req.body.username,
-    //oldPassword: req.body.oldPassword,
     newPassword: req.body.newPassword
   }	;
 
    Parse.Cloud.run('changePassword', data, {
         success: function(message) {
-
         console.log("cloud call save changepassword success");
-
         var response = {
           message: message,
           status: 200
         }
-        //res.end(JSON.stringify(response));
         res.render('changepassword',{error:""})
       },
       error: function(error) {
         var response = {
           message: error.message,
-
           status: error.code
         }
         res.end(JSON.stringify(response));

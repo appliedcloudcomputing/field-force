@@ -26,9 +26,7 @@ function initialize() {
                     '<h2>Latitude: ' + position.coords.latitude + '</h2>' +
                     '<h2>Longitude: ' + position.coords.longitude + '</h2>'
             });
-            
             map.setCenter(geolocate);
-            
         });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
