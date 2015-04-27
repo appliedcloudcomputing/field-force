@@ -1,16 +1,6 @@
 var user = require('cloud/user/user.js');
 var job  = require('cloud/job/job.js');
 var changepass = require('cloud/user/changePassword.js');
-var customer = require('cloud/customer/customer.js');
-
-
-
-// Use Parse.Cloud.define to define as many cloud functions as you want.
-// For example:
-Parse.Cloud.define("hello", function(request, response) {
-  response.success("Hello world!");
-});
-
 
 var Response = {
 	ParametersEmpty: 'Please provide complete details',
@@ -27,6 +17,7 @@ var Response = {
 Parse.Cloud.define('saveUser', function(req, res) {
 	if(!req.params.id || req.params.id == 0) {
 		user.save({
+			
 			username: req.params.username,
 			name: req.params.name,
 			email: req.params.email,
@@ -34,8 +25,8 @@ Parse.Cloud.define('saveUser', function(req, res) {
 			address: req.params.address,
 			userType: req.params.userType,
 			password:req.params.password,
-			//imei: req.params.imei,
-			//currentLocation: req.params.currentLocation,
+			imei: req.params.imei,
+			currentLocation: req.params.currentLocation,
 			success: function(message) {
 				res.success(message);
 			},
@@ -52,8 +43,8 @@ Parse.Cloud.define('saveUser', function(req, res) {
 			phone: req.params.phone,
 			address: req.params.address,
 			userType: req.params.userType,
-			//imei: req.params.imei,
-			//currentLocation: req.params.currentLocation,
+			imei: req.params.imei,
+			currentLocation: req.params.currentLocation,
 			success: function(message) {
 				res.success(message);
 			},
@@ -124,26 +115,4 @@ Parse.Cloud.define('changePassword', function(req, res) {
        
         
     });
-
-
-
-/*-----------------------Customer---------------------------*/
-Parse.Cloud.define('saveCustomer', function(req, res) {
-	if(!req.params.id || req.params.id == 0) {
-		customer.save({
-			name: req.params.name,
-			email: req.params.email,
-			password: req.params.password,
-			address: req.params.address,
-			phone: req.params.phone,
-						
-			success: function(message) {
-				res.success(message);
-			},
-			error: function(error) {
-				   res.error(error);
-			}
-		});
-	} 
-});
 

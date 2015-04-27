@@ -149,7 +149,6 @@ router.get('/userDetails', function(req, res, next)
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
     var _user = {
        name : currentUser.get("name"),
-              name : currentUser.get("name"),
        email : currentUser.get("email"),
        phone : currentUser.get("phone"),
        address : currentUser.get("address"),

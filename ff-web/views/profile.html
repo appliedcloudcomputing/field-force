@@ -20,20 +20,20 @@
   function display() {       
 		
 			 //<!-- name -->
-   document.getElementById( 'h4_name' ).style.display = 'none'; //hides field and shows only on submit button click
+   document.getElementById( 'h5_name' ).style.display = 'none'; //hides field and shows only on submit button click
    
-	 document.getElementById( 'h4_name_text' ).style.display = 'block';
+	 document.getElementById( 'h5_name_text' ).style.display = 'block';
 		//<!-- email -->
-    document.getElementById( 'h4_email' ).style.display = 'none';
-       document.getElementById( 'h4_email_text' ).style.display = 'block';
+    document.getElementById( 'h5_email' ).style.display = 'none';
+       document.getElementById( 'h5_email_text' ).style.display = 'block';
 
       //<!-- phone -->
-			document.getElementById( 'h4_phone' ).style.display = 'none';
-       document.getElementById( 'h4_phone_text' ).style.display = 'block';
+			document.getElementById( 'h5_phone' ).style.display = 'none';
+       document.getElementById( 'h5_phone_text' ).style.display = 'block';
 
        //<!-- address -->
-       document.getElementById( 'h4_address' ).style.display = 'none';
-       document.getElementById( 'h4_adress_text' ).style.display = 'block';
+       document.getElementById( 'h5_address' ).style.display = 'none';
+       document.getElementById( 'h5_adress_text' ).style.display = 'block';
 
        //Submit Button
 
@@ -78,12 +78,10 @@
 
           <div class="boxed profile light">
             <div class="inner">
-
               <!-- Profile Title Start -->
               <div class="title">
-                <h3>My profile</h3>
-				
-				<button type="button" onclick="display()" style= "float: right;" class="btn btn-lg btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+                <h3>My profile</h3>				
+				           <button type="button" onclick="display()" style= "float: right;" class="btn btn-lg btn-primary"><i class="fa fa-pencil"></i> Edit</button>
                <!-- <a href="#" class="share-profile">Share this profile</a> -->
               </div>
               <!-- Profile Title End -->
@@ -92,7 +90,7 @@
 
               <div class="row profile-data">
                 <!-- Left Side Start -->
-                <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12 text-center">
+                 <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12 text-center">
 
                   <!-- Profile Avatar Start -->
                   <div class="profile-avatar">
@@ -114,48 +112,46 @@
            <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
 
            <form method="post" class="basic-form" action="/profile/update" name="form" >
-                 
            <ul class="icon-list">
-            <!-- name start-->
-					<li>
-        <h4 id="h4_name" style="display: block;">
-        <i class="fa fa-user"></i><%= user.name %>
-       </h4>
-        <!-- TEXT BOX VISIBLE FALSE-->
+             <!-- name start-->
+  					  <li>
+                <h5 id="h5_name" style="display: block;">
+                  <i class="fa fa-user"></i><%= user.name %>
+                </h5>
+
+                <!-- TEXT BOX VISIBLE FALSE-->
           
-          <h4 id="h4_name_text" style="display: none;">
-          <input type="text" id="txtName" name="txtName" value="<%= user.name %>"/>
-          </h4>
-          </li>
+                 <h5 id="h5_name_text" style="display: none;">
+                   <input type="text" id="txtName" name="txtName" value="<%= user.name %>"/>
+                  </h5>
+                </li>
 
-        <!-- name end-->
-
-				
-				  <br>
-          <!--email start-->
-				<li>
-				<h4 id="h4_email" style="display: block;">
-        <i class="fa fa-envelope" ></i><%= user.email %>
-       </h4>
+        <!-- name end-->				
+      				  <br>
+                <!--email start-->
+      				<li>
+      				<h5 id="h5_email" style="display: block;">
+              <i class="fa fa-envelope" ></i><%= user.email %>
+             </h5>
         <!-- TEXT BOX VISIBLE FALSE-->
 					
-					<h4 id="h4_email_text" style="display: none;">
+					<h5 id="h5_email_text" style="display: none;">
 					<input type="text" id="txtemail" name="txtemail" value="<%= user.email %>"  />
-					</h4>
+					</h5>
 					</li>
           <!--email end-->
 					<br>
           <!--address start-->
          <li>
-          <h4 id="h4_address" style="display: block;">
+          <h5 id="h5_address" style="display: block;">
           <i class="fa fa-map-marker"></i><%= user.address %> 
-          </h4>
+          </h5>
 
          <!-- TEXT BOX VISIBLE FALSE-->
           
-          <h4 id="h4_adress_text" style="display: none;">
+          <h5 id="h5_adress_text" style="display: none;">
             <input type="text" id="txtaddress" name="txtaddress" value="<%= user.address %>" />
-          </h4>
+          </h5>
           </li>
           <!--address end-->
 
@@ -163,30 +159,25 @@
 					<br>
 
           <!--phone start-->
-       <li>
-        <h4 id="h4_phone" style="display: block;">
-         <i class="fa fa-phone"></i> <%= user.phone %>
-        </h4>
+                <li>
+                    <h5 id="h5_phone" style="display: block;">
+                     <i class="fa fa-phone"></i> <%= user.phone %>
+                    </h5>
 
-    <!-- TEXT BOX VISIBLE FALSE-->
+                    <!-- TEXT BOX VISIBLE FALSE-->
 
-          <h4 id="h4_phone_text" style="display: none;">
-        <input type="text" id="txtphone" name="txtphone" value="<%= user.phone %>" />
-          </h4>
-          </li>
+                    <h5 id="h5_phone_text" style="display: none;">
+                      <input type="text" id="txtphone" name="txtphone" value="<%= user.phone %>" />
+                    </h5>
+                  </li>
            <!--phone end-->
            <!--Save info button start -->
 
-      <div class="col-md-6 text-right">
-      <button type="submit" id="button" style ="float:right; display: none;"class="btn btn-lg btn-success"><i class="fa fa-check"></i>Update</button>
-       </div>
-
-               <!--Save info button end -->
-
-                   
-					
-       </ul>
-		</form>
+                  <div class="col-md-6 text-right">
+                   <button type="submit" id="button" style ="float:right; display: none;"class="btn btn-lg btn-success"><i class="fa fa-check"></i>Update</button>
+                 </div>             
+                </ul>
+             		</form>
 
                 </div>
                 <!-- Right Side End -->
