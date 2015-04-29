@@ -37,7 +37,7 @@
                 <p></p>
     <div class="row" >
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h3>EXPENSES LISTING</h3>
+        <h3>EXPENSES</h3>
         
     </div>
     </div>
@@ -45,7 +45,7 @@
   
 
               <!-- Title Bar Start -->
-              <div class="title-bar">
+              <div class="title-bar" style="padding-left:40%;">
                 <h4>Listing</h4>
                 <div class="input-group" style="float:right;">
           <a href="/expenses/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
@@ -68,8 +68,8 @@
                 <th>EMPLOYEE NAME</th>
                 <th>EXPENSES TYPE </th>
                 <th>EXPENSES STATUS</th>                         
-                <th>EXPENSE Amount</th>        
-                <th>Action</th>
+                <th class="text-center">EXPENSES AMOUNT</th>        
+                <th>ACTION</th>
               </tr></thead>
               
              <tbody>
@@ -77,10 +77,9 @@
                 <tr>
                   <td ><%= exList[i].expensesName %></td>
                   <td ><%= exList[i].expensesType %></td>   
-                  <td ><%= exList[i].expensesApproved %></td> 
-                  <td ><%= exList[i].expensesAmt %></td>                                               
-                  <td><a class="btn btn-round btn-xs btn-info" role="button" 
-                    href="">View</a></td>
+                  <td style="padding-left:3%;" ><%= exList[i].expensesApproved %></td> 
+                  <td class="text-center" style="padding-left:6%;"><%= exList[i].expensesAmt %></td>                                               
+                  <td><a href=""><i class="fa fa-eye"></i></a></td>
                 </tr>
                     <% } %>
       </tbody>
@@ -91,11 +90,6 @@
 
         </div>
                             
-                 <div class="row">  
-                    <div class="col-md-12 text-left">
-                      <button type="Button" class="btn btn-lg btn-success"><i class="fa fa-check"></i><a href="/dashboard">Go To Home</a></button>
-                    </div>
-                  </div>
                 </div>
                </div>
               </div>           

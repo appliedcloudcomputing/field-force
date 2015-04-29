@@ -4,190 +4,180 @@
 <head>
   <% include partials/head.html %>
 
-  <!--saved success message display path start-->
-  <!--<script src="/javascripts/forms.js"></script>-->
-  <!--saved success message display path end-->
-
-  <!--Submit button save message-->
- <!-- <link rel="stylesheet" href="/css/boostrap.min.css" />
-  <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
-  <script type = "text/javascript">
-$(document).on('click' , '#btn-success' , functions(evt){
-evt.preventDefault();
-
-
-
-$('#alert').removeClass('alert alert-success').text('Success!');
-});
-</script> -->
-<script>
-$('#submit').click(function() {
-        $( "#form" ).dialog( "open" );
-      });
-</script>
 </head>
 <!-- Header end -->
 
 <body>
 
 <section class="content">
-
   <!-- Sidebar Start -->
     <% include partials/sidebar.html %>
   <!-- Sidebar End -->
 
-<div class="content-liquid-full">
-  <div class="container">
-    
-              <!-- Header Bar Start -->
-        <% include partials/header.html %>
-      <!-- Header Bar End -->
+    <div class="content-liquid-full">
+      <div class="container">
+        
+        <!-- Header Bar Start -->
+          <% include partials/header.html %>
+        <!-- Header Bar End -->
 
+        <!-- Breadcrumbs Start -->
+        <div class="row breadcrumbs">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumbs">
+              <li><a href="#"><i class="fa fa-home"></i></a></li>
+              
+              <li><a href="#">User save Page</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Breadcrumbs End -->
 
-    <!-- Breadcrumbs Start -->
-    <div class="row breadcrumbs">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <ul class="breadcrumbs">
-          <li><a href="#"><i class="fa fa-home"></i></a></li>
-          <li><a href="#">Pages</a></li>
-          <li><a href="#">Blank Page</a></li>
-        </ul>
-      </div>
-    </div>
-    <!-- Breadcrumbs End -->
+        <!--Form start-->
+        <form method="post" class="basic-form" action="/users/save" name="form" id= "form">
+          <!--Success/Error Message on submit start-->
+          <div id="message" class="alert">
+              <p></p>
+          </div>
+                   
+          <div class="row">  
+            <div class="boxed">
 
-<!--Form start-->
-
-<form method="post" class="basic-form" action="/users/save"name="form" onsubmit="return checkForm(this);">
-  
-  <!--Success Message on submit start-->
-  <!--<div id="" class="alert alert-error alert-info" style="display: block;">
-                <p>Resource saved successfully!</p>
-              </div>
-              <//Success Message on submit end-->
-
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h3>Users</h3>
-    </div>    
-          <div class="boxed">
-
-
-              <!-- Title Bar Start -->
-              <div class="title-bar">
-                <h4>User Form</h4>
-              </div>
-              <!-- Title Bar End -->
-            
-              <div class="inner no-radius">
-
-               
-                <div class="row">
-                <div class="col-md-6">
-
-                    <label for="name">Full Name:</label>
-                    <input type="name" name="name" id="name" placeholder="Last name  First Name Middle name" required  autofocus />
+                <!-- Title Bar Start -->
+                <div class="title-bar" style="padding-left:40%;">
+                  <h4> Add  User </h4>
                 </div>
-                  
-
-                <div class="col-md-6">
-                  <label for="username">Username:</label>
-                  <input type="username" name="username" id="username" placeholder="Use alphanumeric characters and limit it to 8!"  required />
-                </div>
-                </div>
-
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <label for="email">E-Mail:</label>
-                    <input type="email" name="email" id="email" placeholder="Enter email" required/>
-                  </div>
-                       
-                  <div class="col-md-6">
-                  <label for="usertype">User Type:</label>
-                  <select id="userType" name="userType" placeholder="Please select User Type">
-                      <option value="Employee">Admin</option>
-                      <option value="Employee">Epmloyee</option>
-                      <option value="Customer">Customer</option>
-                  </select>
-                  </div>
-                  </div>
-				  <div class="row">
-				  <div class="col-md-6">
-                    <label for="password">Password:</label>
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                      <input type="password" id="password" name="password" placeholder="password" class="form-control">
+                <!-- Title Bar End -->
+              
+                <div class="inner no-radius">
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="name" class="form-control" name="name" id="name" value="<%=user.name%>" placeholder="Last name  First Name Middle name" required  autofocus />                       
+                        <input type="hidden" id="id" name="id" value="<%=user.id%>"/>                    
+                    </div>
+                      <span ="glyphicon glyphicon-ok form-control-feedback"></span> <!--span validator class -->
+                      
+                    <div class="col-md-6 form-group">
+                      <label for="username">Username:</label>
+                      <input type="username" class="form-control" name="username" id="username" value="<%=user.username%>" placeholder="Use alphanumeric characters and limit it to 8!"  required />
                     </div>
                   </div>
-				<div class="col-md-6">
-                    <label for="rep-password">Repeat Password:</label>
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                      <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm_password" class="form-control">
-                    </div>
-                  </div>
-                </div>
-
-                  <div class="row">  
-                    <div class="col-md-6">
-                     <label for="phone">Phone:</label>
-                     <input type="phone" name="phone" id="phone" placeholder="Enter your Phone Number" required />
-                    </div>
-                    <div class="col-md-6">
-                     <label for="phone">IMEI:</label>
-                     <input type="number"  name="imei" id="imei" placeholder="Enter 16 Digit imei Number" required 
-                     pattern="\d{16}" />
-                     
-                    </div>
-                </div>
 
                   <div class="row">
-                  <div class="col-md-6">
-                    <label for="address">Address:</label>
-                    <textarea name="address" id="address" placeholder="Enter Your Address..." required></textarea>
-                  </div>
-                           
-
-                    <div class="col-md-6">
-                    <label for="post-code">Location:</label>
-                    <input type="text" name="location" id="location" placeholder="Location"/>
+                    <div class="col-md-6 form-group">
+                      <label for="email">E-Mail:</label>
+                      <input type="email" class="form-control" name="email" id="email" value="<%=user.email%>" placeholder="Enter email" required/>
                     </div>
-                 </div>
-                  
+                         
+                    <div class="col-md-6">
+                      <label for="usertype">User Type:</label>
+                      <select id="userType" name="userType" placeholder="Please select User Type" class="form-control">
+                          <% if(user.userType == "Admin") { %>
+                              <option value="Admin" selected>Admin</option>
+                          <%} else { %>
+                             <option value="Admin">Admin</option>
+                          <% } %>
+                          <% if(user.userType == "Employee") { %>
+                            <option value="Employee" selected>Employee</option>
+                          <% } else { %>
+                            <option value="Employee">Employee</option>                        
+                          <% } %>
+                          <% if(user.userType == "Customer") { %>
+                            <option value="Customer" selected>Customer</option>
+                          <% } else { %>
+                            <option value="Customer">Customer</option>                        
+                          <% } %>
+                      </select>
+                    </div>
+                  </div>
 
+                   <% if(user.id == null) { %>
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="password">Password:</label>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" id="password" name="password" value="<%=user.password%>" placeholder="password">
+                      </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="rep-password">Repeat Password:</label>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" id="confirm_password" name="confirm_password" value="<%=user.password%>" placeholder="confirm_password" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                   <% } %>
 
                   <div class="row">  
-                   <div class="col-md-6 text-left">
-                  <button type="submit" class="btn btn-lg btn-success" id="submit">
-                    <i class="fa fa-check"></i> Save</button>
+                    <div class="col-md-6 form-group">
+                       <label for="phone">Phone:</label>
+                       <input type="phone" class="form-control" name="phone" id="phone" value="<%=user.phone%>" placeholder="Enter your Phone Number" required />
                     </div>
-                                    
-                  <div class="col-md-6 text-right">
-                      <button type="reset"  class="btn btn-lg btn-success"><i class="fa fa-reply"></i>Reset</button>
+                    <div class="col-md-6 form-group">
+                       <label for="phone form-group">IMEI:</label>
+                       <input type="text" class="form-control" name="imei" id="imei" value="<%=user.imei%>" placeholder="Enter 16 Digit imei Number" required 
+                       pattern="\d{16}" />
                     </div>
-
                   </div>
-                  
-              </div>
 
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="address">Address:</label>
+                      <textarea name="address" class="form-control" id="address" value="<%=user.address%>" placeholder="Enter Your Address..." required></textarea>
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="post-code ">Location:</label>
+                      <input type="text" class="form-control" name="location" id="location" value="<%=user.location%>" placeholder="Location"/>
+                    </div>
+                  </div>
+
+                  <div class="row">  
+                    <div class="col-md-6 text-left">
+                      <button type="button" class="btn btn-lg btn-success" name="submit" id="submit">
+                      <i class="fa fa-check"></i> Save</button>
+                    </div>          
+                    <div class="col-md-6 text-right">
+                        <button type="reset"  class="btn btn-lg btn-success">
+                          <i class="fa fa-reply"></i>Reset</button>
+                    </div>
+                  </div>
+                    
+                </div>
+              </div>
             </div>
-            
+        </form>
       </div>
-  </div>
-      </div>
- 
+    </div>
 </section>
-</form>
 <!-- Form End-->
  
+<!-- Footer & Javascript start-->
+<% include partials/foot.html %>
+<!--footer end-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
 
-<!-- Javascript -->
+function validateText(id)
+{
+    if($("#"+id).val()==null || $("#"+id).val()=="")
+    {
+        alert("validation error");
+    }
 
-  <% include partials/foot.html %>
 
-<!-- End Javascript -->
+}
 
+  $(document).ready(
+      function()
+    )
 
+</script>
+
+  
 </body>
 </html>

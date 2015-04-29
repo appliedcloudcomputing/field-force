@@ -7,7 +7,7 @@ $(document).ready(function() {
     $("div#message").hide();
 
     //FORM SUBMUIT FUNCTION
-	$("form").on("submit", function(e) {
+	$("form")("submit", function(e) {
         e.preventDefault();
         var msgBox = $(e.currentTarget).find("div#message");
         var msgText = $(e.currentTarget).find("div#message p");

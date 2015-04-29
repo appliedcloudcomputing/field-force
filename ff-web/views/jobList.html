@@ -33,11 +33,10 @@
 
   <!--Form start-->
   <form method="post" class="basic-form" action="" data-uri="">
-    <div id="message" class="alert">
-                <p></p>
+
     <div class="row" >
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h3> Listing</h3>
+        <h3>JOBS</h3>
         
     </div>
     </div>
@@ -46,7 +45,7 @@
 
               <!-- Title Bar Start -->
               <div class="title-bar" style="padding-left:40%;">
-                <h4> JOB Listing</h4>
+                <h4> Listing</h4>
                 <div class="input-group" style="float:right;">
           <a href="/job/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
           </div>
@@ -80,7 +79,9 @@
                   <td ><%= jobList[i].customer %></td>
                   <td ><%= jobList[i].employee %></td>             
                   <td ><%= jobList[i].status %></td>
-                  <td style="background-color:transparent;"><a class="btn btn-round btn-xs btn-info" role="button" a href="/job/jobDetails?id=<%=jobList[i].id%>">View</a></td>
+                  <td>  
+                    <a href="/job/jobDetails?id=<%=jobList[i].id%>"><i class="fa fa-eye"></i></a>
+                  </td>
                 </tr>
                     <% } %>
       </tbody>
@@ -91,11 +92,6 @@
 
         </div>
                             
-                 <div class="row">  
-                    <div class="col-md-12 text-left">
-                      <button type="Button" class="btn btn-lg btn-success"><i class="fa fa-check"></i><a href="/dashboard">Go To Home</a></button>
-                    </div>
-                  </div>
                 </div>
                </div>
               </div>           

@@ -28,7 +28,7 @@
         <ul class="breadcrumbs">
           <li><a href="#"><i class="fa fa-home"></i></a></li>
           <li><a href="#">Pages</a></li>
-          <li><a href="#">Blank Page</a></li>
+          <li><a href="#">Expenses save Page</a></li>
         </ul>
       </div>
     </div>
@@ -36,9 +36,9 @@
 
   <!--Form start-->
   <form method="post" class="basic-form" action="/expenses/save" data-uri="/expenses/save">
-    <!--<div id="message" class="alert">
+    <div id="message" class="alert">
       <p></p>
-    </div> -->
+    </div> 
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   
@@ -88,8 +88,8 @@
             </div>
             
                <div class="row" style="margin-top: 20px">
-                <div class="col-md-3" style="padding-left: 10%">
-                    <label for="assigned">Staus</label>
+                <div class="col-md-3" style="padding-left: 12%">
+                    <label for="assigned">Status :</label>
                   </div>
                   <div class="col-md-3" style="padding-right: 5%">
                      <select id="assigned" name="approved">
@@ -118,6 +118,8 @@
 <!-- Javascript -->
 
   <% include partials/foot.html %>
+  <script src="/javascripts/forms.js"></script>
+
 
 
 </body>
