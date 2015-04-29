@@ -74,7 +74,7 @@ public class SignUpActivity extends ActionBarActivity implements Animation.Anima
             public void onClick(View v) {
                 Intent i = new Intent(SignUpActivity.this, SignInActivity.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.right_to_left, R.anim.left_to_right);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
                 finish();
             }
         });

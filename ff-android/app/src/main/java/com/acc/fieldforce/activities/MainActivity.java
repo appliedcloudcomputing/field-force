@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
                 // Start your app next activity
                 Intent i = new Intent(MainActivity.this, SignUpActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
                 // close this activity
                 finish();
             }

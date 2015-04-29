@@ -54,6 +54,7 @@ public class MenusActivity extends DrawerActivity {
                 Intent i = new Intent(mContext, AddCustomerActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -66,6 +67,7 @@ public class MenusActivity extends DrawerActivity {
                 Intent i = new Intent(mContext, AddLeadsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -78,6 +80,7 @@ public class MenusActivity extends DrawerActivity {
                 Intent i = new Intent(mContext, ExpensesActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -86,7 +89,7 @@ public class MenusActivity extends DrawerActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MenusActivity.this, CustomerListActivity.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.right_to_left, R.anim.left_to_right);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -95,7 +98,7 @@ public class MenusActivity extends DrawerActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MenusActivity.this, TabActivity.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.right_to_left, R.anim.left_to_right);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -104,7 +107,7 @@ public class MenusActivity extends DrawerActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MenusActivity.this, JobListingActivity.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.right_to_left, R.anim.left_to_right);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -126,11 +129,13 @@ public class MenusActivity extends DrawerActivity {
     private void startAccount() {
         Intent i  = new Intent (this, AccountSummaryActivity.class);
         startActivity(i);
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
     private void startExpense() {
         Intent i = new Intent(this, ListExpensesActivity.class);
         startActivity(i);
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
 
