@@ -3,7 +3,6 @@ package com.acc.fieldforce;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -22,7 +21,13 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.acc.fieldforce.activities.AccountSummaryActivity;
 import com.acc.fieldforce.activities.CustomerListActivity;
+import com.acc.fieldforce.activities.ExpensesActivity;
+import com.acc.fieldforce.activities.JobListingActivity;
+import com.acc.fieldforce.activities.LeadsListActivity;
+import com.acc.fieldforce.activities.ListExpensesActivity;
+import com.acc.fieldforce.activities.MenusActivity;
 
 import java.util.ArrayList;
 
@@ -42,9 +47,10 @@ public class DrawerActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
 
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mNavItems.add(new NavItem("Home" , R.drawable.ic_customers));
         mNavItems.add(new NavItem("Customer" , R.drawable.ic_customers));
         mNavItems.add(new NavItem("Leads", R.drawable.ic_leads));
         mNavItems.add(new NavItem("Jobs" , R.drawable.ic_jobs));
@@ -93,9 +99,41 @@ public class DrawerActivity extends ActionBarActivity {
 */
         Intent intent = null;
         switch (position){
+
             case 0:
+                intent = new Intent(this , MenusActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case 1:
                 intent = new Intent(this , CustomerListActivity.class);
                 startActivity(intent);
+                finish();
+                break;
+
+            case 2:
+                intent = new Intent(this, LeadsListActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case 3:
+                intent = new Intent(this, JobListingActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case 4:
+                intent = new Intent(this, ListExpensesActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case 5:
+                intent = new Intent(this, AccountSummaryActivity.class);
+                startActivity(intent);
+                finish();
                 break;
 
             default:

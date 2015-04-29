@@ -1,13 +1,17 @@
 package com.acc.fieldforce.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
+import com.acc.fieldforce.DrawerActivity;
 import com.acc.fieldforce.R;
 import com.acc.fieldforce.adapter.ExpenseListAdapter;
 import com.acc.fieldforce.temp.ExpenseModel;
@@ -17,12 +21,15 @@ import java.util.ArrayList;
 /**
  * Created by Sagar on 1/31/2015.
  */
-public class ListExpensesActivity extends Activity {
+public class ListExpensesActivity extends DrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_expense);
+//        setContentView(R.layout.activity_list_expense);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_list_expense, null, false);
+        mDrawerLayout.addView(contentView, 0);
 
         ArrayList<ExpenseModel> arrayList = ExpenseModel.getModel();
         ExpenseListAdapter expenseListAdapter = new ExpenseListAdapter(this , arrayList);

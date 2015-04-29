@@ -1,10 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false"
     android:id="@+id/navDrawer"
-    tools:context="com.acc.fieldforce.DrawerActivity">
+    tools:context="com.acc.fieldforce.DrawerActivity"
+    android:elevation="7dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar">
+        </include>
 
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,66 +29,14 @@
         android:id="@+id/navDrawer_pane"
         android:layout_gravity="start">
 
-        <include
-            android:id="@+id/tool_bar"
-            layout="@layout/toolbar">
-        </include>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:id="@+id/profileBox"
-            android:padding="8dp"
-            android:background="#666666">
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/profile_image"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/profile_pic"
-                android:layout_marginTop="10dp"
-                app:border_width="2dp"
-                app:border_color="#666666"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@+id/profile_image"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/navUserName"
-                    android:text="UserName"
-                    android:textColor="#fff"
-                    android:textSize="16sp"/>
-
-                <TextView
-                    android:id="@+id/navUserEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginTop="4dp"
-                    android:text="something@email.com"
-                    android:textColor="#fff"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-        </RelativeLayout>
-
         <ListView
             android:layout_width="280dp"
+            android:paddingTop="20dp"
             android:layout_height="match_parent"
-            android:layout_below="@id/profileBox"
             android:choiceMode="singleChoice"
-            android:background="#4caea6"
+            android:background="#fff"
             android:dividerHeight="1dp"
-            android:divider="#00a598"
+            android:divider="#d9d9d9"
             android:id="@+id/navList"/>
 
     </RelativeLayout>

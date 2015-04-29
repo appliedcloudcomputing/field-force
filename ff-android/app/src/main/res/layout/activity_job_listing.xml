@@ -3,9 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
-    android:layout_marginTop="7dp"
-    android:layout_marginLeft="7dp"
-    android:layout_marginRight="7dp">
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_bottom_margin"
+    >
 
     <ListView
         android:layout_width="match_parent"

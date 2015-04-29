@@ -1,13 +1,17 @@
 package com.acc.fieldforce.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
+import com.acc.fieldforce.DrawerActivity;
 import com.acc.fieldforce.R;
 import com.acc.fieldforce.adapter.CustomerListAdapter;
 import com.acc.fieldforce.temp.Temp;
@@ -17,11 +21,15 @@ import java.util.ArrayList;
 /**
  * Created by Sagar on 1/27/2015.
  */
-public class CustomerListActivity extends Activity{
+public class CustomerListActivity extends DrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_list);
+//        setContentView(R.layout.activity_customer_list);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_customer_list, null, false);
+        mDrawerLayout.addView(contentView, 0);
+
         populateList();
         
     }
