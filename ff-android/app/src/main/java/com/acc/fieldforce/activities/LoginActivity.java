@@ -35,14 +35,14 @@ public class LoginActivity extends TabActivity implements TabHost.OnTabChangeLis
         tabHost.addTab(spec);
 
         tabHost.getTabWidget().setCurrentTab(1);
-        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Helvetica Neue.ttf");
+//        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Helvetica Neue.ttf");
         for(int i=0;i<tabHost.getTabWidget().getChildCount();i++)
         {
             tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#FFFFFF"));
             TextView tv1 = (TextView) tabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
             tv1.setTextColor(Color.parseColor("#035c8e"));
             tv1.setAllCaps(false);
-            tv1.setTypeface(type);
+//            tv1.setTypeface(type);
             tv1.setText("Sign Up");
             tv1.setTextSize(16);
         }
@@ -51,7 +51,7 @@ public class LoginActivity extends TabActivity implements TabHost.OnTabChangeLis
         TextView tv = (TextView) tabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title);
         tv.setTextColor(Color.parseColor("#FFFFFF"));
         tv.setAllCaps(false);
-        tv.setTypeface(type);
+//        tv.setTypeface(type);
         tv.setText("Sign In");
         tv.setTextSize(16);
 
@@ -63,7 +63,7 @@ public class LoginActivity extends TabActivity implements TabHost.OnTabChangeLis
         tabHost = getTabHost();
         tabHost.setOnTabChangedListener(this);
         tabHost.getTabWidget().setCurrentTab(1);
-        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Helvetica Neue.ttf");
+//        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Helvetica Neue.ttf");
 
         for(int i=0;i<tabHost.getTabWidget().getChildCount();i++)
         {
@@ -71,7 +71,7 @@ public class LoginActivity extends TabActivity implements TabHost.OnTabChangeLis
             TextView tv = (TextView) tabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
             tv.setTextColor(Color.parseColor("#FFFFFF"));
             tv.setAllCaps(false);
-            tv.setTypeface(type);
+//            tv.setTypeface(type);
             tv.setText("Sign In");
             tv.setTextSize(16);
         }
@@ -80,7 +80,7 @@ public class LoginActivity extends TabActivity implements TabHost.OnTabChangeLis
         TextView tv1 = (TextView) tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).findViewById(android.R.id.title);
         tv1.setTextColor(Color.parseColor("#035c8e"));
         tv1.setAllCaps(false);
-        tv1.setTypeface(type);
+//        tv1.setTypeface(type);
         tv1.setText("Sign Up");
         tv1.setTextSize(14);
     }

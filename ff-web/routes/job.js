@@ -1,6 +1,6 @@
-
 var express = require('express');
 var router = express.Router();
+
 router.get('/save', function(req, res, next) 
 {
   var currentUser = Parse.User.current();
@@ -10,8 +10,7 @@ router.get('/save', function(req, res, next)
     var _u = {
        name : currentUser.get("name"),
     }
-       //GET CUSTOMER
-     var customerList = [];
+      var customerList = [];
       
       var userQuery = new Parse.Query(Parse.User);
       userQuery.equalTo("userType","Customer");
@@ -43,7 +42,7 @@ router.get('/save', function(req, res, next)
         success: function(employee){
           console.log('employee SUCCESS');
           if(employee) {
-            employee.forEach(function(emp) //name of html page
+            employee.forEach(function(emp) 
             {
               var _employee = {
                 name:emp.get('name'),
@@ -63,7 +62,6 @@ router.get('/save', function(req, res, next)
 }
   else 
   {
-      // show the signup or login page
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
 }); 
@@ -89,8 +87,8 @@ router.post('/save', function(req, res, next)
     currentStage:req.body.currentStage
              };
 
-console.log("CURRENT USER : "+ JSON.stringify(currentUser));
-  Parse.Cloud.run('saveJob', data, {
+    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+    Parse.Cloud.run('saveJob', data, {
         success: function(message) {
 
         console.log("cloud call save user success");
@@ -112,10 +110,8 @@ console.log("CURRENT USER : "+ JSON.stringify(currentUser));
     });
 
   }else {
-      // show the signup or login page
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }  
-
 });
 
 /******************************************job Details******************************/
@@ -126,8 +122,8 @@ router.get('/jobDetails', function(req, res)
   var currentUser = Parse.User.current();
   if (currentUser) 
   {
-    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
-     var userList = [];      
+      console.log("CURRENT USER : "+ JSON.stringify(currentUser));
+      var userList = [];      
       var Job = Parse.Object.extend("Job");
       var userQuery = new Parse.Query(Job);
       userQuery.include("currentlyAssignedTo");
@@ -152,10 +148,8 @@ router.get('/jobDetails', function(req, res)
         }
       });
   } else {
-      // show the signup or login page
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
-  
 });
 
 /****************************************** Job List ******************************/
@@ -163,8 +157,9 @@ router.get('/jobDetails', function(req, res)
 router.get('/jobList', function(req, res) {
   console.log('Rendering job save page...');
 
-var currentUser = Parse.User.current();
-  if (currentUser) {
+  var currentUser = Parse.User.current();
+  if (currentUser) 
+  {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
     var _user = {
        name : currentUser.get("name"),
@@ -195,7 +190,6 @@ var currentUser = Parse.User.current();
             res.render('jobList', {jobList: jobList, user : _user});
             console.log("job LIST :"+JSON.stringify(jobList));
            } 
-
            else 
            {
             console.log('NO USERS PRESENT');
@@ -205,13 +199,9 @@ var currentUser = Parse.User.current();
           console.log('ERROR FINDING USERS: ' + error.message);
         }
       });
-
   }else {
-      // show the signup or login page
     res.render('joblist', {title: 'Login', message: Response.InvalidLogin});
   }   
 });
-
-/************************************************************************************/
 
 module.exports = router;

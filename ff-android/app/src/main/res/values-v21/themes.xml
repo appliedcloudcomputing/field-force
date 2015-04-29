@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <style name="CustomTheme"
+    parent="android:style/Theme.Holo.Light">
+    <item name="android:actionBarStyle">@style/MyAction</item>
+</style>
+    <style name="MyAction"
+        parent="android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">#0681BD</item>
+        <item name="android:titleTextStyle">@style/MyAction.TextStyle</item>
+    </style>
+    <style name="MyAction.TextStyle"
+        parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">13.5sp</item>
+        </style>-->
+]
+        <!-- inherit from the material theme -->
+        <style name="CustomTheme" parent="android:Theme.Material">
+            <!-- Main theme colors -->
+            <!--   your app branding color for the app bar -->
+            <item name="android:colorPrimary">#0681BD</item>
+            <!--   darker variant for the status bar and contextual app bars -->
+            <item name="android:colorPrimaryDark">#3b6f88</item>
+            <!--   theme UI controls like checkboxes and text fields -->
+        </style>
+</resources>
