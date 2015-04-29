@@ -61,5 +61,9 @@
     <string name="activity_expense_type">Expense Type</string>
     <string name="activity_expense_amount">Expense Amount</string>
     <string name="title_activity_tab">TabActivity</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Closed</string>
 
 </resources>

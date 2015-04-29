@@ -57,6 +57,8 @@ public class SignInActivity extends ActionBarActivity implements Animation.Anima
                 if (isValidate()) {
                     Intent i = new Intent(SignInActivity.this, MenusActivity.class);
                     startActivity(i);
+                    overridePendingTransition(R.anim.right_to_left, R.anim.left_to_right);
+
                     // close this activity
                     finish();
                 }
@@ -68,6 +70,7 @@ public class SignInActivity extends ActionBarActivity implements Animation.Anima
             public void onClick(View v) {
                     Intent i = new Intent(SignInActivity.this, SignUpActivity.class);
                     startActivity(i);
+                    overridePendingTransition(R.anim.right_to_left, R.anim.left_to_right);
                     // close this activity
                     finish();
                 }

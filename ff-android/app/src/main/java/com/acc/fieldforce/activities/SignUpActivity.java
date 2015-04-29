@@ -1,9 +1,6 @@
 package com.acc.fieldforce.activities;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,7 +8,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.acc.fieldforce.R;
@@ -78,6 +74,7 @@ public class SignUpActivity extends ActionBarActivity implements Animation.Anima
             public void onClick(View v) {
                 Intent i = new Intent(SignUpActivity.this, SignInActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.right_to_left, R.anim.left_to_right);
                 finish();
             }
         });

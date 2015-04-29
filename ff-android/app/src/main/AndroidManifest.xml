@@ -16,59 +16,69 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.CustomerListActivity"
-            android:theme="@style/CustomTheme" />
+
+        <activity android:name=".activities.CustomerListActivity" />
+
         <activity
             android:name=".activities.AddCustomerActivity"
-            android:label="Add Customer"
-            android:theme="@style/CustomTheme" />
+            android:label="Add Customer" />
+
         <activity
             android:name=".activities.SignUpActivity"
             android:label="@string/title_activity_sign_up"
-            android:theme="@style/CustomTheme" >
+            android:theme="@style/AppTheme" >
         </activity>
+
         <activity
             android:name=".activities.SignInActivity"
             android:label="Sign In"
-            android:theme="@style/CustomTheme" >
+            android:theme="@style/AppTheme" >
         </activity>
+
         <activity
             android:name=".activities.MenusActivity"
             android:label="@string/title_activity_menu"
-            android:theme="@style/CustomTheme" >
+            android:theme="@style/AppTheme">
         </activity>
+
         <activity
             android:name=".activities.ExpensesActivity"
-            android:theme="@style/CustomTheme" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.LeadsListActivity"
             android:label="@string/title_activity_leads_list"
-            android:theme="@style/CustomTheme" >
+            android:theme="@style/AppTheme" >
         </activity>
+
         <activity
             android:name=".activities.JobListingActivity"
             android:label="@string/title_activity_job_casting"
-            android:theme="@style/CustomTheme" >
+            android:theme="@style/AppTheme" >
         </activity>
-        <activity
-            android:name=".activities.AccountSummaryActivity"
-            android:theme="@style/CustomTheme" />
-        <activity
-            android:name=".activities.JobDescriptionActivity"
-            android:theme="@style/CustomTheme" />
-        <activity
-            android:name=".activities.ListExpensesActivity"
-            android:theme="@style/CustomTheme" />
+
+        <activity android:name=".activities.AccountSummaryActivity" />
+
+        <activity android:name=".activities.JobDescriptionActivity" />
+
+        <activity android:name=".activities.ListExpensesActivity" />
+
         <activity
             android:name=".activities.AddLeadsActivity"
-            android:label="@string/title_activity_add_leads"
-            android:theme="@style/CustomTheme" >
+            android:label="@string/title_activity_add_leads" >
+
         </activity>
+
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer" >
+        </activity>
+
         <activity
             android:name=".activities.TabActivity"
-            android:label="@string/title_activity_tab" >
+            android:label="@string/title_activity_tab"
+            android:theme="@style/AppTheme" >
         </activity>
+
     </application>
 
 </manifest>
