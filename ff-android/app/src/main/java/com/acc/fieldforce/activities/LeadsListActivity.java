@@ -16,7 +16,7 @@ import android.view.View;
 
 import com.acc.fieldforce.DrawerActivity;
 import com.acc.fieldforce.R;
-import com.acc.fieldforce.fragments.TabFragment;
+//import com.acc.fieldforce.fragments.TabFragment;
 
 
 public class LeadsListActivity extends DrawerActivity {
@@ -31,9 +31,9 @@ public class LeadsListActivity extends DrawerActivity {
         View contentView = inflater.inflate(R.layout.activity_leads_list, null, false);
         mDrawerLayout.addView(contentView, 0);
 
-        fragment = new TabFragment();
+        //fragment = new TabFragment();
 
-        Log.i("fragment", "" + fragment.getId());
+//        Log.i("fragment", "" + fragment.getId());
 
         if (fragment != null) {
             FragmentManager fm = getSupportFragmentManager();

@@ -24,14 +24,14 @@ public class MainActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app next activity
-                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                Intent i = new Intent(MainActivity.this, SignUpActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
                 // close this activity
                 finish();
             }
         }, SPLASH_TIME_OUT);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -78,7 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="Helvetica Neue"
-        android:text="Enter All The Required Fields"
+        android:text="@string/add_customer_error_message"
         android:id="@+id/error"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

@@ -8,27 +8,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_bottom_margin"
     tools:context="com.acc.fieldforce.Menu"
-    android:background="#F7F7F7"
+    android:background="#FFFFFF"
     android:id="@+id/menu">
+
         <Button
             android:id="@+id/customer"
             android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="40dp"
             android:text="CUSTOMER"
             android:fontFamily="Helvetica Neue"
+            android:layout_below="@id/toolbar"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:background="#0681BE"
+            android:layout_centerHorizontal="true"
             android:drawableLeft="@drawable/ic_customers"
             android:drawableRight="@drawable/ic_arrow"/>
 
         <Button
             android:id="@+id/leads"
             android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="40dp"
             android:text="LEADS"
             android:fontFamily="Helvetica Neue"
@@ -38,13 +41,14 @@
             android:textSize="14sp"
             android:layout_below="@id/customer"
             android:background="#F6881F"
+            android:layout_centerHorizontal="true"
             android:drawableLeft="@drawable/ic_leads"
             android:drawableRight="@drawable/ic_arrow"/>
 
         <Button
             android:id="@+id/jobs"
             android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="40dp"
             android:text="JOBS"
             android:fontFamily="Helvetica Neue"
@@ -54,13 +58,14 @@
             android:textSize="14sp"
             android:layout_below="@id/leads"
             android:background="#9C69AC"
+            android:layout_centerHorizontal="true"
             android:drawableLeft="@drawable/ic_jobs"
             android:drawableRight="@drawable/ic_arrow"/>
 
         <Button
             android:id="@+id/expenses"
             android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="40dp"
             android:text="EXPENSES"
             android:fontFamily="Helvetica Neue"
@@ -70,13 +75,14 @@
             android:textSize="14sp"
             android:layout_below="@id/jobs"
             android:background="#2E2E2E"
-            android:drawableLeft="@drawable/ic_expenses"
+            android:layout_centerHorizontal="true"
+            android:drawableLeft="@drawable/ic_expensess"
             android:drawableRight="@drawable/ic_arrow"/>
 
         <Button
             android:id="@+id/account"
             android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="40dp"
             android:text="ACCOUNT"
             android:fontFamily="Helvetica Neue"
@@ -86,6 +92,7 @@
             android:textSize="14sp"
             android:layout_below="@id/expenses"
             android:background="#99CA3E"
+            android:layout_centerHorizontal="true"
             android:drawableLeft="@drawable/ic_accounts"
             android:drawableRight="@drawable/ic_arrow"/>
 

@@ -1,11 +1,8 @@
 package com.acc.fieldforce.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,6 +27,7 @@ public class MenusActivity extends DrawerActivity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_menu);
 
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View contentView = inflater.inflate(R.layout.activity_menu, null, false);
         mDrawerLayout.addView(contentView, 0);
@@ -57,6 +55,7 @@ public class MenusActivity extends DrawerActivity {
                 Intent i = new Intent(mContext, AddCustomerActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -69,6 +68,7 @@ public class MenusActivity extends DrawerActivity {
                 Intent i = new Intent(mContext, AddLeadsActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -81,6 +81,7 @@ public class MenusActivity extends DrawerActivity {
                 Intent i = new Intent(mContext, ExpensesActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -89,14 +90,16 @@ public class MenusActivity extends DrawerActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MenusActivity.this, CustomerListActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
         leads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MenusActivity.this, LeadsListActivity.class);
+                Intent i = new Intent(MenusActivity.this, TabActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -105,6 +108,7 @@ public class MenusActivity extends DrawerActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MenusActivity.this, JobListingActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -126,11 +130,13 @@ public class MenusActivity extends DrawerActivity {
     private void startAccount() {
         Intent i  = new Intent (this, AccountSummaryActivity.class);
         startActivity(i);
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
     private void startExpense() {
         Intent i = new Intent(this, ListExpensesActivity.class);
         startActivity(i);
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
 

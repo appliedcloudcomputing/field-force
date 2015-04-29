@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="CustomTheme"
-    parent="android:style/Theme.Holo.Light">
-    <item name="android:actionBarStyle">@style/MyAction</item>
-</style>
-    <style name="MyAction"
-        parent="android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:background">#0681BD</item>
-        <item name="android:titleTextStyle">@style/MyAction.TextStyle</item>
-    </style>
-    <style name="MyAction.TextStyle"
-        parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <style name="CustomTheme" parent="Theme.AppCompat">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">13.5sp</item>
-        </style>
+    </style>
 </resources>

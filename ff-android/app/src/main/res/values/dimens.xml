@@ -12,5 +12,17 @@
     <dimen name="add_customer_height">40dp</dimen>
 
     <dimen name="tool_bar_top_padding">0dp</dimen>
+    <!-- Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html -->
+    <dimen name="navigation_drawer_width">240dp</dimen>
+
+    <dimen name="statusMargin">0dp</dimen>
+
+    <!--Tabs-->s
+    <dimen name="tabhostHeight">48dp</dimen>
+    <dimen name="tabSelectorHeight">2dp</dimen>
+    <dimen name="materialTextTab">14sp</dimen>
+
+
 
 </resources>

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="orange">#f9851d</color>
+    <color name="text_color">#595959</color>
+    <color name="text_error_color">#C12121</color>
+
+    <color name="ColorPrimary">#2196F3</color>
+    <color name="ColorPrimaryDark">#FFFFFF</color>
+    <color name="tabsScrollColor">#F7F7F7</color>
     <color name="black_semi_transparent">#B2000000</color>
     <color name="background">#e5e5e5</color>
     <color name="half_black">#808080</color>

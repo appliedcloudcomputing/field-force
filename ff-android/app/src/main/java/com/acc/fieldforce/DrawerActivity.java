@@ -28,6 +28,7 @@ import com.acc.fieldforce.activities.JobListingActivity;
 import com.acc.fieldforce.activities.LeadsListActivity;
 import com.acc.fieldforce.activities.ListExpensesActivity;
 import com.acc.fieldforce.activities.MenusActivity;
+import com.acc.fieldforce.activities.TabActivity;
 
 import java.util.ArrayList;
 
@@ -113,7 +114,7 @@ public class DrawerActivity extends ActionBarActivity {
                 break;
 
             case 2:
-                intent = new Intent(this, LeadsListActivity.class);
+                intent = new Intent(this, TabActivity.class);
                 startActivity(intent);
                 finish();
                 break;

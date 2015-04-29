@@ -9,19 +9,23 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View;
 import android.widget.ListView;
 
 import com.acc.fieldforce.DrawerActivity;
 import com.acc.fieldforce.R;
 import com.acc.fieldforce.adapter.CustomerListAdapter;
 import com.acc.fieldforce.temp.Temp;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 /**
  * Created by Sagar on 1/27/2015.
  */
+
 public class CustomerListActivity extends DrawerActivity {
+    FloatingActionButton button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +35,18 @@ public class CustomerListActivity extends DrawerActivity {
         mDrawerLayout.addView(contentView, 0);
 
         populateList();
-        
+
+        button = (FloatingActionButton) findViewById(R.id.customer_add);
+        button.setIcon(R.drawable.ic_add);
+        button.setColorNormalResId(R.color.orange);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CustomerListActivity.this, AddCustomerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void populateList() {
@@ -41,14 +56,14 @@ public class CustomerListActivity extends DrawerActivity {
         listView.setAdapter(adapter);
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_customerlist, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-    @Override
+*/
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.addCustomer:
@@ -62,5 +77,5 @@ public class CustomerListActivity extends DrawerActivity {
     private void addCustomer() {
         Intent i = new Intent(this, AddCustomerActivity.class);
         startActivity(i);
-    }
+    }*/
 }
