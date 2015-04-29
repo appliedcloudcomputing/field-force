@@ -30,7 +30,7 @@ public class ListExpensesActivity extends Activity {
         ListView listView = (ListView) findViewById(R.id.expenseList);
         listView.setAdapter(expenseListAdapter);
 
-        button = (FloatingActionButton) findViewById(R.id.customer_add);
+        button = (FloatingActionButton) findViewById(R.id.expenses_add);
         button.setIcon(R.drawable.ic_add);
         button.setColorNormalResId(R.color.orange);
 

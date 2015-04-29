@@ -1,0 +1,195 @@
+<!doctype html>
+<html class="fuelux" lang="en">
+<!-- Header start -->
+<head>
+  <% include partials/head.html %>
+    <!--Search Integratioc   n start-->
+    <!-- jQuery -->
+
+   <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+     <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+    <script src="/js/user/events.js"></script>
+   
+
+    <!--Search Integration end-->
+	<!-- edit javascript start-->
+
+	 <script type="text/javascript">
+  function display() {       
+		
+			 //<!-- name -->
+   document.getElementById( 'h5_name' ).style.display = 'none'; //hides field and shows only on submit button click
+   
+	 document.getElementById( 'h5_name_text' ).style.display = 'block';
+		//<!-- email -->
+    document.getElementById( 'h5_email' ).style.display = 'none';
+       document.getElementById( 'h5_email_text' ).style.display = 'block';
+
+      //<!-- phone -->
+			document.getElementById( 'h5_phone' ).style.display = 'none';
+       document.getElementById( 'h5_phone_text' ).style.display = 'block';
+
+       //<!-- address -->
+       document.getElementById( 'h5_address' ).style.display = 'none';
+       document.getElementById( 'h5_adress_text' ).style.display = 'block';
+
+       //Submit Button
+
+       document.getElementById( 'button' ).style.display = 'none';
+       document.getElementById( 'button' ).style.display = 'block';
+
+        }
+        </script>
+		<!-- edit javascript end-->
+</head>
+<!-- Header end -->
+
+<body>
+<section class="content">
+
+  <!-- Sidebar Start -->
+    <% include partials/sidebar.html %>
+  <!-- Sidebar End -->
+
+<div class="content-liquid-full">
+  <div class="container">
+
+          <!-- Header Bar Start -->
+        <% include partials/header.html %>
+      <!-- Header Bar End -->
+
+
+    <!-- Breadcrumbs Start -->
+    <div class="row breadcrumbs">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul class="breadcrumbs">
+          <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
+          <li><a href="/profile">My Profile Page</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Breadcrumbs End -->
+
+<!-- Form start -->
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+          <div class="boxed profile light">
+            <div class="inner">
+              <!-- Profile Title Start -->
+              <div class="title">
+                <h3>My profile</h3>				
+				           <button type="button" onclick="display()" style= "float: right;" class="btn btn-lg btn-primary"><i class="fa fa-pencil"></i> Edit</button>
+               <!-- <a href="#" class="share-profile">Share this profile</a> -->
+              </div>
+              <!-- Profile Title End -->
+
+              <!-- row profile start -->
+
+              <div class="row profile-data">
+                <!-- Left Side Start -->
+                 <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12 text-center">
+
+                  <!-- Profile Avatar Start -->
+                  <div class="profile-avatar">
+                    <img src="http://placehold.it/130x130" alt="Samantha Lenna Wilson">
+                  </div>
+                  <!-- Profile Avatar End -->
+
+                  <!-- Send Message Start -->
+                  <div class="send-msg">
+                    <button class="btn btn-sm btn-default" type="button">Send Message
+                    </button>
+                  </div>
+                  <!-- Send Message End -->
+
+                </div>
+                <!-- Left Side End -->
+
+                <!-- Right Side Start -->
+           <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
+
+           <form method="post" class="basic-form" action="/profile/update" name="form" >
+           <ul class="icon-list">
+             <!-- name start-->
+  					  <li>
+                <h5 id="h5_name" style="display: block;">
+                  <i class="fa fa-user"></i><%= user.name %>
+                </h5>
+
+                <!-- TEXT BOX VISIBLE FALSE-->
+          
+                 <h5 id="h5_name_text" style="display: none;">
+                   <input type="text" id="txtName" name="txtName" value="<%= user.name %>"/>
+                  </h5>
+                </li>
+
+        <!-- name end-->				
+      				  <br>
+                <!--email start-->
+      				<li>
+      				<h5 id="h5_email" style="display: block;">
+              <i class="fa fa-envelope" ></i><%= user.email %>
+             </h5>
+        <!-- TEXT BOX VISIBLE FALSE-->
+					
+					<h5 id="h5_email_text" style="display: none;">
+					<input type="text" id="txtemail" name="txtemail" value="<%= user.email %>"  />
+					</h5>
+					</li>
+          <!--email end-->
+					<br>
+          <!--address start-->
+         <li>
+          <h5 id="h5_address" style="display: block;">
+          <i class="fa fa-map-marker"></i><%= user.address %> 
+          </h5>
+
+         <!-- TEXT BOX VISIBLE FALSE-->
+          
+          <h5 id="h5_adress_text" style="display: none;">
+            <input type="text" id="txtaddress" name="txtaddress" value="<%= user.address %>" />
+          </h5>
+          </li>
+          <!--address end-->
+
+         
+					<br>
+
+          <!--phone start-->
+                <li>
+                    <h5 id="h5_phone" style="display: block;">
+                     <i class="fa fa-phone"></i> <%= user.phone %>
+                    </h5>
+
+                    <!-- TEXT BOX VISIBLE FALSE-->
+
+                    <h5 id="h5_phone_text" style="display: none;">
+                      <input type="text" id="txtphone" name="txtphone" value="<%= user.phone %>" />
+                    </h5>
+                  </li>
+           <!--phone end-->
+           <!--Save info button start -->
+
+                  <div class="col-md-6 text-right">
+                   <button type="submit" id="button" style ="float:right; display: none;"class="btn btn-lg btn-success"><i class="fa fa-check"></i>Update</button>
+                 </div>             
+                </ul>
+             		</form>
+
+                </div>
+                <!-- Right Side End -->
+              </div>
+              <!-- row profile end -->
+			        <!-- Profile Stats Start -->                      
+            </div>
+          </div>
+        </div>
+<!-- Form End-->
+<!-- Javascript -->
+ <% include partials/foot.html %>
+<!-- End Javascript -->
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.acc.fieldforce.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,21 +10,67 @@ import android.view.View;
 import android.widget.Button;
 
 import com.acc.fieldforce.R;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 
 public class MenusActivity extends Activity {
 
     private Button customer, leads, jobs, expenses, account;
+    private FloatingActionButton f_customer , f_leads , f_expenses;
+    private FloatingActionsMenu floatingActionsMenu;
+    private Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        mContext = this;
         customer = (Button) findViewById(R.id.customer);
         leads = (Button) findViewById(R.id.leads);
         jobs = (Button) findViewById(R.id.jobs);
         expenses = (Button) findViewById(R.id.expenses);
         account = (Button) findViewById(R.id.account);
+
+        f_customer = (FloatingActionButton) findViewById(R.id.action_a);
+        f_leads = (FloatingActionButton) findViewById(R.id.action_b);
+        f_expenses = (FloatingActionButton) findViewById(R.id.action_c);
+
+        floatingActionsMenu = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
+
+        f_customer.setIcon(R.drawable.ic_customers);
+        f_customer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                floatingActionsMenu.collapse();
+                Intent i = new Intent(mContext , AddCustomerActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
+
+        f_leads.setIcon(R.drawable.ic_leads);
+        f_leads.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                floatingActionsMenu.collapse();
+                Intent i = new Intent(mContext , AddLeadsActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
+
+        f_expenses.setIcon(R.drawable.ic_expenses);
+        f_expenses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                floatingActionsMenu.collapse();
+                Intent i = new Intent(mContext , ExpensesActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
 
         customer.setOnClickListener(new View.OnClickListener() {
             @Override

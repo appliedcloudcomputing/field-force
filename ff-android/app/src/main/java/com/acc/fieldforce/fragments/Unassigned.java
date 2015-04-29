@@ -17,9 +17,6 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-/**
- * Created by Nilesh on 1/31/2015.
- */
 public class Unassigned extends Fragment {
     ArrayList<LeadsTemp> arrayList;
     LeadListAdapter adapter;
@@ -34,7 +31,7 @@ public class Unassigned extends Fragment {
         listView.setAdapter(adapter);
 */
 
-        button = (FloatingActionButton) v.findViewById(R.id.jobs_add);
+        button = (FloatingActionButton) v.findViewById(R.id.product_add);
         button.setIcon(R.drawable.ic_add);
         button.setColorNormalResId(R.color.orange);
 
