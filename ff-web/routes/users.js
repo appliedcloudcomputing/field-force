@@ -1,23 +1,58 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/save', function(req, res, next) 
- {
+
+ router.get('/save', function(req, res, next) 
+{
   var currentUser = Parse.User.current();
   if (currentUser) {
-    console.log("CURRENT USER : "+ JSON.stringify(currentUser));
-    var _user = {
-       name : currentUser.get("name"),
-        }
-      res.render('user', {user : _user});
+     var data = {};
+     if(req.query.id != null){
+        // UPDATE USER -- AUTO FILL ALL TEXTBOX 
+
+        // QUERY FROM PARSE WITH REQUEST OBJECT ID
+        var query = new Parse.Query(Parse.User);
+        query.equalTo("objectId", req.query.id);
+        query.first({
+          success: function(_user) {
+            // USER FOUND
+             console.log("User FOUND : "+ JSON.stringify(_user));
+              var _u = {
+              id: _user.id,
+              name: _user.get("name"),
+              username: _user.get("username"),
+              email: _user.get("email"),
+              phone: _user.get("phone"),
+              address: _user.get("address"),
+              userType: _user.get("userType"),
+              imei: _user.get("imei"),
+              location: _user.get("location")
+            };
+            console.log("USER DETAILS : "+ JSON.stringify(_u));
+            res.render('user', {user : _u});
+          },
+          error: function(object, error) {
+            // ERROR OCCUR
+             console.error(error);
+             res.end("UNABLE TO FIND USER");
+          }
+        });
+     } else {
+            // NEW USER 
+            res.render('user',{user : data});
+     }
   } else {
-    res.render('login', {title: 'Login', message: Response.InvalidLogin});
-  }   
-  
-});
+      // show the signup or login page
+      res.redirect('/login/');
+    }
+  });
+
+
+
 
 
 router.post('/save', function(req, res, next) {
+
   console.log("********************* SAVE USER CALLED ***********************");
   console.log("Username: "+  req.body.username + ", Password"+ req.body.password + " Email :"+ req.body.email);
 
@@ -88,6 +123,7 @@ router.get('/', function(req, res, next)
             users.forEach(function(user) 
             {
               var _user = {
+                id: user.id,
                 email: user.get('email'),
                 username:user.get('username'),
                 phone :user.get('phone'),
@@ -114,6 +150,7 @@ router.get('/', function(req, res, next)
 
 /****************************************************************************/
 
+
 router.get('/userDetails', function(req, res, next) 
  {
   var currentUser = Parse.User.current();
@@ -133,6 +170,7 @@ router.get('/userDetails', function(req, res, next)
   
 });
 /* ***********************************************************************/
+
 
 router.get('/fetchDetails', function(req, res, next) 
  {
@@ -167,6 +205,8 @@ router.get('/fetchDetails', function(req, res, next)
   }   
   
 });
+
+
 
 module.exports = router;
 
