@@ -4,8 +4,8 @@
     android:background="#FFFFFF"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="5dp"
-    android:paddingBottom="5dp">
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,7 +15,7 @@
         android:textColor="#00AEEF"
         android:fontFamily="sans-serif-medium"
         android:paddingLeft="5dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:id="@+id/job"
         android:layout_alignParentTop="true"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:textColor="#646464"
         android:fontFamily="sans-serif-medium"
         android:id="@+id/jobDesc"
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Small Text"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:textColor="#00AEEF"
         android:id="@+id/jobCust"
         android:fontFamily="sans-serif-medium"

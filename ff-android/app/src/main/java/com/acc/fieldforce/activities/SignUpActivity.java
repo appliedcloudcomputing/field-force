@@ -2,6 +2,7 @@ package com.acc.fieldforce.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -23,10 +24,11 @@ public class SignUpActivity extends ActionBarActivity implements Animation.Anima
     private Button signUp;
     private TextView alreadyMember;
     private boolean bName, bEmail, bPassword, bConfirmPassword, bMobile, bLocation;
-    private static Animation animSlideUp, animSlideDown;
+    private static Animation animSlideLeft, animSlideRight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
@@ -35,10 +37,10 @@ public class SignUpActivity extends ActionBarActivity implements Animation.Anima
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
-        animSlideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
+        /*animSlideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
         animSlideUp.setAnimationListener(this);
         animSlideDown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
-        animSlideDown.setAnimationListener(this);
+        animSlideDown.setAnimationListener(this);*/
 
         name = (TextView) findViewById(R.id.name);
         email = (TextView) findViewById(R.id.email);
@@ -61,9 +63,10 @@ public class SignUpActivity extends ActionBarActivity implements Animation.Anima
             @Override
             public void onClick(View v) {
                 if (isValidate()) {
+
                     Intent i = new Intent(SignUpActivity.this, MenusActivity.class);
                     startActivity(i);
-                    // close this activity
+                    overridePendingTransition(R.anim.left_slide, R.anim.right_slide);
                     finish();
                 }
             }
@@ -74,7 +77,7 @@ public class SignUpActivity extends ActionBarActivity implements Animation.Anima
             public void onClick(View v) {
                 Intent i = new Intent(SignUpActivity.this, SignInActivity.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+                overridePendingTransition(R.anim.left_slide, R.anim.right_slide);
                 finish();
             }
         });

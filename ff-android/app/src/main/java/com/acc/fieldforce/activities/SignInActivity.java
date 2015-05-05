@@ -2,6 +2,7 @@ package com.acc.fieldforce.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -57,7 +58,7 @@ public class SignInActivity extends ActionBarActivity implements Animation.Anima
                 if (isValidate()) {
                     Intent i = new Intent(SignInActivity.this, MenusActivity.class);
                     startActivity(i);
-                    overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+                    overridePendingTransition(R.anim.left_slide, R.anim.right_slide);
 
                     // close this activity
                     finish();
@@ -68,12 +69,12 @@ public class SignInActivity extends ActionBarActivity implements Animation.Anima
         notMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent i = new Intent(SignInActivity.this, SignUpActivity.class);
-                    startActivity(i);
-                    overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-                    // close this activity
-                    finish();
-                }
+                Intent i = new Intent(SignInActivity.this, SignUpActivity.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.right_slide1, R.anim.left_slide1);
+                // close this activity
+                finish();
+            }
         });
     }
 

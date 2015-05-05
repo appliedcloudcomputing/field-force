@@ -2,19 +2,27 @@ package com.acc.fieldforce.activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.acc.fieldforce.R;
 
 
 public class AddLeadsActivity extends Activity {
 
+    private TextView done, cancel;
     private EditText companyName , companyAddress , contactPerson, contactNumber;
+    private TextView companyNameError , companyAddressError , contactPersonError, contactNumberError;
+    private boolean bCompanyName, bCompanyAddress, bContactPerson, bContactNumber;
     private TextView error;
     private Context mContext;
     @Override
@@ -24,76 +32,140 @@ public class AddLeadsActivity extends Activity {
 
         mContext = this;
 
-        companyName = (EditText) findViewById(R.id.c_name);
-        companyAddress = (EditText) findViewById(R.id.c_address);
-        contactPerson = (EditText) findViewById(R.id.c_person);
-        contactNumber = (EditText) findViewById(R.id.c_contact);
-        error = (TextView) findViewById(R.id.error);
+        done = (TextView) findViewById(R.id.done);
+        cancel = (TextView) findViewById(R.id.cancel);
 
-        error.setGravity(Gravity.CENTER);
-        error.setTextColor(0xF7F7F7);
+        companyName = (EditText) findViewById(R.id.company_name);
+        companyAddress = (EditText) findViewById(R.id.company_address);
+        contactPerson = (EditText) findViewById(R.id.contact_person_name);
+        contactNumber = (EditText) findViewById(R.id.contact_number);
 
-        companyName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    v.setBackgroundResource(R.drawable.edittext_focus);
-                }else{
-                    v.setBackgroundResource(R.drawable.edittextstyle);
-                }
-            }
-        });
+        companyNameError = (TextView) findViewById(R.id.company_name_error);
+        companyAddressError = (TextView) findViewById(R.id.company_address_error);
+        contactPersonError = (TextView) findViewById(R.id.contact_person_name_error);
+        contactNumberError = (TextView) findViewById(R.id.contact_number_error);
 
-        companyAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    v.setBackgroundResource(R.drawable.edittext_focus);
-                }else{
-                    v.setBackgroundResource(R.drawable.edittextstyle);
-                }
-            }
-        });
-
-        contactPerson.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    v.setBackgroundResource(R.drawable.edittext_focus);
-                }else{
-                    v.setBackgroundResource(R.drawable.edittextstyle);
-                }
-            }
-        });
-
-        contactNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    v.setBackgroundResource(R.drawable.edittext_focus);
-                }else{
-                    v.setBackgroundResource(R.drawable.edittextstyle);
-                }
-            }
-        });
-
-        Button save = (Button) findViewById(R.id.c_save);
-        save.setOnClickListener(new View.OnClickListener() {
+        done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate();
+                if(isValidate()) {
+                    Toast.makeText(getBaseContext(), "Lead saved successful", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(AddLeadsActivity.this, TabActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getBaseContext(),"Lead discarded",Toast.LENGTH_LONG).show();
+                Intent i = new Intent(AddLeadsActivity.this, TabActivity.class);
+                startActivity(i);
+                finish();
             }
         });
     }
 
-    public void validate() {
-        String cNameText = companyName.getText().toString();
-        String cCompanyText = companyAddress.getText().toString();
-        String cAddressText = contactPerson.getText().toString();
-        String cContactText = contactNumber.getText().toString();
+    private boolean isValidate(){
+        final String cName = companyName.getText().toString();
+        if (isValidCompanyName(cName)) {
+            bCompanyName = false;
+            companyNameError.setVisibility(View.VISIBLE);
+        }else {
+            bCompanyName = true;
+            companyNameError.setVisibility(View.GONE);
+        }
 
-        error.setBackgroundResource(R.color.orange);
-        error.setTextColor(getResources().getColor(R.color.white));
+        final String cAddress = companyAddress.getText().toString();
+        if (isValidCompanyAddress(cAddress)) {
+            bCompanyAddress = false;
+            companyAddressError.setVisibility(View.VISIBLE);
+        }else {
+            bCompanyAddress = true;
+            companyAddressError.setVisibility(View.GONE);
+        }
+
+        final String cPerson = contactPerson.getText().toString();
+        if (isValidContactPerson(cPerson)) {
+            bContactPerson = false;
+            contactPersonError.setVisibility(View.VISIBLE);
+        }else {
+            bContactPerson = true;
+            contactPersonError.setVisibility(View.GONE);
+        }
+
+        final String cContact = contactNumber.getText().toString();
+        if (!isValidContactNumber(cContact)) {
+            bContactNumber = false;
+            contactNumberError.setVisibility(View.VISIBLE);
+        }else {
+            bContactNumber = true;
+            contactNumberError.setVisibility(View.GONE);
+        }
+
+        if(bCompanyName && bCompanyAddress && bCompanyName && bContactNumber){
+            return true;
+        }else {
+            return false;
+        }
     }
+
+    private boolean isValidContactPerson(String uName) {
+        if(uName.equals("")){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean isValidCompanyAddress(String uName) {
+        if(uName.equals("")){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean isValidCompanyName(String uName) {
+        if(uName.equals("")){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean isValidContactNumber(String uMobNo) {
+        if(uMobNo.equals("") || uMobNo.length()<10){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_add_customer, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.right_slide1, R.anim.left_slide1);
+    }
+
 
 }

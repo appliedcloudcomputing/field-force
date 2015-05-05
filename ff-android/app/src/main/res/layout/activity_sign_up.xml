@@ -64,7 +64,7 @@
             android:gravity="center"
             android:contentDescription="@null"
             android:textColor="@color/text_error_color"
-            android:text="name can not be empty"
+            android:text="@string/name_error"
             android:visibility="gone"
             android:layout_below="@id/name"/>
 
@@ -93,7 +93,7 @@
             android:gravity="center"
             android:contentDescription="@null"
             android:textColor="@color/text_error_color"
-            android:text="invalid email"
+            android:text="@string/email_id_error"
             android:visibility="gone"
             android:layout_below="@id/email"/>
 
@@ -122,7 +122,7 @@
             android:gravity="center"
             android:contentDescription="@null"
             android:textColor="@color/text_error_color"
-            android:text="password minimum 6 digit"
+            android:text="@string/password_error"
             android:visibility="gone"
             android:layout_below="@id/password"/>
 
@@ -151,7 +151,7 @@
             android:gravity="center"
             android:contentDescription="@null"
             android:textColor="@color/text_error_color"
-            android:text="incorrect password"
+            android:text="@string/confirm_password_error"
             android:visibility="gone"
             android:layout_below="@id/confirm_password"/>
 
@@ -181,7 +181,7 @@
             android:gravity="center"
             android:contentDescription="@null"
             android:textColor="@color/text_error_color"
-            android:text="mobile number minimum 10 digit"
+            android:text="@string/mobile_number_error"
             android:visibility="gone"
             android:layout_below="@id/mobile_number"/>
 
@@ -209,7 +209,7 @@
             android:gravity="center"
             android:contentDescription="@null"
             android:textColor="@color/text_error_color"
-            android:text="location can not be empty"
+            android:text="@string/location_error"
             android:visibility="gone"
             android:layout_below="@id/location"/>
 

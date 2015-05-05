@@ -3,6 +3,7 @@ package com.acc.fieldforce.activities;
 import android.app.Activity;
 import android.app.Notification;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -17,97 +18,134 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.acc.fieldforce.R;
 
-/**
- * Created by Sagar on 1/27/2015.
- */
 public class AddCustomerActivity extends Activity {
-    private  EditText customerName , companyName , customerAddress, contactNumber;
-    private TextView error;
+    private TextView done, cancel;
+    private  EditText customerName , customerAddress, companyName, contactNumber;
+    private TextView customerNameError, customerAddressError, companyNameError, contactNumberError;
+    private boolean bCustomerName, bCustomerAddress, bCompanyName, bContactNumber;
     private Context mContext;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_customer);
-
-
         mContext = this;
 
-        customerName = (EditText) findViewById(R.id.c_name);
-        companyName = (EditText) findViewById(R.id.c_company);
-        customerAddress = (EditText) findViewById(R.id.c_address);
-        contactNumber = (EditText) findViewById(R.id.c_contact);
-        error = (TextView) findViewById(R.id.error);
+        done = (TextView) findViewById(R.id.done);
+        cancel = (TextView) findViewById(R.id.cancel);
 
+        customerName = (EditText) findViewById(R.id.customer_name);
+        companyName = (EditText) findViewById(R.id.company_name);
+        customerAddress = (EditText) findViewById(R.id.customer_address);
+        contactNumber = (EditText) findViewById(R.id.contact_number);
 
-        error.setGravity(Gravity.CENTER);
-        error.setTextColor(0xF7F7F7);
+        customerNameError = (TextView) findViewById(R.id.customer_name_error);
+        customerAddressError = (TextView) findViewById(R.id.company_address_error);
+        companyNameError = (TextView) findViewById(R.id.company_name_error);
+        contactNumberError = (TextView) findViewById(R.id.contact_number_error);
 
-        customerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    v.setBackgroundResource(R.drawable.edittext_focus);
-                }else{
-                    v.setBackgroundResource(R.drawable.edittextstyle);
-                }
-            }
-        });
-
-        customerAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    v.setBackgroundResource(R.drawable.edittext_focus);
-                }else{
-                    v.setBackgroundResource(R.drawable.edittextstyle);
-                }
-            }
-        });
-
-        companyName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    v.setBackgroundResource(R.drawable.edittext_focus);
-                }else{
-                    v.setBackgroundResource(R.drawable.edittextstyle);
-                }
-            }
-        });
-
-        contactNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    v.setBackgroundResource(R.drawable.edittext_focus);
-                }else{
-                    v.setBackgroundResource(R.drawable.edittextstyle);
-                }
-            }
-        });
-
-        Button save = (Button) findViewById(R.id.c_save);
-        save.setOnClickListener(new View.OnClickListener() {
+        done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate();
+                if(isValidate()) {
+                    Toast.makeText(getBaseContext(), "Customer saved successful", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(AddCustomerActivity.this, CustomerListActivity.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getBaseContext(),"Customer discarded",Toast.LENGTH_LONG).show();
+                Intent i = new Intent(AddCustomerActivity.this, CustomerListActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
     }
 
-    public void validate() {
-        String cNameText = customerName.getText().toString();
-        String cCompanyText = companyName.getText().toString();
-        String cAddressText = customerAddress.getText().toString();
-        String cContactText = contactNumber.getText().toString();
+    private boolean isValidate(){
+        final String custName = customerName.getText().toString();
+        if (isValidCustomerName(custName)) {
+            bCustomerName = false;
+            customerNameError.setVisibility(View.VISIBLE);
+        }else {
+            bCustomerName = true;
+            customerNameError.setVisibility(View.GONE);
+        }
 
-        error.setBackgroundResource(R.color.orange);
-        error.setTextColor(getResources().getColor(R.color.white));
+        final String custAddress = customerAddress.getText().toString();
+        if (isValidCustomerAddress(custAddress)) {
+            bCustomerAddress = false;
+            customerAddressError.setVisibility(View.VISIBLE);
+        }else {
+            bCustomerAddress = true;
+            customerAddressError.setVisibility(View.GONE);
+        }
+
+        final String cName = companyName.getText().toString();
+        if (isValidCompanyName(cName)) {
+            bCompanyName = false;
+            companyNameError.setVisibility(View.VISIBLE);
+        }else {
+            bCompanyName = true;
+            companyNameError.setVisibility(View.GONE);
+        }
+
+        final String cContact = contactNumber.getText().toString();
+        if (!isValidContactNumber(cContact)) {
+            bContactNumber = false;
+            contactNumberError.setVisibility(View.VISIBLE);
+        }else {
+            bContactNumber = true;
+            contactNumberError.setVisibility(View.GONE);
+        }
+
+        if(bCustomerName && bCustomerAddress && bCompanyName && bContactNumber){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean isValidCustomerName(String uName) {
+        if(uName.equals("")){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean isValidCustomerAddress(String uName) {
+        if(uName.equals("")){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean isValidCompanyName(String uName) {
+        if(uName.equals("")){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean isValidContactNumber(String uMobNo) {
+        if(uMobNo.equals("") || uMobNo.length()<10){
+            return false;
+        }else{
+            return true;
+        }
     }
 
 
@@ -125,5 +163,11 @@ public class AddCustomerActivity extends Activity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.right_slide1, R.anim.left_slide1);
     }
 }

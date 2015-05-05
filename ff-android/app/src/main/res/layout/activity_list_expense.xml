@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="#FFFFFF"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_bottom_margin"
     >
@@ -12,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/expenseList"
-        android:dividerHeight="2dp"
+        android:dividerHeight="1dp"
+        android:divider="#F1F1F1"
         android:layout_gravity="center_horizontal" />
 
     <com.getbase.floatingactionbutton.FloatingActionButton

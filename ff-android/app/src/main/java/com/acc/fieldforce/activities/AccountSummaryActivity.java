@@ -34,4 +34,10 @@ public class AccountSummaryActivity extends DrawerActivity {
         showIncentives.setText("500");
         showTotal.setText("2000");
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.right_slide1, R.anim.left_slide1);
+    }
 }

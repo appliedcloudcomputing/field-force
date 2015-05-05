@@ -78,4 +78,10 @@ public class CustomerListActivity extends DrawerActivity {
         Intent i = new Intent(this, AddCustomerActivity.class);
         startActivity(i);
     }*/
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.right_slide1, R.anim.left_slide1);
+    }
 }
