@@ -1,62 +1,120 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="#F7F7F7"
-    android:paddingBottom="10dp">
+    android:scrollbars="none"
+    tools:context="com.acc.fieldforce.SignUp">
 
-    <EditText
-        android:layout_width="@dimen/add_customer_width"
-        android:layout_height="@dimen/add_customer_height"
-        android:id="@+id/e_type"
-        android:textSize="14sp"
-        android:textColor="#595959"
-        android:textColorHint="#595959"
-        android:hint="@string/activity_expense_type"
-        android:background="@drawable/edittextstyle"
-        android:layout_marginTop="72dp"
-        android:layout_alignParentTop="true"
-        android:drawableStart="@drawable/ic_write13"
-        android:drawableLeft="@drawable/ic_write13"
-        android:layout_alignLeft="@+id/e_amount"
-        android:layout_alignStart="@+id/e_amount" />
-
-    <EditText
-        android:layout_width="@dimen/add_customer_width"
-        android:layout_height="@dimen/add_customer_height"
-        android:inputType="phone"
-        android:background="@drawable/edittextstyle"
-        android:textSize="14sp"
-        android:textColor="#595959"
-        android:textColorHint="#595959"
-        android:drawableStart="@drawable/ic_calculator40"
-        android:drawableLeft="@drawable/ic_calculator40"
-        android:hint="@string/activity_expense_amount"
-        android:id="@+id/e_amount"
-        android:layout_below="@+id/e_type"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
-
-    <Button
-        android:layout_width="@dimen/add_customer_width"
-        android:layout_height="@dimen/add_customer_height"
-        android:text="@string/add_customer_button_save"
-        android:background="#f9851d"
-        android:id="@+id/e_save"
-        android:textColor="#FFFFFF"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_below="@+id/e_amount"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="Helvetica Neue"
-        android:text="Enter All The Required Fields"
-        android:id="@+id/e_error"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"/>
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/ColorPrimary"
+            android:layout_alignParentTop="true"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            android:minHeight="?attr/actionBarSize">
+
+        </android.support.v7.widget.Toolbar>
+
+        <EditText
+            android:id="@+id/expenses_type"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/custom_theme_edit_text_holo_light"
+            android:gravity="center"
+            android:hint="@string/expenses_type"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:nextFocusDown="@+id/expenses_amount"
+            android:paddingBottom="0dp"
+            android:singleLine="true"
+            android:textColorHint="#808080"
+            android:textColor="@color/text_color">
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/expenses_type_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:contentDescription="@null"
+            android:textColor="@color/text_error_color"
+            android:text="@string/expenses_type_error"
+            android:visibility="gone"
+            android:layout_below="@id/expenses_type"/>
+
+        <EditText
+            android:id="@+id/expenses_amount"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/expenses_type"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_theme_edit_text_holo_light"
+            android:gravity="center"
+            android:hint="@string/expenses_amount"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:paddingBottom="0dp"
+            android:singleLine="true"
+            android:textColorHint="#808080"
+            android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/expenses_amount_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:contentDescription="@null"
+            android:textColor="@color/text_error_color"
+            android:text="@string/expenses_amount_error"
+            android:visibility="gone"
+            android:layout_below="@id/expenses_amount"/>
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="140dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:padding="12dp"
+            android:background="@color/ColorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_alignParentStart="true"
+            android:drawableStart="@drawable/ic_cancel"
+            android:drawableLeft="@drawable/ic_cancel"/>
+
+        <TextView
+            android:id="@+id/done"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/ColorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:padding="12dp"
+            android:text="@string/done"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_alignParentEnd="true"
+            android:drawableStart="@drawable/ic_done"
+            android:drawableLeft="@drawable/ic_done"/>
+
+
+    </RelativeLayout>
+</ScrollView>

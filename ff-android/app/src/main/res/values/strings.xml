@@ -29,6 +29,14 @@
     <string name="location">location</string>
     <string name="already_member">Already a member?</string>
 
+    <!--SignUp Error Messages-->
+    <string name="name_error">name can not be empty</string>
+    <string name="email_id_error">invalid email id</string>
+    <string name="password_error">minimum 6 digit required</string>
+    <string name="confirm_password_error">incorrect password</string>
+    <string name="mobile_number_error">minimum 10 digit required</string>
+    <string name="location_error">location can not be empty</string>
+
     <!-- SignIn -->
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log In</string>
@@ -43,12 +51,35 @@
     <string name="add_customer_button_save">Save</string>
 
     <!-- Add Customer -->
-    <string name="add_lead_company_error_message">Enter All The Required Fields</string>
-    <string name="add_lead_company_name">Company Name</string>
-    <string name="add_lead_company_address">Company Address</string>
-    <string name="add_lead_company_contact_person_name">Contact Person Name</string>
-    <string name="add_lead_company_contact_number">Contact</string>
-    <string name="add_lead_button_save">Save</string>
+    <string name="customer_name">customer name</string>
+    <string name="customer_address">customer address</string>
+
+    <!--Add Customer Error-->
+    <string name="customer_name_error">customer name can not be empty</string>
+    <string name="customer_address_error">customer address can not be empty</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+
+    <!--Add Leads-->
+    <string name="company_name">company name</string>
+    <string name="company_address">company address</string>
+    <string name="contact_person">contact person name</string>
+    <string name="contact_no">contact number</string>
+    <string name="save">save</string>
+
+    <!--Add Leads Error Messages-->
+    <string name="company_name_error">company name can not be empty</string>
+    <string name="company_address_error">company address can not be empty</string>
+    <string name="contact_person_error">contact person name con not be empty</string>
+    <string name="contact_no_error">minimum 10 digit</string>
+    
+    <!--Add Expenses-->
+    <string name="expenses_type">expenses type</string>
+    <string name="expenses_amount">expenses amount</string>
+
+    <!--Add Expenses Error Messages-->
+    <string name="expenses_type_error">expenses type can not be empty</string>
+    <string name="expenses_amount_error">expenses amount can not be negative</string>
 
     <!-- Accounts Main -->
     <string name="accounts_main_expenses">Expenses</string>
@@ -60,9 +91,8 @@
     <!-- Expenses -->
     <string name="activity_expense_type">Expense Type</string>
     <string name="activity_expense_amount">Expense Amount</string>
-    <string name="title_activity_tab">TabActivity</string>
+    <string name="title_activity_tab">Leads</string>
     <string name="title_activity_drawer">DrawerActivity</string>
-
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Closed</string>
 

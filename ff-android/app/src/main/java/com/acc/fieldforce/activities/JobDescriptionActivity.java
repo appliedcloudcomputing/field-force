@@ -29,4 +29,10 @@ public class JobDescriptionActivity extends FragmentActivity {
         transaction.commit();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.left_slide, R.anim.right_slide);
+    }
 }

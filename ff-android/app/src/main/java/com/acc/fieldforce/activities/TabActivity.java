@@ -74,4 +74,10 @@ public class TabActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.left_slide, R.anim.right_slide);
+    }
 }

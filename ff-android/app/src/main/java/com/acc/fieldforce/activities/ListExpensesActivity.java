@@ -39,6 +39,7 @@ public class ListExpensesActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(ListExpensesActivity.this, ExpensesActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.left_slide, R.anim.right_slide);
             }
         });
     }
@@ -66,4 +67,9 @@ public class ListExpensesActivity extends Activity {
         startActivity(i);
     }*/
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.left_slide, R.anim.right_slide);
+    }
 }

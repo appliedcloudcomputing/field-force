@@ -11,7 +11,7 @@ import com.acc.fieldforce.R;
 
 
 public class MainActivity extends Activity {
-    private static int SPLASH_TIME_OUT = 5000;
+    private static int SPLASH_TIME_OUT = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,8 @@ public class MainActivity extends Activity {
                 // Start your app next activity
                 Intent i = new Intent(MainActivity.this, SignUpActivity.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+                overridePendingTransition(R.anim.left_slide, R.anim.right_slide);
+
                 // close this activity
                 finish();
             }

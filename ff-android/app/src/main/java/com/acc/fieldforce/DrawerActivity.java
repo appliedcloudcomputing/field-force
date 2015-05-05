@@ -199,7 +199,7 @@ public class DrawerActivity extends ActionBarActivity {
         }
     }
 
-    public class PreferencesFragment extends Fragment {
+    public static class PreferencesFragment extends Fragment {
 
         public PreferencesFragment() {
             // Required empty public constructor
