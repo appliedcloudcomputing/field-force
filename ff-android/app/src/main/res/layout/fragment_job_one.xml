@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00AEEF">
+    android:background="#0681BE"
+    android:paddingTop="30dp">
     <com.acc.fieldforce.RoundedImageView
         android:layout_width="90dp"
         android:layout_height="90dp"

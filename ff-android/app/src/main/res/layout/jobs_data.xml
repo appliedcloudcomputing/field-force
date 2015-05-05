@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="5dp"
+    >
 
     <TextView
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold"
-        android:textSize="14sp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="16sp"
         android:textColor="#00AEEF"
         android:id="@+id/job_title"
         android:layout_alignParentTop="true"
@@ -22,10 +25,10 @@
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/job_description"
         android:textColor="#00AEEF"
-        android:textSize="13sp"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-medium"
         android:layout_below="@+id/job_title"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -37,8 +40,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/customer_name"
-        android:textSize="12sp"
-        android:textColor="#646464"
+        android:textSize="14sp"
+        android:textColor="#878787"
         android:layout_below="@+id/job_description"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

@@ -3,6 +3,9 @@ package com.acc.fieldforce;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -40,23 +43,32 @@ public class DrawerActivity extends ActionBarActivity {
     RelativeLayout mNavPane;
     private ActionBarDrawerToggle mDrawerToggle;
     protected DrawerLayout mDrawerLayout;
-
+    private Context mContext;
     ArrayList<NavItem> mNavItems = new ArrayList<NavItem>();
 
+    final int blue[] = {
+            R.drawable.ic_home168,
+            R.drawable.ic_social_network15,
+            R.drawable.ic_leaders1,
+            R.drawable.ic_jobsblue,
+            R.drawable.ic_expensive,
+            R.drawable.ic_savings
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
 
+        mContext = this;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mNavItems.add(new NavItem("Home" , R.drawable.ic_customers));
-        mNavItems.add(new NavItem("Customer" , R.drawable.ic_customers));
-        mNavItems.add(new NavItem("Leads", R.drawable.ic_leads));
+        mNavItems.add(new NavItem("Home" , R.drawable.ic_home));
+        mNavItems.add(new NavItem("Customer", R.drawable.ic_social_network));
+        mNavItems.add(new NavItem("Leads", R.drawable.ic_leaders));
         mNavItems.add(new NavItem("Jobs" , R.drawable.ic_jobs));
-        mNavItems.add(new NavItem("Expenses", R.drawable.ic_expenses));
-        mNavItems.add(new NavItem("Account" , R.drawable.ic_accounts));
+        mNavItems.add(new NavItem("Expenses", R.drawable.ic_expense));
+        mNavItems.add(new NavItem("Account" , R.drawable.ic_savings1));
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.navDrawer);
         mNavPane = (RelativeLayout) findViewById(R.id.navDrawer_pane);
@@ -69,6 +81,8 @@ public class DrawerActivity extends ActionBarActivity {
                 selectItemFromDrawer(position);
             }
         });
+
+
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar , R.string.drawer_open, R.string.drawer_close) {
             @Override
