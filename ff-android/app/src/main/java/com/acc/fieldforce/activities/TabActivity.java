@@ -1,16 +1,20 @@
 package com.acc.fieldforce.activities;
 
+import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.acc.fieldforce.DrawerActivity;
 import com.acc.fieldforce.R;
 import com.acc.fieldforce.adapter.ViewPagerAdapter;
 
-public class TabActivity extends ActionBarActivity {
+public class TabActivity extends DrawerActivity {
 
     Toolbar toolbar;
     ViewPager pager;
@@ -22,12 +26,15 @@ public class TabActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tab);
+//        setContentView(R.layout.activity_tab);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_tab, null, false);
+        mDrawerLayout.addView(contentView, 0);
 
         // Creating The Toolbar and setting it as the Toolbar for the activity
-
+/*
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);*/
 
 
         // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.

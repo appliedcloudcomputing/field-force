@@ -36,6 +36,7 @@ public class MenusActivity extends DrawerActivity {
         mDrawerLayout.addView(contentView, 0);
 
         mContext = this;
+        getSupportActionBar().setTitle("Menu");
         Button customer = (Button) findViewById(R.id.customer);
         Button leads = (Button) findViewById(R.id.leads);
         Button jobs = (Button) findViewById(R.id.jobs);

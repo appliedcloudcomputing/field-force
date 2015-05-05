@@ -1,31 +1,39 @@
 package com.acc.fieldforce.activities;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.acc.fieldforce.DrawerActivity;
 import com.acc.fieldforce.R;
 //import com.acc.fieldforce.fragments.TabFragment;
 
 
-public class LeadsListActivity extends FragmentActivity {
+public class LeadsListActivity extends DrawerActivity {
     Fragment fragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_leads_list);
+//        setContentView(R.layout.activity_leads_list);
+
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_leads_list, null, false);
+        mDrawerLayout.addView(contentView, 0);
 
         //fragment = new TabFragment();
 
-        Log.i("fragment", "" + fragment.getId());
+//        Log.i("fragment", "" + fragment.getId());
 
         if (fragment != null) {
             FragmentManager fm = getSupportFragmentManager();
