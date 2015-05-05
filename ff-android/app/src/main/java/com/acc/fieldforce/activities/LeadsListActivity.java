@@ -67,7 +67,7 @@ public class LeadsListActivity extends DrawerActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.left_slide, R.anim.right_slide);
+        overridePendingTransition(R.anim.right_slide1, R.anim.left_slide1);
     }
 
 }
