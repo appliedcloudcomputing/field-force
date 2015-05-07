@@ -10,6 +10,7 @@
     tools:context="com.acc.fieldforce.Menu"
     android:background="#FFFFFF"
     android:id="@+id/menu">
+<!--
 
         <Button
             android:id="@+id/customer"
@@ -95,6 +96,7 @@
             android:layout_centerHorizontal="true"
             android:drawableLeft="@drawable/ic_accounts"
             android:drawableRight="@drawable/ic_arrow"/>
+-->
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/multiple_actions"
@@ -136,6 +138,14 @@
             fab:fab_colorPressed="#2E2E2E"/>
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent`"
+        android:id="@+id/imageView"
+        android:layout_above="@+id/multiple_actions"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/map"/>
 
 
 </RelativeLayout>

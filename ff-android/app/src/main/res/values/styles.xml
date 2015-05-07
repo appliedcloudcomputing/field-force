@@ -2,7 +2,7 @@
 <resources>
 
 
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
     <style name="menu_labels_style">

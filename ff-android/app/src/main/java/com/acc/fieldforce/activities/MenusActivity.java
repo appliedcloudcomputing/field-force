@@ -37,12 +37,12 @@ public class MenusActivity extends DrawerActivity {
 
         mContext = this;
         getSupportActionBar().setTitle("Menu");
-        Button customer = (Button) findViewById(R.id.customer);
+      /*  Button customer = (Button) findViewById(R.id.customer);
         Button leads = (Button) findViewById(R.id.leads);
         Button jobs = (Button) findViewById(R.id.jobs);
         Button expenses = (Button) findViewById(R.id.expenses);
         Button account = (Button) findViewById(R.id.account);
-
+*/
         FloatingActionButton f_customer = (FloatingActionButton) findViewById(R.id.action_a);
         FloatingActionButton f_leads = (FloatingActionButton) findViewById(R.id.action_b);
         FloatingActionButton f_expenses = (FloatingActionButton) findViewById(R.id.action_c);
@@ -88,7 +88,7 @@ public class MenusActivity extends DrawerActivity {
             }
         });
 
-        customer.setOnClickListener(new View.OnClickListener() {
+/*        customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MenusActivity.this, CustomerListActivity.class);
@@ -127,7 +127,7 @@ public class MenusActivity extends DrawerActivity {
             public void onClick(View v) {
                 startAccount();
             }
-        });
+        });*/
     }
 
     private void startAccount() {

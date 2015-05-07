@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.CustomerListActivity" />
+        <activity android:name=".activities.CustomerListActivity"
+            android:exported="true"/>
 
         <activity
             android:name=".activities.AddCustomerActivity"
