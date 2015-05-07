@@ -1,18 +1,21 @@
 package com.acc.fieldforce.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.acc.fieldforce.R;
+import com.acc.fieldforce.database.User.UserDbHelper;
+import com.acc.fieldforce.database.User.User;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +28,7 @@ public class SignUpActivity extends ActionBarActivity implements Animation.Anima
     private TextView alreadyMember;
     private boolean bName, bEmail, bPassword, bConfirmPassword, bMobile, bLocation;
     private static Animation animSlideLeft, animSlideRight;
+    public Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,25 @@ public class SignUpActivity extends ActionBarActivity implements Animation.Anima
             @Override
             public void onClick(View v) {
                 if (isValidate()) {
+
+                    UserDbHelper db = new UserDbHelper(context);
+                    Log.d("Insert: ", "Inserting ..");
+
+                    db.addUser(new User(name.getText().toString(), email.getText().toString(), password.getText().toString(), mobile.getText().toString(), location.getText().toString()));
+
+                    Log.d("Reading: ", "Reading all contacts..");
+
+                    List<User> user = db.getAllUsers();
+
+
+                    for (User u : user) {
+
+                        String log = "Name: "+u.getName()+" ,Email: " + u.getEmailId() + " ,Password: " + u.getPassword() + ", Mobile no: " + u.getMobile_no() + ", Location: " + u.getLocation();
+                        Log.d("Name: ", log);
+
+
+                    }
+
 
                     Intent i = new Intent(SignUpActivity.this, MenusActivity.class);
                     startActivity(i);

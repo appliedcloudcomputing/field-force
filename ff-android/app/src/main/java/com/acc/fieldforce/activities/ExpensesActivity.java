@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.acc.fieldforce.R;
+import com.acc.fieldforce.database.Expenses.Expenses;
+import com.acc.fieldforce.database.Expenses.ExpensesDbHelper;
+
+import java.util.List;
 
 public class ExpensesActivity extends Activity {
 
@@ -19,14 +24,12 @@ public class ExpensesActivity extends Activity {
     private  EditText expensesType, expensesAmount;
     private  TextView expensesTypeError, expensesAmountError;
     private boolean bExpensesType, bExpensesAmount;
-    private Context mContext;
+    private Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expenses);
-
-        mContext = this;
 
         done = (TextView) findViewById(R.id.done);
         cancel = (TextView) findViewById(R.id.cancel);
@@ -41,6 +44,23 @@ public class ExpensesActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(isValidate()) {
+
+                    ExpensesDbHelper db = new ExpensesDbHelper(context);
+                    Log.d("Insert: ", "Inserting ..");
+
+                    db.addExpenses(new Expenses(expensesType.getText().toString(), expensesAmount.getText().toString()));
+
+                    Log.d("Reading: ", "Reading all contacts..");
+
+                    List<Expenses> lead = db.getAllExpenses();
+
+                    for (Expenses e : lead) {
+
+                        String log = "Expenses Type: "+e.getExpensesTye()+" ,Expenses Amount: " + e.getExpensesAmount();
+                        Log.d("Name: ", log);
+
+                    }
+
                     Toast.makeText(getBaseContext(), "Expenses saved successful", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(ExpensesActivity.this, ListExpensesActivity.class);
                     startActivity(i);

@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,19 +22,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.acc.fieldforce.R;
+import com.acc.fieldforce.database.Customer.Customer;
+import com.acc.fieldforce.database.Customer.CustomerDbHelper;
+
+import java.util.List;
 
 public class AddCustomerActivity extends Activity {
     private TextView done, cancel;
     private  EditText customerName , customerAddress, companyName, contactNumber;
     private TextView customerNameError, customerAddressError, companyNameError, contactNumberError;
     private boolean bCustomerName, bCustomerAddress, bCompanyName, bContactNumber;
-    private Context mContext;
+    private Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_customer);
-        mContext = this;
 
         done = (TextView) findViewById(R.id.done);
         cancel = (TextView) findViewById(R.id.cancel);
@@ -52,6 +56,22 @@ public class AddCustomerActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(isValidate()) {
+
+                    CustomerDbHelper db = new CustomerDbHelper(context);
+                    Log.d("Insert: ", "Inserting ..");
+
+                    db.addCustomer(new Customer(customerName.getText().toString(), customerAddress.getText().toString(), companyName.getText().toString(), contactNumber.getText().toString()));
+
+                    Log.d("Reading: ", "Reading all contacts..");
+
+                    List<Customer> user = db.getAllUsers();
+
+                    for (Customer u : user) {
+
+                        String log = "Name: "+u.getCustomerName()+" ,Address: " + u.getCustomerAddress() + " ,Company Name: " + u.getCompanyName() + ", Contact No: " + u.getContactNumber();
+                        Log.d("Name: ", log);
+
+                    }
                     Toast.makeText(getBaseContext(), "Customer saved successful", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(AddCustomerActivity.this, CustomerListActivity.class);
                     startActivity(i);

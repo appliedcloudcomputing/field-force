@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,6 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.acc.fieldforce.R;
+import com.acc.fieldforce.database.Customer.Customer;
+import com.acc.fieldforce.database.Customer.CustomerDbHelper;
+import com.acc.fieldforce.database.Lead.Lead;
+import com.acc.fieldforce.database.Lead.LeadDbHelper;
+
+import java.util.List;
 
 
 public class AddLeadsActivity extends Activity {
@@ -24,13 +31,11 @@ public class AddLeadsActivity extends Activity {
     private TextView companyNameError , companyAddressError , contactPersonError, contactNumberError;
     private boolean bCompanyName, bCompanyAddress, bContactPerson, bContactNumber;
     private TextView error;
-    private Context mContext;
+    private Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_leads);
-
-        mContext = this;
 
         done = (TextView) findViewById(R.id.done);
         cancel = (TextView) findViewById(R.id.cancel);
@@ -49,6 +54,23 @@ public class AddLeadsActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(isValidate()) {
+
+                    LeadDbHelper db = new LeadDbHelper(context);
+                    Log.d("Insert: ", "Inserting ..");
+
+                    db.addLead(new Lead(companyName.getText().toString(), companyAddress.getText().toString(), contactPerson.getText().toString(), contactNumber.getText().toString()));
+
+                    Log.d("Reading: ", "Reading all contacts..");
+
+                    List<Lead> lead = db.getAllUsers();
+
+                    for (Lead l : lead) {
+
+                        String log = "Company Name: "+l.getCompanyName()+" ,Address: " + l.getCompanyAddress() + " ,Conact person: " + l.getContactPerson() + ", Contact No: " + l.getContactNumber();
+                        Log.d("Name: ", log);
+
+                    }
+
                     Toast.makeText(getBaseContext(), "Lead saved successful", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(AddLeadsActivity.this, TabActivity.class);
                     startActivity(i);
