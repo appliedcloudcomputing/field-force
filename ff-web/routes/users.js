@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
- router.get('/save', function(req, res, next) 
+router.get('/save', function(req, res, next) 
 {
   var currentUser = Parse.User.current();
   if (currentUser) {
@@ -204,6 +204,20 @@ router.get('/fetchDetails', function(req, res, next)
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
   
+});
+
+router.get('/delete',function(req,res){
+  var currentUser = Parse.User.current();
+  var query = new Parse.Query(Parse.User);
+  query.get(req.query.id,{
+    success:function(obj){
+      obj.destroy({});
+      res.end("deleted");
+    },
+    error:function(error){
+      console.log('Error While Deleting :'+error.message);
+    }
+  });
 });
 
 
