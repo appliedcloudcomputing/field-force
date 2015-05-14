@@ -207,20 +207,20 @@ router.get('/fetchDetails', function(req, res, next)
 });
 
 router.get('/delete',function(req,res){
-  var currentUser = Parse.User.current();
   var query = new Parse.Query(Parse.User);
-  query.get(req.query.id,{
+  Parse.Cloud.useMasterKey();
+  query.equalTo("objectId", req.query.id);
+  query.first({
     success:function(obj){
-      obj.destroy({});
-      res.end("deleted");
+      console.log("name"+obj.get("name"));
+      obj.destroy({});      
+      res.end("Objetc Deleted success fully.");
     },
     error:function(error){
       console.log('Error While Deleting :'+error.message);
     }
   });
 });
-
-
 
 module.exports = router;
 
