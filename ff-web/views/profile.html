@@ -1,6 +1,5 @@
 <!doctype html>
 <html class="fuelux" lang="en">
-<!-- Header start -->
 <head>
   <% include partials/head.html %>
     <!--Search Integratioc   n start-->
@@ -11,10 +10,51 @@
      <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
     <script src="/js/user/events.js"></script>
-   
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  Parse.initialize("fhtIe0dBvTNcdUJMZzEQCOm7Idi03RnxjYFzhAi6", "znYrrGbiOQr7DslQuoVx3dvuZpOvO4tw612JNjyJ");
 
-    <!--Search Integration end-->
-	<!-- edit javascript start-->
+  function saveJobApp(objParseFile)
+  {
+     Parse.Cloud.useMasterKey();
+     var jobApplication = new Parse.Object(Parse.User);
+     jobApplication.set("objectId", "liz4xpQUaH");
+     jobApplication.set("profileImg", objParseFile);
+     jobApplication.save(null, 
+     {
+        success: function(gameScore) {
+          var photo = gameScore.get("profileImg");
+          $("#profileImg")[0].src = photo.url();
+        },
+        error: function(gameScore, error) {
+          alert('Failed to create new object, with error code: ' + error.description);
+        }
+     });
+  }
+
+  $('#profilePhotoFileUpload').bind("change", function(e) {
+         var fileUploadControl = $("#profilePhotoFileUpload")[0];
+         var file = fileUploadControl.files[0];
+         var name = file.name;
+         var parseFile = new Parse.File(name, file);
+
+         parseFile.save().then
+         (
+           function() 
+           {
+               saveJobApp(parseFile);
+           }, 
+           function(error) 
+           {
+             alert("error");
+           }
+         );
+  }); 
+
+});
+</script>
 
 	 <script type="text/javascript">
   function display() {       
@@ -94,24 +134,22 @@
 
                   <!-- Profile Avatar Start -->
                   <div class="profile-avatar">
-                    <img src="http://placehold.it/130x130" alt="Samantha Lenna Wilson">
+                    <img id="profileImg"/>
                   </div>
-                  <!-- Profile Avatar End -->
-
-                  <!-- Send Message Start -->
+                  
                   <div class="send-msg">
-                    <button class="btn btn-sm btn-default" type="button">Send Message
-                    </button>
+                    
+                    
+                    <input type="file" id="profilePhotoFileUpload">
+                    
                   </div>
-                  <!-- Send Message End -->
-
                 </div>
-                <!-- Left Side End -->
+                
 
                 <!-- Right Side Start -->
-           <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
+        <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
 
-           <form method="post" class="basic-form" action="/profile/update" name="form" >
+          <form method="post" class="basic-form" action="/profile/update" name="form" >
            <ul class="icon-list">
              <!-- name start-->
   					  <li>
