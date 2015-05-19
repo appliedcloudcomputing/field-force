@@ -1,109 +1,97 @@
 <!doctype html>
 <html class="fuelux" lang="en">
-<!-- Header start -->
 <head>
   <% include partials/head.html %>
-  <script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+    <script src="/js/user/events.js"></script>
 
-  </script>
- </head>
-<!-- Header end -->
+</head>
 <body>
 <section class="content">
-  <!-- Sidebar Start -->
+
     <% include partials/sidebar.html %>
-  <!-- Sidebar End -->
+
 <div class="content-liquid-full">
   <div class="container">
-          <!-- Header Bar Start -->
+
         <% include partials/header.html %>
-      <!-- Header Bar End -->
-    <!-- Breadcrumbs Start -->
-    <!-- Breadcrumbs Start -->
+
     <div class="row breadcrumbs">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="breadcrumbs">
           <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
-          <li><a href="">Expenses Listing Page</a></li>
+          <li><a href="">Expenses Listing Page </a></li>
+          
         </ul>
       </div>
     </div>
-    <!-- Breadcrumbs End -->
-
-  <!--Form start-->
-  <form method="post" class="basic-form" action="" data-uri="">
-    <div id="message" class="alert">
-                <p></p>
-    <div class="row" >
+ <form method="post" class="basic-form" action="">
+    <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h3>EXPENSES</h3>
-        
+       <h3>USERS</h3>
+      </div>
     </div>
-    </div>
-          <div class="boxed">
-  
+       
+    <div class="boxed">
+        <div class="title-bar" style="padding-left:40%;">
+           <h4> Listing</h4>
+           <div class="input-group" style="float:right;">
+           <a href="/expenses/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
+           </div>        
+        </div>
 
-              <!-- Title Bar Start -->
-              <div class="title-bar" style="padding-left:40%;">
-                <h4>Listing</h4>
-                <div class="input-group" style="float:right;">
-          <a href="/expenses/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
-          </div>
-              </div>
-              <!-- Title Bar End -->
-              <div class="inner no-radius">               
-               <div class="boxed no-padding">
+        <!-- Title Bar End -->
 
-          <!-- Title Bart Start -->
-          
-          <!-- Title Bart End -->
+        <!--button start-->
+      
+        <!--table header start-->
 
-          <div class="inner no-radius">
-          <!-- Table Holder Start -->
-          <div class="table-holder">
+      <div class="inner">
+        <table class="theme-table invoice-table" id="user-list" >
+          <div style="width:200px;">
+          <thead>
+            <tr>
+              <th style="border-bottom: 0px;">Employee Name</th>            
+              <th style="border-bottom: 0px;">Expenses Type</th>         
+              <th style="border-bottom: 0px;">Expenses Status</th>                  
+              <th style="border-bottom: 0px;">Expenses Amount</th>
+              <th style="border-bottom: 0px;">Action</th>  
+            </tr>
+          </thead>
+                <tbody>
 
-            <table id="stripe-table" class="theme-table stripe-rows">
-              <thead>
-                <th>EMPLOYEE NAME</th>
-                <th>EXPENSES TYPE </th>
-                <th>EXPENSES STATUS</th>                         
-                <th class="text-center">EXPENSES AMOUNT</th>        
-                <th>ACTION</th>
-              </tr></thead>
-              
-             <tbody>
-                 <% for(var i = 0; i < exList.length; i++) { %>
+                    <% for(var i = 0; i < exList.length; i++) { %>
                 <tr>
-                  <td ><%= exList[i].expensesName %></td>
-                  <td ><%= exList[i].expensesType %></td>   
-                  <td style="padding-left:3%;" ><%= exList[i].expensesApproved %></td> 
-                  <td class="text-center" style="padding-left:6%;"><%= exList[i].expensesAmt %></td>                                               
-                  <td><a href=""><i class="fa fa-eye"></i></a></td>
+                  <td style="background-color:transparent;"><%= exList[i].expensesName %></td>
+                  <td style="background-color:transparent;"><%= exList[i].expensesType %></td>
+                  <td style="background-color:transparent;"><%= exList[i].expensesApproved %></td>             
+                  <td style="background-color:transparent;"><%= exList[i].expensesAmt %></td>
+                  <td> 
+                    <a href=""><i class="fa fa-eye"></i></a>
+                    <a href="" alt="edit"><i class="fa fa-pencil"></i></a>
+                    <a href=""><i class="fa fa-trash-o"></i></a>
+                  </td>
                 </tr>
                     <% } %>
-      </tbody>
-            </table>
-          </div>
-          <!-- Table Holder End -->
-          </div>
+             </tbody>
+           <!--table body end-->          
+          </div>       
+        </table>      
+        <!--table end-->  
+     </div>          
+    </div>
+   </div>      
+  </div>
+ </section>
+</form>
 
-        </div>
-                            
-                </div>
-               </div>
-              </div>           
- </form>
-</section>
 <!-- Form End-->
-
-
 <!-- Javascript -->
 
   <% include partials/foot.html %>
 
 <!-- End Javascript -->
-
 
 </body>
 </html>
