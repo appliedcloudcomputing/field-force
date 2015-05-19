@@ -1,15 +1,21 @@
-`<!doctype html>
+<!doctype html>
+<title>
+  user listing page
+</title>
 <html class="fuelux" lang="en">
 <!-- Header start -->
 <head>
   <% include partials/head.html %>
     <!--Search Integration start-->
     <!-- jQuery -->
+
    <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 
      <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
     <script src="/js/user/events.js"></script>
+   
+
     <!--Search Integration end-->
 </head>
 <!-- Header end -->
@@ -33,40 +39,45 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="breadcrumbs">
           <li><a href="/dashboard"><i class="fa fa-home"></i></a></li>
-          <li><a href="">Users Listing Page </a></li>
+          <li><a href="">User </a></li>
           
         </ul>
       </div>
     </div>
     <!-- Breadcrumbs End -->
 
+    <!-- SUCCESS/ERROR MESSAGE -->
+   
 
 <!--Form start-->
  <form method="post" class="basic-form" action="/users/userList">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-       <h3>USERS</h3>
-      </div>
+    <div id="message" class="alert">
+              <p></p>
     </div>
        
        <div class="boxed">
               <!-- Title Bar Start -->
-              <div class="title-bar" style="padding-left:40%;">
-                <h4> Listing</h4>
-          
-                <div class="input-group" style="float:right;">
-          <a href="/users/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
-             </div>        
-       </div>
-
+              <div class="title-bar">
+                <h4>User List</h4>  
+                 <div class="input-group" style="float:right;">
+                  <a href="/users/save" padding-right: 5px;><i class="fa fa-plus"></i></a>
+                </div>   
+              </div>
              <!-- Title Bar End -->
-
+             
        <!--button start-->
+
       
       <!--table header start-->
 
-      <div class="inner">
+        <div class="inner">
+          
         <table class="theme-table invoice-table" id="user-list" >
+          <!--Add user start-->
+
+             
+
+          <!--Add User end-->
   
         <div style="width:200px;">
           <thead>
@@ -76,42 +87,85 @@
               <th style="border-bottom: 0px;">phone</th>                  
               <th style="border-bottom: 0px;">User Type</th>
               <th style="border-bottom: 0px;">Action</th>  
-            </tr>
+             </tr>
           </thead>
           <!--table body start-->
-
                 <tbody>
-
-                    <% for(var i = 0; i < userList.length; i++) { %>
-                <tr>
+                <% for(var i = 0; i < userList.length; i++) { %>
+                <tr id="<%=userList[i].id%>">
                   <td style="background-color:transparent;"><%= userList[i].username %></td>
                   <td style="background-color:transparent;"><%= userList[i].email %></td>
                   <td style="background-color:transparent;"><%= userList[i].phone %></td>             
                   <td style="background-color:transparent;"><%= userList[i].userType %></td>
-                  <td> 
-                    <a href="/users/fetchDetails?id=<%=userList[i].id%>"><i class="fa fa-eye"></i></a>
+                  <td style="background-color:transparent;">
+                    <a href="/users/userDetails?id=<%=userList[i].id%>" alt="view"><i class="fa fa-eye"></i></a>
                     <a href="/users/save?id=<%=userList[i].id%>" alt="edit"><i class="fa fa-pencil"></i></a>
-                    <a href="/users/delete?id=<%=userList[i].id%>"><i class="fa fa-trash-o"></i></a>
+                    <a href="/users/delete?id=<%=userList[i].id%>" onclick="return popitup('<%=userList[i].id%>','<%= userList[i].username %>')"><i class="fa fa-trash-o"></i></a>
                   </td>
                 </tr>
-                    <% } %>
+                <% } %>
                 </tbody>
-           <!--table body end-->          
-          </div>       
+              <!--table body end-->          
+        </div>       
         </table>      
         <!--table end-->  
-     </div>          
-    </div>
-   </div>      
+  </div>          
   </div>
- </section>
-</form>
+    </div>      
+      </div>
+</section>
+    </form>
 
 <!-- Form End-->
 <!-- Javascript -->
 
   <% include partials/foot.html %>
 
+  <!-- Side menu click highlight jquery start-->
+
+  <script>
+    $( "#liUser" ).addClass( "active" );
+    $("div#message").hide();
+  </script>
+  
+  <!-- Side menu click highlight jquery end-->    
+
+  <script language="javascript" type="text/javascript">
+    <!--
+    function popitup(id,username) {
+      var r = confirm("Do you want to delete "+ username + " user ?");
+      if (r == true) {
+          //alert("Oopps... You deleted User !!!");          
+          $.get("/users/delete",{ id: id }, function(data){
+            alert("DATA CALLED"+ data);
+            var obj = jQuery.parseJSON(data);
+            if(obj.status == 200 )
+            {
+                // SUCCESSFULLY DELETED                 
+                // REMOVE TR FROM TABLE 
+                $("#"+id).closest( 'tr').remove();
+
+                //SHOW SUCESS MESSAGE
+                $( "#message p" ).html(obj.message);
+                $( "div#message" ).addClass("alert-info");
+                $( "div#message" ).show();
+                $(window).scrollTop($('div#message').offset().top);
+            }
+            else
+            {
+              // ERROR OCCURED
+              //SHOW ERROR MESSAGE
+              $( "#message p" ).html(obj.message);
+              $( "div#message" ).addClass("alert-danger");
+              $( "div#message" ).show();
+              $(window).scrollTop($('div#message').offset().top);
+            }
+          });
+      } 
+      return false;
+    }
+    // -->
+  </script>
 <!-- End Javascript -->
 
 </body>

@@ -205,6 +205,7 @@ router.get('/fetchDetails', function(req, res, next)
   }   
   
 });
+/*------------to delete user-------------*/
 
 router.get('/delete',function(req,res){
   var query = new Parse.Query(Parse.User);
@@ -212,15 +213,23 @@ router.get('/delete',function(req,res){
   query.equalTo("objectId", req.query.id);
   query.first({
     success:function(obj){
-      console.log("name"+obj.get("name"));
-      obj.destroy({});      
-      res.end("Objetc Deleted success fully.");
-    },
-    error:function(error){
-      console.log('Error While Deleting :'+error.message);
-    }
-  });
-});
+            obj.destroy({});      
+      var response = {
+                message: "User deleted successfully !!!",
+                status: 200
+                      }
+            
+              res.end(JSON.stringify(response));
+                         },
+                            error:function(error){
+                           var response = {
+                message: error.message,
+                status: error.code
+              }
+              res.end(JSON.stringify(response));
+            }
+          });
+       });
 
 module.exports = router;
 
