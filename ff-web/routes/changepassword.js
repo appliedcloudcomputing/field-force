@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/save', function(req, res) {
+  router.post('/save', function(req, res) {
   console.log("Called changepassword.js");
 	console.log("oldpassword :"+ req.body.oldPassword);
 	console.log("newpassword :"+ req.body.newPassword);

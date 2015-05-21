@@ -66,5 +66,7 @@ router.post('/update', function(req, res, next) {
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }  
 });
+
+
 module.exports = router;
 
