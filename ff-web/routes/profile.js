@@ -67,6 +67,50 @@ router.post('/update', function(req, res, next) {
   }  
 });
 
+router.post('/uploadImage',function(req,res){
+  console.log("Upload image called");
+  console.log("File : "+req.body.myPhoto);
+  
+  var file = req.body.myPhoto;
+  var name =file.name;
+  console.log("line 76");
+  var parseFile = new Parse.File(name,{base64:file});
+
+  parseFile.save().then
+         (
+           function() 
+           {
+            Parse.Cloud.useMasterKey();
+            var query = new Parse.Query(Parse.User);
+            query.equalTo("objectId","S8qZJM7XIA");
+            query.find({
+            success: function(results) 
+            {
+            results.set("profileImg",parseFile);
+            results.save(null, {
+            success: function(results) {
+              params.success(Response.UpdateSuccess);
+            },
+            error: function(gameScore, error) {
+            console.log('Failed to create new object, with error code: ' + error.description);
+          }
+     });
+  }
+
+})
+               
+           }, 
+           function(error) 
+           {
+             console.log("error"+error);
+           }
+         );
+    
+    
+
+});
+
+
 
 module.exports = router;
 

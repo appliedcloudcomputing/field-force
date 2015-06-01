@@ -19,33 +19,41 @@ function display() {
    
    document.getElementById( 'h5_name_text' ).style.display = 'block';
     //<!-- email -->
-    document.getElementById( 'h5_email' ).style.display = 'none';
-       document.getElementById( 'h5_email_text' ).style.display = 'block';
+   document.getElementById( 'h5_email' ).style.display = 'none';
+   document.getElementById( 'h5_email_text' ).style.display = 'block';
 
-      //<!-- phone -->
-      document.getElementById( 'h5_phone' ).style.display = 'none';
-       document.getElementById( 'h5_phone_text' ).style.display = 'block';
+    //<!-- phone -->
+   document.getElementById( 'h5_phone' ).style.display = 'none';
+   document.getElementById( 'h5_phone_text' ).style.display = 'block';
 
-       //<!-- address -->
-       document.getElementById( 'h5_address' ).style.display = 'none';
-       document.getElementById( 'h5_adress_text' ).style.display = 'block';
+    //<!-- address -->
+   document.getElementById( 'h5_address' ).style.display = 'none';
+   document.getElementById( 'h5_adress_text' ).style.display = 'block';
 
-       //Submit Button
+   //Submit Button
 
-       document.getElementById( 'button' ).style.display = 'none';
-       document.getElementById( 'button' ).style.display = 'block';
-
-        }
-  
-
+   document.getElementById( 'button' ).style.display = 'none';
+   document.getElementById( 'button' ).style.display = 'block';
+   }
 </script>
+<script type="text/javascript">
+  function PreviewImage() {
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
 
-	 
-        </script>
-		<!-- edit javascript end-->
+    oFReader.onload = function(oFREvent) {
+      document.getElementById("uploadPreview").src = oFREvent.target.result;
+
+    document.getElementById("myForm").submit();
+
+
+
+    };
+  };
+</script>
+<!-- edit javascript end-->
 </head>
 <!-- Header end -->
-
 <body>
 <section class="content">
 
@@ -56,10 +64,9 @@ function display() {
 <div class="content-liquid-full">
   <div class="container">
 
-          <!-- Header Bar Start -->
+      <!-- Header Bar Start -->
         <% include partials/header.html %>
       <!-- Header Bar End -->
-
 
     <!-- Breadcrumbs Start -->
     <div class="row breadcrumbs">
@@ -90,23 +97,22 @@ function display() {
 
               <div class="row profile-data">
                 <!-- Left Side Start -->
-                 <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12 text-center">
-
+                <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12 text-center">
+                 <form id="myForm" action="/profile/uploadImage" method="post"> 
                   <!-- Profile Avatar Start -->
                   <div class="profile-avatar">
-                    <img src="http://placehold.it/130x130" alt="Samantha Lenna Wilson" />
+                    <img id="uploadPreview" style="width: 130px; height: 130px;" />
                   </div>
                   <!-- Profile Avatar End -->
 
                   <!-- Send Message Start -->
                   <div class="send-msg">
-                    <button class="btn btn-sm btn-default" type="button">Send Message</button>
+                    <input id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();" />
                   </div>
                   <!-- Send Message End -->
+                </form>
 
                 </div>
-                
-
                 <!-- Right Side Start -->
         <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
 
@@ -153,10 +159,7 @@ function display() {
           </h5>
           </li>
           <!--address end-->
-
-         
 					<br>
-
           <!--phone start-->
                 <li>
                     <h5 id="h5_phone" style="display: block;">
