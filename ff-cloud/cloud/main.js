@@ -1,8 +1,6 @@
 var user = require('cloud/user/user.js');
 var job  = require('cloud/job/job.js');
 var changepass = require('cloud/user/changePassword.js');
-var uploadimage =require('cloud/user/uploadImage.js');
-
 var Response = {
 	ParametersEmpty: 'Please provide complete details',
 	InternalServerError: 'Oops! Some error occurred! Please try again',
@@ -117,20 +115,3 @@ Parse.Cloud.define('changePassword', function(req, res) {
         
     });
 
-Parse.Cloud.define('uploadImage', function(req, res) {
-	console.log("Image Cloud called");
-      Parse.Cloud.useMasterKey();
-      uploadimage.save({    
-            file:req.params.file,
-            name:req.params.name,
-			
-			success: function(message){
-             res.success(message);
-             },
-              error: function(error){
-                    res.error(error);
-               }
-            });
-       
-        
-    });

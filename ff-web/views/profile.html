@@ -12,57 +12,6 @@
    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-  
-  Parse.initialize("fhtIe0dBvTNcdUJMZzEQCOm7Idi03RnxjYFzhAi6", "znYrrGbiOQr7DslQuoVx3dvuZpOvO4tw612JNjyJ");
-
-  $('#profilePhotoFileUpload').bind("change", function(e) {
-         var fileUploadControl = $("#profilePhotoFileUpload")[0];
-         var file = fileUploadControl.files[0];
-         var name = file.name;
-         var parseFile = new Parse.File(name, file);
-
-         parseFile.save().then
-         (
-           alert("save");
-           function() 
-           {
-            var currentUser = Parse.User.current();
-            var data ={
-                         id:currentUser.get("objectId"), 
-                         file:file,
-                         name:name
-                        } ;
-
-              Parse.Cloud.run('uploadImage', data, {
-                             success: function(message) {
-                                       console.log("cloud call save changepassword success");
-                                       var response = {
-                                                     message: message,
-                                                    status: 200
-                                                      }
-                                      res.render('dashboard',{error:""})
-                             },
-                             error: function(error) {
-                                 var response = {
-                                       message: error.message,
-                                       status: error.code
-                                            }
-                                 res.end(JSON.stringify(response));
-                                  }
-                          });
-
-               //saveJobApp(parseFile);
-           }, 
-           function(error) 
-           {
-             alert("error");
-           }
-         );
-  }); 
-
-});
-
 function display() {       
     
        //<!-- name -->
@@ -91,7 +40,7 @@ function display() {
 
 </script>
 
-	 <script type="text/javascript">
+	 
         </script>
 		<!-- edit javascript end-->
 </head>
@@ -145,15 +94,16 @@ function display() {
 
                   <!-- Profile Avatar Start -->
                   <div class="profile-avatar">
-                    <img id="profileImg">
+                    <img src="http://placehold.it/130x130" alt="Samantha Lenna Wilson" />
                   </div>
-                  
+                  <!-- Profile Avatar End -->
+
+                  <!-- Send Message Start -->
                   <div class="send-msg">
-                    
-                    
-                    <input type="file" id="profilePhotoFileUpload">
-                    
+                    <button class="btn btn-sm btn-default" type="button">Send Message</button>
                   </div>
+                  <!-- Send Message End -->
+
                 </div>
                 
 
