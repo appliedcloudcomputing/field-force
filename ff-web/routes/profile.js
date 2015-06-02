@@ -67,48 +67,39 @@ router.post('/update', function(req, res, next) {
   }  
 });
 
+
 router.post('/uploadImage',function(req,res){
   console.log("Upload image called");
   console.log("File : "+req.body.myPhoto);
-  
-  var file = {base64:req.body.myPhoto};
-  var name =file.name;
-  console.log("line 76"+name);
-  var parseFile = new Parse.File("asdsd",file);
 
-  parseFile.save().then
-         (
-           function(file) 
-           {
-            console.log("inside save");
+  var b64str = req.body.myPhoto;       //Casting from image Object TO base64
+  var decodedFile = new Buffer(b64str, 'base64');;
+  var name ="a.png";
+  var parseFile = new Parse.File(name,decodedFile,"image/png");
+  console.log("*File:"+decodedFile+"*Name :"+name);
+  console.log("File Name :"+parseFile.name());
+
             Parse.Cloud.useMasterKey();
             var query = new Parse.Query(Parse.User);
             query.equalTo("objectId","S8qZJM7XIA");
-            query.find({
-            success: function(results) 
-            {
-            results.set("profileImg",parseFile);
-            results.save(null, {
-            success: function(results) {
-              params.success(Response.UpdateSuccess);
-            },
-            error: function(gameScore, error) {
-            console.log('Failed to create new object, with error code: ' + error.description);
-          }
-     });
-  }
-
-})
-               
-           }, 
-           function(error) 
-           {
-             console.log("error  :"+error.description);
-           }
-         );
-    
-    
-
+            query.first({
+              success: function(results) {
+                console.log("Inside success");
+                results.set("profileImg",parseFile.toString("base64"));
+                results.save(null,{
+                             success: function(user) {
+                             console.log("Saved");
+                             },
+                             error: function(user, error) {
+                             console.log("ERROR IN SAVING USER : " + error.message);
+                             
+                        }
+                 });
+              },
+              error: function(error) {
+              console.log("Error: " + error.code + " " + error.message);
+        }
+    });
 });
 
 
