@@ -43,12 +43,8 @@ function display() {
 
     oFReader.onload = function(oFREvent) {
       document.getElementById("uploadPreview").src = oFREvent.target.result;
-
-    document.getElementById("myForm").submit();
-
-
-
     };
+    //document.getElementById("myForm").submit();
   };
 </script>
 <!-- edit javascript end-->
@@ -98,6 +94,7 @@ function display() {
               <div class="row profile-data">
                 <!-- Left Side Start -->
                 <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12 text-center">
+                 
                  <form id="myForm" action="/profile/uploadImage" method="post"> 
                   <!-- Profile Avatar Start -->
                   <div class="profile-avatar">
@@ -107,8 +104,9 @@ function display() {
 
                   <!-- Send Message Start -->
                   <div class="send-msg">
-                    <input id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();" />
+                    <input id="uploadImage" type="file" name="uploadImage" onchange="PreviewImage();" />
                   </div>
+                  <button type="Submit" class="btn btn-round btn-lg btn-default"><i class="fa fa-cogs"></i> Upload</button>
                   <!-- Send Message End -->
                 </form>
 

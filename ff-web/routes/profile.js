@@ -70,36 +70,50 @@ router.post('/update', function(req, res, next) {
 
 router.post('/uploadImage',function(req,res){
   console.log("Upload image called");
-  console.log("File : "+req.body.myPhoto);
+  console.log("File : "+req.body.uploadImage);
 
-  var b64str = req.body.myPhoto;       //Casting from image Object TO base64
-  var decodedFile = new Buffer(b64str, 'base64');;
-  var name ="a.png";
-  var parseFile = new Parse.File(name,decodedFile,"image/png");
-  console.log("*File:"+decodedFile+"*Name :"+name);
-  console.log("File Name :"+parseFile.name());
+  /*var type = res.headers["content-type"];
+  var prefix = "data:" + type + ";base64,";
+  var body = req.body.myPhoto;
+  var base64 = new Buffer(body, 'binary').toString('base64');
+  var data = prefix + base64;*/
 
-            Parse.Cloud.useMasterKey();
-            var query = new Parse.Query(Parse.User);
-            query.equalTo("objectId","S8qZJM7XIA");
-            query.first({
-              success: function(results) {
-                console.log("Inside success");
-                results.set("profileImg",parseFile.toString("base64"));
-                results.save(null,{
-                             success: function(user) {
-                             console.log("Saved");
-                             },
-                             error: function(user, error) {
-                             console.log("ERROR IN SAVING USER : " + error.message);
-                             
-                        }
-                 });
-              },
-              error: function(error) {
-              console.log("Error: " + error.code + " " + error.message);
-        }
-    });
+  /*var base64prefix = 'data:' + res.headers['content-type'] + ';base64,'
+                , image = req.body.myPhoto.toString('base64');*/
+
+
+  //var base64Data = {base64: req.body.uploadImage};
+  var base64Data = new Buffer(req.body.uploadImage);
+  console.log(" "+base64Data.name);
+  var parseFile = new Parse.File("a.JPEG",{base64: new Buffer(req.body.uploadImage).toString('base64')});
+  console.log("File  : "+parseFile.toString('base64'));
+ /* var file = new Parse.File("myfile.txt", { base64: data });
+  var name = "photo.jpg";
+  var parseFile = new Parse.File(name, file);*/
+
+  parseFile.save().then(function() {
+    console.log("***************** FILE SAVE SUCCESS ********************");
+              Parse.Cloud.useMasterKey();
+              var query = new Parse.Query(Parse.User);
+              query.equalTo("objectId","S8qZJM7XIA");
+              query.first({
+                success: function(results) 
+                {
+                 results.set("profileImg",parseFile);
+                 results.save(null, {
+                   success: function(results) {
+                   res.end("Uploaded success fully");
+                   },
+                   error: function(gameScore, error) {
+                       console.log('Failed to create new object, with error code: ' + error.description);
+                       }
+                   });
+                }
+              })
+  }, function(error) {
+    
+    console.log("************** FILE SAVE ERROR *************** :"+error.message);
+  });
 });
 
 
