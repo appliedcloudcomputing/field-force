@@ -2,16 +2,15 @@
 <html class="fuelux" lang="en">
 <head>
   <% include partials/head.html %>
-    <!--Search Integratioc   n start-->
+
     <!-- jQuery -->
+  <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+  <script src="/js/user/events.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
 
-   <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
-    <script src="/js/user/events.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
-
-<script type="text/javascript">
+ <script type="text/javascript">
 function display() {       
     
        //<!-- name -->
@@ -76,25 +75,21 @@ function display() {
     <!-- Breadcrumbs End -->
 
 <!-- Form start -->
-
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
           <div class="boxed profile light">
             <div class="inner">
               <!-- Profile Title Start -->
               <div class="title">
-                <h3>My profile</h3>				
+                <h3>Me</h3>				
 				           <button type="button" onclick="display()" style= "float: right;" class="btn btn-lg btn-primary"><i class="fa fa-pencil"></i> Edit</button>
                <!-- <a href="#" class="share-profile">Share this profile</a> -->
               </div>
               <!-- Profile Title End -->
-
               <!-- row profile start -->
 
               <div class="row profile-data">
                 <!-- Left Side Start -->
                 <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12 text-center">
-                 
                  <form id="myForm" action="/profile/uploadImage" method="post"> 
                   <!-- Profile Avatar Start -->
                   <div class="profile-avatar">
@@ -109,59 +104,60 @@ function display() {
                   <button type="Submit" class="btn btn-round btn-lg btn-default"><i class="fa fa-cogs"></i> Upload</button>
                   <!-- Send Message End -->
                 </form>
-
                 </div>
                 <!-- Right Side Start -->
         <div class="col-lg-7 col-md-7 col-sm-9 col-xs-12">
-
           <form method="post" class="basic-form" action="/profile/update" name="form" >
            <ul class="icon-list">
-             <!-- name start-->
-  					  <li>
-                <h5 id="h5_name" style="display: block;">
-                  <i class="fa fa-user"></i><%= user.name %>
-                </h5>
+            <!-- name start-->
+  					<li>
+              <h5 id="h5_name" style="display: block;">
+                <i class="fa fa-user"></i><%= user.name %>
+              </h5>
 
                 <!-- TEXT BOX VISIBLE FALSE-->
           
-                 <h5 id="h5_name_text" style="display: none;">
-                   <input type="text" id="txtName" name="txtName" value="<%= user.name %>"/>
-                  </h5>
-                </li>
+              <h5 id="h5_name_text" style="display: none;">
+                <input type="text" id="txtName" name="txtName" value="<%= user.name %>"/>
+              </h5>
+            </li>
+            <br>
+            <!-- name end-->				
 
-        <!-- name end-->				
-      				  <br>
-                <!--email start-->
-      				<li>
-      				<h5 id="h5_email" style="display: block;">
-              <i class="fa fa-envelope" ></i><%= user.email %>
-             </h5>
-        <!-- TEXT BOX VISIBLE FALSE-->
+      			<!--email start-->
+      			<li>
+      			  <h5 id="h5_email" style="display: block;">
+                <i class="fa fa-envelope" ></i><%= user.email %>
+              </h5>
+            <!-- TEXT BOX VISIBLE FALSE-->
 					
-					<h5 id="h5_email_text" style="display: none;">
-					<input type="text" id="txtemail" name="txtemail" value="<%= user.email %>"  />
-					</h5>
-					</li>
-          <!--email end-->
+					    <h5 id="h5_email_text" style="display: none;">
+					      <input type="text" id="txtemail" name="txtemail" value="<%= user.email %>"  />
+					    </h5>
+					  </li>
+            
+            <!--email end-->
 					<br>
-          <!--address start-->
-         <li>
-          <h5 id="h5_address" style="display: block;">
-          <i class="fa fa-map-marker"></i><%= user.address %> 
-          </h5>
+            
+            <!--address start-->
+            <li>
+              <h5 id="h5_address" style="display: block;">
+              <i class="fa fa-map-marker"></i><%= user.address %> 
+              </h5>
 
-         <!-- TEXT BOX VISIBLE FALSE-->
+            <!-- TEXT BOX VISIBLE FALSE-->
           
-          <h5 id="h5_adress_text" style="display: none;">
-            <input type="text" id="txtaddress" name="txtaddress" value="<%= user.address %>" />
-          </h5>
-          </li>
-          <!--address end-->
+              <h5 id="h5_adress_text" style="display: none;">
+              <input type="text" id="txtaddress" name="txtaddress" value="<%= user.address %>" />
+              </h5>
+            </li>
+            <!--address end-->
 					<br>
-          <!--phone start-->
+          
+            <!--phone start-->
                 <li>
                     <h5 id="h5_phone" style="display: block;">
-                     <i class="fa fa-phone"></i> <%= user.phone %>
+                      <i class="fa fa-phone"></i> <%= user.phone %>
                     </h5>
 
                     <!-- TEXT BOX VISIBLE FALSE-->
@@ -169,24 +165,24 @@ function display() {
                     <h5 id="h5_phone_text" style="display: none;">
                       <input type="text" id="txtphone" name="txtphone" value="<%= user.phone %>" />
                     </h5>
-                  </li>
-           <!--phone end-->
-           <!--Save info button start -->
+                </li>
+            <!--phone end-->
+           
+            <!--Save info button start -->
 
-                  <div class="col-md-6 text-right">
-                   <button type="submit" id="button" style ="float:right; display: none;"class="btn btn-lg btn-success"><i class="fa fa-check"></i>Update</button>
-                 </div>             
-                </ul>
-             		</form>
-
-                </div>
-                <!-- Right Side End -->
-              </div>
-              <!-- row profile end -->
-			        <!-- Profile Stats Start -->                      
-            </div>
-          </div>
-        </div>
+            <div class="col-md-6 text-right">
+               <button type="submit" id="button" style ="float:right; display: none;"class="btn btn-lg btn-success"><i class="fa fa-check"></i>Update</button>
+            </div>             
+           </ul>
+         </form>
+       </div>
+       <!-- Right Side End -->
+     </div>
+    <!-- row profile end -->
+		<!-- Profile Stats Start -->                      
+    </div>
+  </div>
+</div>
 <!-- Form End-->
 <!-- Javascript -->
  <% include partials/foot.html %>

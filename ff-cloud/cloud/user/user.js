@@ -17,6 +17,7 @@ exports.save = function(params) {
 
 		//SAVING USER
 		var user = new User();
+		Parse.Cloud.useMasterKey();
 		user.set("name", params.name);
 		user.set("username", params.username);
 		user.set("password", params.password);

@@ -3,12 +3,10 @@
 <!-- Header start -->
 <head>
   <% include partials/head.html %>
-
 </head>
 <!-- Header end -->
 
 <body>
-
 <section class="content">
   <!-- Sidebar Start -->
     <% include partials/sidebar.html %>
@@ -16,17 +14,14 @@
 
     <div class="content-liquid-full">
       <div class="container">
-        
         <!-- Header Bar Start -->
           <% include partials/header.html %>
         <!-- Header Bar End -->
-
         <!-- Breadcrumbs Start -->
         <div class="row breadcrumbs">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <ul class="breadcrumbs">
               <li><a href="#"><i class="fa fa-home"></i></a></li>
-              
               <li><a href="#">User save Page</a></li>
             </ul>
           </div>
@@ -34,7 +29,7 @@
         <!-- Breadcrumbs End -->
 
         <!--Form start-->
-        <form method="post" class="basic-form" action="/users/save" name="form" id= "form">
+      <form method="post" class="basic-form" action="/users/save" name="form" id= "form">
           <!--Success/Error Message on submit start-->
           <div id="message" class="alert">
               <p></p>
@@ -42,7 +37,6 @@
                    
           <div class="row">  
             <div class="boxed">
-
                 <!-- Title Bar Start -->
                 <div class="title-bar" style="padding-left:40%;">
                   <h4> Add  User </h4>
@@ -53,10 +47,10 @@
                   <div class="row">
                     <div class="col-md-6 form-group">
                         <label for="name">Full Name:</label>
-                        <input type="name" class="form-control" name="name" id="name" value="<%=user.name%>" placeholder="Last name  First Name Middle name" required  autofocus />                       
+                        <input type="name" class="form-control" name="name" id="name" value="<%=user.name%>"  placeholder="Last name  First Name Middle name" required  autofocus />                 
                         <input type="hidden" id="id" name="id" value="<%=user.id%>"/>                    
                     </div>
-                      <span ="glyphicon glyphicon-ok form-control-feedback"></span> <!--span validator class -->
+                    <span ="glyphicon glyphicon-ok form-control-feedback"></span> <!--span validator class -->
                       
                     <div class="col-md-6 form-group">
                       <label for="username">Username:</label>
@@ -92,7 +86,7 @@
                     </div>
                   </div>
 
-                   <% if(user.id == null) { %>
+                 <% if(user.id == null) { %>
                   <div class="row">
                     <div class="col-md-6 form-group">
                       <label for="password">Password:</label>
@@ -118,7 +112,7 @@
                     </div>
                     <div class="col-md-6 form-group">
                        <label for="phone form-group">IMEI:</label>
-                       <input type="text" class="form-control" name="imei" id="imei" value="<%=user.imei%>" placeholder="Enter 16 Digit imei Number" required 
+                       <input type="number" class="form-control" name="imei" id="imei" value="<%=user.imei%>" placeholder="Enter 16 Digit imei Number" required 
                        pattern="\d{16}" />
                     </div>
                   </div>

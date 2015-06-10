@@ -54,7 +54,9 @@ router.get('/save', function(req, res, next)
 router.post('/save', function(req, res, next) {
 
   console.log("********************* SAVE USER CALLED ***********************");
-  console.log("Username: "+  req.body.username + ", Password"+ req.body.password + " Email :"+ req.body.email);
+  console.log("Name :"+ req.body.name+"Username: "+  req.body.username + ", Password"+ req.body.password + 
+              "Email :"+ req.body.email+"Phone :"+ req.body.phone+"Address :"+ req.body.address+
+              "UserType :"+ req.body.userType+"IMEI :"+ req.body.imei+"Location :"+ req.body.location);
 
   var currentUser = Parse.User.current();
   if (currentUser) 
@@ -73,7 +75,7 @@ router.post('/save', function(req, res, next) {
     address:req.body.address,
     userType:req.body.userType,
     imei:req.body.imei,
-    location:req.body.location
+    currentLocation:req.body.location
            };
 
       Parse.Cloud.run('saveUser', data, {
