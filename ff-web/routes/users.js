@@ -231,6 +231,21 @@ router.get('/delete',function(req,res){
           });
        });
 
+/*------------Log out -------------*/
+
+router.get('/logout', function(req, res, next) {
+  var currentUser = Parse.User.current();
+
+  if (currentUser) {
+    console.log('Inside Log out');
+    Parse.User.logOut();
+    res.render('login',{title:'logOut'});
+  } else {
+    res.render('login', { title: 'Login' });
+  }
+});
+
+
 module.exports = router;
 
 
