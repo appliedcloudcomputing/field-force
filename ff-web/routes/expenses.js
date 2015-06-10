@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 router.get('/save', function(req, res, next) 
 {
   var currentUser = Parse.User.current();
@@ -44,6 +45,7 @@ router.get('/save', function(req, res, next)
   }   
 });
 
+
 router.post('/save', function(req, res, next) {
   console.log("saving expenses...............");
 
@@ -83,6 +85,7 @@ router.post('/save', function(req, res, next) {
   }  
 });
 
+// LIST 
 router.get('/expensesList', function(req, res, next) 
 {
   var currentUser = Parse.User.current();

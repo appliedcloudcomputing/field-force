@@ -47,7 +47,7 @@ router.post('/save', function(req, res, next) {
     });
 });
 
-//customerListing ******************************
+// LISTING
 
 router.get('/', function(req, res, next) 
 {
@@ -96,6 +96,7 @@ router.get('/', function(req, res, next)
   }   
 }); 
 
+//
 router.get('/fetchDetails', function(req, res, next) 
  {
   console.log("id "+req.query.id);

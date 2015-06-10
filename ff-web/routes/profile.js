@@ -12,9 +12,8 @@ var currentUser = Parse.User.current();
        email : currentUser.get("email"),
        phone : currentUser.get("phone"),
        address : currentUser.get("address"),
-             }
-      res.render('profile', {user : _user});
-
+    }
+    res.render('profile', {user : _user});
    } else {
     res.render('login', {title: 'Login', message: Response.InvalidLogin});
   }   
@@ -29,20 +28,20 @@ router.post('/update', function(req, res, next) {
   if (currentUser) 
   {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
-         var _user = {
-                      name : currentUser.get("name"),
-                     }
+    var _user = {
+                name : currentUser.get("name"),
+    };
 
-          var data = {
-            name:req.body.txtName,
-            //username: req.body.username,
-            email:req.body.txtemail,
-            phone:req.body.txtphone,
-            address:req.body.txtaddress,
-            //userType:req.body.userType,
-            //imei:req.body.imei,
-            //location:req.body.location
-          };
+    var data = {
+        name:req.body.txtName,
+        //username: req.body.username,
+        email:req.body.txtemail,
+        phone:req.body.txtphone,
+        address:req.body.txtaddress,
+        //userType:req.body.userType,
+        //imei:req.body.imei,
+        //location:req.body.location
+    };
 
     Parse.Cloud.run('saveUser', data, {
       success: function(message) {
@@ -67,30 +66,18 @@ router.post('/update', function(req, res, next) {
   }  
 });
 
+//UPLOAD IMAGE
 
 router.post('/uploadImage',function(req,res){
   console.log("Upload image called");
   console.log("File : "+req.body.uploadImage);
 
-  /*var type = res.headers["content-type"];
-  var prefix = "data:" + type + ";base64,";
-  var body = req.body.myPhoto;
-  var base64 = new Buffer(body, 'binary').toString('base64');
-  var data = prefix + base64;*/
-
-  /*var base64prefix = 'data:' + res.headers['content-type'] + ';base64,'
-                , image = req.body.myPhoto.toString('base64');*/
-
-
-  //var base64Data = {base64: req.body.uploadImage};
+  
   var base64Data = new Buffer(req.body.uploadImage);
   console.log(" "+base64Data.name);
   var parseFile = new Parse.File("a.JPEG",{base64: new Buffer(req.body.uploadImage).toString('base64')});
   console.log("File  : "+parseFile.toString('base64'));
- /* var file = new Parse.File("myfile.txt", { base64: data });
-  var name = "photo.jpg";
-  var parseFile = new Parse.File(name, file);*/
-
+ 
   parseFile.save().then(function() {
     console.log("***************** FILE SAVE SUCCESS ********************");
               Parse.Cloud.useMasterKey();
@@ -111,12 +98,9 @@ router.post('/uploadImage',function(req,res){
                 }
               })
   }, function(error) {
-    
     console.log("************** FILE SAVE ERROR *************** :"+error.message);
   });
 });
-
-
 
 module.exports = router;
 

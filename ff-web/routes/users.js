@@ -8,14 +8,10 @@ router.get('/save', function(req, res, next)
   if (currentUser) {
      var data = {};
      if(req.query.id != null){
-        // UPDATE USER -- AUTO FILL ALL TEXTBOX 
-
-        // QUERY FROM PARSE WITH REQUEST OBJECT ID
         var query = new Parse.Query(Parse.User);
         query.equalTo("objectId", req.query.id);
         query.first({
           success: function(_user) {
-            // USER FOUND
              console.log("User FOUND : "+ JSON.stringify(_user));
               var _u = {
               id: _user.id,
@@ -32,27 +28,19 @@ router.get('/save', function(req, res, next)
             res.render('user', {user : _u});
           },
           error: function(object, error) {
-            // ERROR OCCUR
              console.error(error);
              res.end("UNABLE TO FIND USER");
           }
         });
-     } else {
-            // NEW USER 
+    } else {
             res.render('user',{user : data});
-     }
-  } else {
-      // show the signup or login page
-      res.redirect('/login/');
     }
-  });
-
-
-
-
+  } else {
+         res.redirect('/login/');
+ }
+});
 
 router.post('/save', function(req, res, next) {
-
   console.log("********************* SAVE USER CALLED ***********************");
   console.log("Name :"+ req.body.name+"Username: "+  req.body.username + ", Password"+ req.body.password + 
               "Email :"+ req.body.email+"Phone :"+ req.body.phone+"Address :"+ req.body.address+
@@ -63,8 +51,8 @@ router.post('/save', function(req, res, next) {
   {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
     var _user = {
-       name : currentUser.get("name"),
-             }
+                 name : currentUser.get("name"),
+    }
 
   var data = {
     name:req.body.name,
@@ -76,17 +64,15 @@ router.post('/save', function(req, res, next) {
     userType:req.body.userType,
     imei:req.body.imei,
     currentLocation:req.body.location
-           };
+  };
 
       Parse.Cloud.run('saveUser', data, {
           success: function(message) {
             console.log("Cloud call save user success");
-
             var response = {
               message: message,
               status: 200
               }
-
               res.render('user',{user : _user});
            },
           error: function(error) {
@@ -103,10 +89,8 @@ router.post('/save', function(req, res, next) {
   }  
 });
 
-/*userListing*/
 
-router.get('/', function(req, res, next) 
-{
+router.get('/', function(req, res, next){
   var currentUser = Parse.User.current();
   if (currentUser) 
   {
@@ -114,10 +98,11 @@ router.get('/', function(req, res, next)
     var _u = {
        name : currentUser.get("name"),
   }
-     var userList = [];
+  
+  var userList = [];
       
-      var userQuery = new Parse.Query(Parse.User);
-      userQuery.find({
+  var userQuery = new Parse.Query(Parse.User);
+  userQuery.find({
         success: function(users) 
         {
           console.log('USER SUCCESS');
@@ -150,11 +135,8 @@ router.get('/', function(req, res, next)
   }   
 });
 
-/****************************************************************************/
 
-
-router.get('/userDetails', function(req, res, next) 
- {
+router.get('/userDetails', function(req, res, next){
   var currentUser = Parse.User.current();
   if (currentUser) {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
@@ -171,11 +153,10 @@ router.get('/userDetails', function(req, res, next)
   }   
   
 });
-/* ***********************************************************************/
 
+// 
 
-router.get('/fetchDetails', function(req, res, next) 
- {
+router.get('/fetchDetails', function(req, res, next){
   console.log("username "+req.query.id);
      
   var currentUser = Parse.User.current();
@@ -207,7 +188,8 @@ router.get('/fetchDetails', function(req, res, next)
   }   
   
 });
-/*------------to delete user-------------*/
+
+// DELETE
 
 router.get('/delete',function(req,res){
   var query = new Parse.Query(Parse.User);
@@ -233,16 +215,15 @@ router.get('/delete',function(req,res){
           });
        });
 
-/*------------Log out -------------*/
+//LOGOUT
 
 router.get('/logout', function(req, res, next) {
   var currentUser = Parse.User.current();
-
   if (currentUser) {
     console.log('Inside Log out');
     Parse.User.logOut();
     res.render('login',{title:'logOut'});
-  } else {
+   } else {
     res.render('login', { title: 'Login' });
   }
 });

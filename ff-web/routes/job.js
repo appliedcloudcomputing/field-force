@@ -8,10 +8,10 @@ router.get('/save', function(req, res, next)
   {
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
     var _u = {
-       name : currentUser.get("name"),
-    }
+         name : currentUser.get("name"),
+  }
+
       var customerList = [];
-      
       var userQuery = new Parse.Query(Parse.User);
       userQuery.equalTo("userType","Customer");
       userQuery.find({
@@ -33,9 +33,8 @@ router.get('/save', function(req, res, next)
         }      
       });
         
-      // EMPLOYEE
+
       var userList = [];
-      
       var query = new Parse.Query(Parse.User);
       query.equalTo("userType", "Employee");
       query.find({
@@ -66,7 +65,7 @@ router.get('/save', function(req, res, next)
   }   
 }); 
 
-/****************************************** save job******************************/
+//SAVE JOB
 
 router.post('/save', function(req, res, next) 
 {
@@ -76,7 +75,8 @@ router.post('/save', function(req, res, next)
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
     var _user = {
               name : currentUser.get("name"),
-             }
+    }
+    
     var data = {
     title:req.body.title,
     customer: req.body.customer,
@@ -85,24 +85,21 @@ router.post('/save', function(req, res, next)
     description:req.body.description,
     completed:req.body.completed,
     currentStage:req.body.currentStage
-             };
+    };
 
     console.log("CURRENT USER : "+ JSON.stringify(currentUser));
     Parse.Cloud.run('saveJob', data, {
         success: function(message) {
-
-        console.log("cloud call save user success");
-
-        var response = {
+          console.log("cloud call save user success");
+          var response = {
           message: message,
           status: 200
         }
        res.render('job', {user : _user});
       },
       error: function(error) {
-        var response = {
+          var response = {
           message: error.message,
-
           status: error.code
         }
         res.end(JSON.stringify(response));
@@ -114,7 +111,8 @@ router.post('/save', function(req, res, next)
   }  
 });
 
-/******************************************job Details******************************/
+//JOB DETAILS
+
 router.get('/jobDetails', function(req, res) 
 { 
   console.log("username "+req.query.id);
@@ -139,8 +137,7 @@ router.get('/jobDetails', function(req, res)
                 customer:job.get('customer').get("username"),
                 employee:job.get('currentlyAssignedTo').get("username"),
                 status:job.get('currentStage')
-
-                          }           
+              }           
             res.render('jobDetails', {user: _user});                    
         },
         error: function(error) {
@@ -152,7 +149,7 @@ router.get('/jobDetails', function(req, res)
   }   
 });
 
-/****************************************** Job List ******************************/
+//JOB LIST
 
 router.get('/jobList', function(req, res) {
   console.log('Rendering job save page...');
@@ -164,8 +161,8 @@ router.get('/jobList', function(req, res) {
     var _user = {
        name : currentUser.get("name"),
     }
+
       var jobList = [];
-      
       var job = Parse.Object.extend("Job");
       var userQuery = new Parse.Query(job);
       userQuery.include("currentlyAssignedTo");
@@ -177,14 +174,13 @@ router.get('/jobList', function(req, res) {
           if(job) {
             job.forEach(function(job) 
             {
-
               var _job = {
                 id:job.id,
                 title: job.get('title'),                
                 customer:job.get('customer').get("username"),
                 employee:job.get('currentlyAssignedTo').get("username"),
                 status:job.get('currentStage')
-                          }
+              }
               jobList.push(_job);
             });
             res.render('jobList', {jobList: jobList, user : _user});
